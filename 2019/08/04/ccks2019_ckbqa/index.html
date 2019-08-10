@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="JuTzungKuei">
 <meta property="og:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-10T02:52:31.976Z">
+<meta property="og:updated_time" content="2019-08-10T02:55:20.155Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="中文知识图谱问答 CCKS2019 CKBQA - 参赛总结">
 <meta name="twitter:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
@@ -462,11 +462,15 @@
 </ul>
 </li>
 <li><p>进一步，把实体看作是结点，把关系看作是一条边，包含大量三元组的知识库就构成了一个庞大的知识图谱</p>
-<h4 id="什么是知识库问答？"><a href="#什么是知识库问答？" class="headerlink" title="什么是知识库问答？"></a>什么是知识库问答？</h4></li>
+</li>
+</ul>
+<h4 id="什么是知识库问答？"><a href="#什么是知识库问答？" class="headerlink" title="什么是知识库问答？"></a>什么是知识库问答？</h4><ul>
 <li>基于知识库问答（knowledge base question answering, KBQA）</li>
 <li>即，给定自然语言问题，通过对问题进行语义理解和解析，进而利用知识库进行查询、推理得出答案。</li>
 <li>按应用领域划分：开放领域（百科知识问答等）和特定领域（金融、医疗、宗教、客服等）</li>
-<li>评价指标：召回率、精确率、F1值、MRR（平均倒数排序）<script type="math/tex; mode=display">Q\text{为问题集合，}A_i\text{为对第i个问题给出的答案集合，}G_i\text{为第i个问题的标注答案集合}</script><script type="math/tex; mode=display">Macro Precision = \frac{1}{|Q|} \sum_{i=1}^{|Q|}P_i，P_i = \frac {|A_i \cap G_i|} {|A_i|}</script><script type="math/tex; mode=display">Macro Recall = \frac{1}{|Q|} \sum_{i=1}^{|Q|}R_i，R_i = \frac {|A_i \cap G_i|} {|G_i|}</script><script type="math/tex; mode=display">Averaged F1 =  \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{2P_iR_i}{P_i+R_i}</script></li>
+<li>评价指标：召回率、精确率、F1值、MRR（平均倒数排序）</li>
+</ul>
+<script type="math/tex; mode=display">Q\text{为问题集合，}A_i\text{为对第i个问题给出的答案集合，}G_i\text{为第i个问题的标注答案集合}</script><script type="math/tex; mode=display">Macro Precision = \frac{1}{|Q|} \sum_{i=1}^{|Q|}P_i，P_i = \frac {|A_i \cap G_i|} {|A_i|}</script><script type="math/tex; mode=display">Macro Recall = \frac{1}{|Q|} \sum_{i=1}^{|Q|}R_i，R_i = \frac {|A_i \cap G_i|} {|G_i|}</script><script type="math/tex; mode=display">Averaged F1 =  \frac{1}{|Q|} \sum_{i=1}^{|Q|} \frac{2P_iR_i}{P_i+R_i}</script><ul>
 <li>两大关键技术<ul>
 <li>【实体链指】：将问句中的实体名字链接到知识库中特定的实体上，涉及到实体识别和实体消歧。</li>
 <li>【关系抽取】：将问句中的实体关系抽取出来，涉及到词性标注、词法句法分析、关系分类等。</li>
