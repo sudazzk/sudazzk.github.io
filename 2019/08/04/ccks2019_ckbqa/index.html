@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="JuTzungKuei">
 <meta property="og:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-10T02:55:20.155Z">
+<meta property="og:updated_time" content="2019-08-10T03:06:19.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="中文知识图谱问答 CCKS2019 CKBQA - 参赛总结">
 <meta name="twitter:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
@@ -456,10 +456,7 @@
 </li>
 <li>特点：非结构化的自然语言、不适合计算机去处理</li>
 <li><p>三元组（triple）（为了方便计算机的处理和理解，需要更加形式化、简洁化的方式去表示知识）</p>
-<ul>
-<li>ex1：奥巴马出生在火奴鲁鲁 —&gt; (奥巴马，出生地，火奴鲁鲁)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- （主语，谓语，宾语）subject predicate object</span><br><span class="line">- （实体，属性，属性值）entity attribute value</span><br><span class="line">- （头实体，关系，尾实体）head_entity relation tail_entity</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- ex1：奥巴马出生在火奴鲁鲁 --&gt; (奥巴马，出生地，火奴鲁鲁)</span><br><span class="line">- （主语，谓语，宾语）subject predicate object</span><br><span class="line">- （实体，属性，属性值）entity attribute value</span><br><span class="line">- （头实体，关系，尾实体）head_entity relation tail_entity</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>进一步，把实体看作是结点，把关系看作是一条边，包含大量三元组的知识库就构成了一个庞大的知识图谱</p>
 </li>
@@ -507,25 +504,25 @@
 </li>
 </ul>
 <h3 id="4、相关工作"><a href="#4、相关工作" class="headerlink" title="4、相关工作"></a>4、相关工作</h3><ul>
-<li>NLPCC2015 第1名评测论文</li>
-<li>NLPCC2016 第1-4名评测论文</li>
-<li>NLPCC2017 第1-2名评测论文 + 会议论文</li>
-<li>NLPCC2018 第1名评测论文</li>
-<li>CCKS2018  第1-3名评测论文</li>
+<li>NLPCC2015 第1名评测论文 [1]</li>
+<li>NLPCC2016 第1-4名评测论文 [2-5]</li>
+<li>NLPCC2017 第1-2名评测论文 + 会议论文 [6-8]</li>
+<li>NLPCC2018 第1名评测论文 [9]</li>
+<li>CCKS2018  第1-3名评测论文 [10-12]</li>
 </ul>
 <h2 id="二、方法"><a href="#二、方法" class="headerlink" title="二、方法"></a>二、方法</h2><h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><h2 id="四、参考文献"><a href="#四、参考文献" class="headerlink" title="四、参考文献"></a>四、参考文献</h2><ul>
-<li><a href="http://tcci.ccf.org.cn/conference/2015/papers/246.pdf" target="_blank" rel="noopener">NLPCC2015 1st</a> Ye Z, Jia Z, Yang Y, et al. Research on open domain question answering system[M]//Natural Language Processing and Chinese Computing. Springer, Cham, 2015: 527-540.</li>
-<li><a href="https://link.springer.com/chapter/10.1007%2F978-3-319-50496-4_65" target="_blank" rel="noopener">NLPCC2016 1st</a> Lai Y, Lin Y, Chen J, et al. Open domain question answering system based on knowledge base[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 722-733.</li>
-<li><a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_86" target="_blank" rel="noopener">NLPCC2016 2nd</a> Yang F, Gan L, Li A, et al. Combining deep learning with information retrieval for question answering[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 917-925.</li>
-<li><a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_25" target="_blank" rel="noopener">NLPCC2016 3rd</a> Xie Z, Zeng Z, Zhou G, et al. Knowledge base question answering based on deep learning models[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 300-311.</li>
-<li><a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_82" target="_blank" rel="noopener">NLPCC2016 4th</a> Wang L, Zhang Y, Liu T. A deep learning approach for question answering over knowledge base[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 885-892.</li>
-<li><a href="http://tcci.ccf.org.cn/conference/2017/papers/2003.pdf" target="_blank" rel="noopener">NLPCC2017 1st</a> Lai Y, Jia Y, Lin Y, et al. A Chinese question answering system for single-relation factoid questions[C]//National CCF Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2017: 124-135.</li>
-<li><a href="http://tcci.ccf.org.cn/conference/2017/papers/2041.pdf" target="_blank" rel="noopener">NLPCC2017 2nd</a> Zhang H, Zhu M, Wang H. A Retrieval-Based Matching Approach to Open Domain Knowledge-Based Question Answering[C]//National CCF Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2017: 701-711.</li>
-<li><a href="http://xbna.pku.edu.cn/CN/10.13209/j.0479-8023.2017.155" target="_blank" rel="noopener">NLPCC2017 会议</a> 周博通, 孙承杰, 林磊, et al. 基于LSTM的大规模知识库自动问答[J]. 北京大学学报：自然科学版, 2018.</li>
-<li><a href="https://link.springer.com/chapter/10.1007/978-3-319-99501-4_35" target="_blank" rel="noopener">NLPCC2018 1st</a> Ni H, Lin L, Xu G. A Relateness-Based Ranking Method for Knowledge-Based Question Answering[C]//CCF International Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2018: 393-400.</li>
-<li><a href="http://ceur-ws.org/Vol-2242/" target="_blank" rel="noopener">CCKS2018 1st</a> A QA Search Algorithm based on the Fusion Integration of Text Similarity and Graph Computation</li>
-<li><a href="http://ceur-ws.org/Vol-2242/" target="_blank" rel="noopener">CCKS2018 2nd</a> A Joint Model of Entity Linking and Predicate Recognition for Knowledge Base Question Answering </li>
-<li><a href="http://ceur-ws.org/Vol-2242/" target="_blank" rel="noopener">CCKS2018 3rd</a> Semantic Parsing for Multiple-relation Chinese Question Answering </li>
+<li>[1] <a href="http://tcci.ccf.org.cn/conference/2015/papers/246.pdf" target="_blank" rel="noopener">NLPCC2015 1st</a> Ye Z, Jia Z, Yang Y, et al. Research on open domain question answering system[M]//Natural Language Processing and Chinese Computing. Springer, Cham, 2015: 527-540.</li>
+<li>[2] <a href="https://link.springer.com/chapter/10.1007%2F978-3-319-50496-4_65" target="_blank" rel="noopener">NLPCC2016 1st</a> Lai Y, Lin Y, Chen J, et al. Open domain question answering system based on knowledge base[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 722-733.</li>
+<li>[3] <a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_86" target="_blank" rel="noopener">NLPCC2016 2nd</a> Yang F, Gan L, Li A, et al. Combining deep learning with information retrieval for question answering[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 917-925.</li>
+<li>[4] <a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_25" target="_blank" rel="noopener">NLPCC2016 3rd</a> Xie Z, Zeng Z, Zhou G, et al. Knowledge base question answering based on deep learning models[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 300-311.</li>
+<li>[5] <a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_82" target="_blank" rel="noopener">NLPCC2016 4th</a> Wang L, Zhang Y, Liu T. A deep learning approach for question answering over knowledge base[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 885-892.</li>
+<li>[6] <a href="http://tcci.ccf.org.cn/conference/2017/papers/2003.pdf" target="_blank" rel="noopener">NLPCC2017 1st</a> Lai Y, Jia Y, Lin Y, et al. A Chinese question answering system for single-relation factoid questions[C]//National CCF Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2017: 124-135.</li>
+<li>[7] <a href="http://tcci.ccf.org.cn/conference/2017/papers/2041.pdf" target="_blank" rel="noopener">NLPCC2017 2nd</a> Zhang H, Zhu M, Wang H. A Retrieval-Based Matching Approach to Open Domain Knowledge-Based Question Answering[C]//National CCF Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2017: 701-711.</li>
+<li>[8] <a href="http://xbna.pku.edu.cn/CN/10.13209/j.0479-8023.2017.155" target="_blank" rel="noopener">NLPCC2017 会议</a> 周博通, 孙承杰, 林磊, et al. 基于LSTM的大规模知识库自动问答[J]. 北京大学学报：自然科学版, 2018.</li>
+<li>[9] <a href="https://link.springer.com/chapter/10.1007/978-3-319-99501-4_35" target="_blank" rel="noopener">NLPCC2018 1st</a> Ni H, Lin L, Xu G. A Relateness-Based Ranking Method for Knowledge-Based Question Answering[C]//CCF International Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2018: 393-400.</li>
+<li>[10] <a href="http://ceur-ws.org/Vol-2242/" target="_blank" rel="noopener">CCKS2018 1st</a> A QA Search Algorithm based on the Fusion Integration of Text Similarity and Graph Computation</li>
+<li>[11] <a href="http://ceur-ws.org/Vol-2242/" target="_blank" rel="noopener">CCKS2018 2nd</a> A Joint Model of Entity Linking and Predicate Recognition for Knowledge Base Question Answering </li>
+<li>[12] <a href="http://ceur-ws.org/Vol-2242/" target="_blank" rel="noopener">CCKS2018 3rd</a> Semantic Parsing for Multiple-relation Chinese Question Answering </li>
 </ul>
 <h2 id="五、相关博客"><a href="#五、相关博客" class="headerlink" title="五、相关博客"></a>五、相关博客</h2><ul>
 <li><a href="https://zhuanlan.zhihu.com/p/53796189" target="_blank" rel="noopener">基于知识图谱的问答系统入门之—NLPCC2016KBQA数据集</a> ，<a href="https://github.com/jkszw2014/bert-kbqa-NLPCC2017" target="_blank" rel="noopener">Github：bert-kbqa-NLPCC2017</a></li>
