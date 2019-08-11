@@ -103,10 +103,12 @@
 <meta property="og:site_name" content="JuTzungKuei">
 <meta property="og:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-11T02:42:48.794Z">
+<meta property="og:image" content="https://note.youdao.com/yws/public/resource/5c3200954632da9b39248e5d1d991a43/xmlnote/9E8F6ED978224D93AD264F48586627FF/20400">
+<meta property="og:updated_time" content="2019-08-11T02:58:10.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="中文知识图谱问答 CCKS2019 CKBQA - 参赛总结">
 <meta name="twitter:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
+<meta name="twitter:image" content="https://note.youdao.com/yws/public/resource/5c3200954632da9b39248e5d1d991a43/xmlnote/9E8F6ED978224D93AD264F48586627FF/20400">
 
 
 
@@ -405,7 +407,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      3.7k 字
+                      2.6k 字
                     </span>
               
 
@@ -421,7 +423,7 @@
                     <span class="post-meta-item-text">阅读时长</span>
                   
                     <span title="阅读时长" }}">
-                      15 分钟
+                      10 分钟
                     </span>
               
             </div>
@@ -572,55 +574,77 @@
 <h3 id="4、预测数据"><a href="#4、预测数据" class="headerlink" title="4、预测数据"></a>4、预测数据</h3><ul>
 <li>实体提及识别要考虑问句中出现的空格问题</li>
 </ul>
-<h3 id="5、搜索答案"><a href="#5、搜索答案" class="headerlink" title="5、搜索答案"></a>5、搜索答案</h3><p>···mermaid<br>flowchat<br>st=&gt;start: Question<br>op=&gt;operation: hop、spo、chain、ner<br>op1=&gt;operation: Entity Linking + Relation Extraction<br>op2=&gt;operation: 统一单跳问题求解<br>op3=&gt;operation: 多跳链式问题求解<br>op4=&gt;operation: 多跳多实体问题求解<br>e=&gt;end: Answer </p>
-<p>cond1=&gt;condition: chain=1 ?<br>cond2=&gt;condition: hop=1 ?<br>cond3=&gt;condition: entity_num &gt; 1 ?</p>
-<p>st-&gt;op-&gt;op1-&gt;op2-&gt;cond1</p>
-<p>cond1(yes)-&gt;cond2<br>cond1(no)-&gt;cond3</p>
-<p>cond2(yes)-&gt;op3<br>cond2(no)-&gt;e</p>
-<p>cond3(yes)-&gt;op4<br>cond3(no)-&gt;e</p>
-<p>op3-&gt;e<br>op4-&gt;e<br>…</p>
-<ul>
-<li><p>注释</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hop=0 表示是单跳问题（如：姚明的女儿是谁？），hop=1 表示是多跳问题（单跳问题仅需一个三元组，多跳需两个以上）</span><br><span class="line">spo=0 表示已知谓宾求主语，spo=1 表示已知主宾求谓语，spo=2表示已知主谓求宾语（如：姚明的女儿是谁？）</span><br><span class="line">chain=0 表示非链式问题，chain= 表示链式问题（如：姚明的女儿的年龄是多少？）</span><br><span class="line">ner 表示用NER模型识别出问句中的实体提及（如：姚明的女儿是谁？ 提及：姚明）</span><br><span class="line">Entity Linking 表示实体链指，找出提及对应的实体（如：姚明的女儿是谁？ 实体：&lt;姚明_（中职联公司董事长兼总经理）&gt;）</span><br><span class="line">Relation Extraction 表示关系抽取，找出问题中关系（如：姚明的女儿是谁？ 关系：&lt;女儿&gt;）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>详细介绍</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">step1：先对问题进行分类（判断是否单多跳、是否主谓宾、是否链式）和提及识别；</span><br><span class="line">step2：根据识别到的提及，进行左右扩展或删减，搜索所有的候选实体，根据一组特征对候选实体打分排序（实体链接模型），取top1；</span><br><span class="line">step3：根据spo值，搜索实体对应的所有关系，与当前问题计算语义相似度（关系抽取模型），取top1，搜索数据库得到统一单挑问题的求解；</span><br><span class="line">step4：如果是链式且是多跳问题，将step3得到的答案作为实体再进行一遍step3，得到多跳链式问题的求解；</span><br><span class="line">step5：如果是非链式且识别到多个实体，对每个实体搜索数据库，查询对应的所有候选三元组，然后求交集，得到多跳多实体问题的求解。</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<h3 id="5、搜索答案"><a href="#5、搜索答案" class="headerlink" title="5、搜索答案"></a>5、搜索答案</h3><p><img src="https://note.youdao.com/yws/public/resource/5c3200954632da9b39248e5d1d991a43/xmlnote/9E8F6ED978224D93AD264F48586627FF/20400" alt="avatar"><br><!-- <div id="flowchart-0" class="flow-chart"></div>
+hop=0 表示是单跳问题（如：姚明的女儿是谁？），hop=1 表示是多跳问题（单跳问题仅需一个三元组，多跳需两个以上）
+spo=0 表示已知谓宾求主语，spo=1 表示已知主宾求谓语，spo=2表示已知主谓求宾语（如：姚明的女儿是谁？）
+chain=0 表示非链式问题，chain= 表示链式问题（如：姚明的女儿的年龄是多少？）
+ner 表示用NER模型识别出问句中的实体提及（如：姚明的女儿是谁？ 提及：姚明）
+Entity Linking 表示实体链指，找出提及对应的实体（如：姚明的女儿是谁？ 实体：<姚明_（中职联公司董事长兼总经理）>）
+Relation Extraction 表示关系抽取，找出问题中关系（如：姚明的女儿是谁？ 关系：<女儿>）
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 详细介绍</span><br></pre></td></tr></table></figure></p>
+<p>step1：先对问题进行分类（判断是否单多跳、是否主谓宾、是否链式）和提及识别；<br>step2：根据识别到的提及，进行左右扩展或删减，搜索所有的候选实体，根据一组特征对候选实体打分排序（实体链接模型），取top1；<br>step3：根据spo值，搜索实体对应的所有关系，与当前问题计算语义相似度（关系抽取模型），取top1，搜索数据库得到统一单挑问题的求解；<br>step4：如果是链式且是多跳问题，将step3得到的答案作为实体再进行一遍step3，得到多跳链式问题的求解；<br>step5：如果是非链式且识别到多个实体，对每个实体搜索数据库，查询对应的所有候选三元组，然后求交集，得到多跳多实体问题的求解。<br>```</p>
 <h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><ul>
 <li>参加完CCKS2019评测会议后再补充 。。。。。。</li>
 </ul>
 <h2 id="四、参考文献"><a href="#四、参考文献" class="headerlink" title="四、参考文献"></a>四、参考文献</h2><ul>
-<li>[1] <a href="http://tcci.ccf.org.cn/conference/2015/papers/246.pdf" target="_blank" rel="noopener">NLPCC2015 1st</a> Ye Z, Jia Z, Yang Y, et al. Research on open domain question answering system[M]//Natural Language Processing and Chinese Computing. Springer, Cham, 2015: 527-540.</li>
-<li>[2] <a href="https://link.springer.com/chapter/10.1007%2F978-3-319-50496-4_65" target="_blank" rel="noopener">NLPCC2016 1st</a> Lai Y, Lin Y, Chen J, et al. Open domain question answering system based on knowledge base[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 722-733.</li>
-<li>[3] <a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_86" target="_blank" rel="noopener">NLPCC2016 2nd</a> Yang F, Gan L, Li A, et al. Combining deep learning with information retrieval for question answering[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 917-925.</li>
-<li>[4] <a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_25" target="_blank" rel="noopener">NLPCC2016 3rd</a> Xie Z, Zeng Z, Zhou G, et al. Knowledge base question answering based on deep learning models[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 300-311.</li>
-<li>[5] <a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_82" target="_blank" rel="noopener">NLPCC2016 4th</a> Wang L, Zhang Y, Liu T. A deep learning approach for question answering over knowledge base[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 885-892.</li>
-<li>[6] <a href="http://tcci.ccf.org.cn/conference/2017/papers/2003.pdf" target="_blank" rel="noopener">NLPCC2017 1st</a> Lai Y, Jia Y, Lin Y, et al. A Chinese question answering system for single-relation factoid questions[C]//National CCF Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2017: 124-135.</li>
-<li>[7] <a href="http://tcci.ccf.org.cn/conference/2017/papers/2041.pdf" target="_blank" rel="noopener">NLPCC2017 2nd</a> Zhang H, Zhu M, Wang H. A Retrieval-Based Matching Approach to Open Domain Knowledge-Based Question Answering[C]//National CCF Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2017: 701-711.</li>
-<li>[8] <a href="http://xbna.pku.edu.cn/CN/10.13209/j.0479-8023.2017.155" target="_blank" rel="noopener">NLPCC2017 会议</a> 周博通, 孙承杰, 林磊, et al. 基于LSTM的大规模知识库自动问答[J]. 北京大学学报：自然科学版, 2018.</li>
-<li>[9] <a href="https://link.springer.com/chapter/10.1007/978-3-319-99501-4_35" target="_blank" rel="noopener">NLPCC2018 1st</a> Ni H, Lin L, Xu G. A Relateness-Based Ranking Method for Knowledge-Based Question Answering[C]//CCF International Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2018: 393-400.</li>
-<li>[10] <a href="http://ceur-ws.org/Vol-2242/" target="_blank" rel="noopener">CCKS2018 1st</a> A QA Search Algorithm based on the Fusion Integration of Text Similarity and Graph Computation</li>
-<li>[11] <a href="http://ceur-ws.org/Vol-2242/" target="_blank" rel="noopener">CCKS2018 2nd</a> A Joint Model of Entity Linking and Predicate Recognition for Knowledge Base Question Answering </li>
-<li>[12] <a href="http://ceur-ws.org/Vol-2242/" target="_blank" rel="noopener">CCKS2018 3rd</a> Semantic Parsing for Multiple-relation Chinese Question Answering </li>
+<li>[1] <a href="http://tcci.ccf.org.cn/conference/2015/papers/246.pdf">NLPCC2015 1st</a> Ye Z, Jia Z, Yang Y, et al. Research on open domain question answering system[M]//Natural Language Processing and Chinese Computing. Springer, Cham, 2015: 527-540.</li>
+<li>[2] <a href="https://link.springer.com/chapter/10.1007%2F978-3-319-50496-4_65">NLPCC2016 1st</a> Lai Y, Lin Y, Chen J, et al. Open domain question answering system based on knowledge base[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 722-733.</li>
+<li>[3] <a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_86">NLPCC2016 2nd</a> Yang F, Gan L, Li A, et al. Combining deep learning with information retrieval for question answering[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 917-925.</li>
+<li>[4] <a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_25">NLPCC2016 3rd</a> Xie Z, Zeng Z, Zhou G, et al. Knowledge base question answering based on deep learning models[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 300-311.</li>
+<li>[5] <a href="https://link.springer.com/chapter/10.1007/978-3-319-50496-4_82">NLPCC2016 4th</a> Wang L, Zhang Y, Liu T. A deep learning approach for question answering over knowledge base[M]//Natural Language Understanding and Intelligent Applications. Springer, Cham, 2016: 885-892.</li>
+<li>[6] <a href="http://tcci.ccf.org.cn/conference/2017/papers/2003.pdf">NLPCC2017 1st</a> Lai Y, Jia Y, Lin Y, et al. A Chinese question answering system for single-relation factoid questions[C]//National CCF Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2017: 124-135.</li>
+<li>[7] <a href="http://tcci.ccf.org.cn/conference/2017/papers/2041.pdf">NLPCC2017 2nd</a> Zhang H, Zhu M, Wang H. A Retrieval-Based Matching Approach to Open Domain Knowledge-Based Question Answering[C]//National CCF Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2017: 701-711.</li>
+<li>[8] <a href="http://xbna.pku.edu.cn/CN/10.13209/j.0479-8023.2017.155">NLPCC2017 会议</a> 周博通, 孙承杰, 林磊, et al. 基于LSTM的大规模知识库自动问答[J]. 北京大学学报：自然科学版, 2018.</li>
+<li>[9] <a href="https://link.springer.com/chapter/10.1007/978-3-319-99501-4_35">NLPCC2018 1st</a> Ni H, Lin L, Xu G. A Relateness-Based Ranking Method for Knowledge-Based Question Answering[C]//CCF International Conference on Natural Language Processing and Chinese Computing. Springer, Cham, 2018: 393-400.</li>
+<li>[10] <a href="http://ceur-ws.org/Vol-2242/">CCKS2018 1st</a> A QA Search Algorithm based on the Fusion Integration of Text Similarity and Graph Computation</li>
+<li>[11] <a href="http://ceur-ws.org/Vol-2242/">CCKS2018 2nd</a> A Joint Model of Entity Linking and Predicate Recognition for Knowledge Base Question Answering </li>
+<li>[12] <a href="http://ceur-ws.org/Vol-2242/">CCKS2018 3rd</a> Semantic Parsing for Multiple-relation Chinese Question Answering </li>
 </ul>
 <h2 id="五、相关博客"><a href="#五、相关博客" class="headerlink" title="五、相关博客"></a>五、相关博客</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/53796189" target="_blank" rel="noopener">基于知识图谱的问答系统入门之—NLPCC2016KBQA数据集</a> ，<a href="https://github.com/jkszw2014/bert-kbqa-NLPCC2017" target="_blank" rel="noopener">Github：bert-kbqa-NLPCC2017</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/62946533" target="_blank" rel="noopener">基于BERT的KBQA探索</a>，<a href="https://github.com/WenRichard/KBQA-BERT" target="_blank" rel="noopener">Github：KBQA-BERT</a></li>
-<li><a href="https://github.com/songlei1994/ccks2018" target="_blank" rel="noopener">CCKS2018 CKBQA 1st 方案</a></li>
-<li><a href="http://blog.openkg.cn/自由讨论-kbqa从入门到放弃-入门篇/" target="_blank" rel="noopener">自由讨论 | KBQA从入门到放弃—入门篇</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/28553553" target="_blank" rel="noopener">KBQA从入门到放弃 - Part 2 | 每周话题精选 #09</a></li>
-<li><a href="https://blog.csdn.net/u012892939/article/details/79451978" target="_blank" rel="noopener">KBQA 知识库问答领域研究综述（未完待续。。）</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/34585912" target="_blank" rel="noopener">基于知识库的问答：seq2seq模型实践</a></li>
-<li><a href="https://yzhihao.github.io/2017/07/15/KBQA.html" target="_blank" rel="noopener">KBQA 个人总结</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/27141786" target="_blank" rel="noopener">揭开知识库问答KB-QA的面纱0·导读篇</a></li>
-<li><a href="http://octopuscoder.github.io/2018/02/04/知识图谱问答总结/" target="_blank" rel="noopener">知识图谱问答总结</a></li>
-<li><a href="https://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/78146295" target="_blank" rel="noopener">肖仰华 | 基于知识图谱的问答系统</a></li>
-<li><a href="https://blog.csdn.net/keyue123/article/details/85266355" target="_blank" rel="noopener">基于知识图谱的问答系统(KBQA)</a></li>
-<li><a href="https://blog.csdn.net/u012892939/article/details/79476756" target="_blank" rel="noopener">各类QA问答系统的总结与技术实现（持续更新）</a></li>
-<li><a href="http://pelhans.com/2018/04/28/xiaoxiangkg-note9/" target="_blank" rel="noopener">知识图谱入门 (九)知识问答</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/27665853" target="_blank" rel="noopener">KBQA: 基于开放域知识库上的QA系统 | 每周一起读</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/53796189">基于知识图谱的问答系统入门之—NLPCC2016KBQA数据集</a> ，<a href="https://github.com/jkszw2014/bert-kbqa-NLPCC2017">Github：bert-kbqa-NLPCC2017</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/62946533">基于BERT的KBQA探索</a>，<a href="https://github.com/WenRichard/KBQA-BERT">Github：KBQA-BERT</a></li>
+<li><a href="https://github.com/songlei1994/ccks2018">CCKS2018 CKBQA 1st 方案</a></li>
+<li><a href="http://blog.openkg.cn/自由讨论-kbqa从入门到放弃-入门篇/">自由讨论 | KBQA从入门到放弃—入门篇</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/28553553">KBQA从入门到放弃 - Part 2 | 每周话题精选 #09</a></li>
+<li><a href="https://blog.csdn.net/u012892939/article/details/79451978">KBQA 知识库问答领域研究综述（未完待续。。）</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/34585912">基于知识库的问答：seq2seq模型实践</a></li>
+<li><a href="https://yzhihao.github.io/2017/07/15/KBQA.html">KBQA 个人总结</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27141786">揭开知识库问答KB-QA的面纱0·导读篇</a></li>
+<li><a href="http://octopuscoder.github.io/2018/02/04/知识图谱问答总结/">知识图谱问答总结</a></li>
+<li><a href="https://blog.csdn.net/TgqDT3gGaMdkHasLZv/article/details/78146295">肖仰华 | 基于知识图谱的问答系统</a></li>
+<li><a href="https://blog.csdn.net/keyue123/article/details/85266355">基于知识图谱的问答系统(KBQA)</a></li>
+<li><a href="https://blog.csdn.net/u012892939/article/details/79476756">各类QA问答系统的总结与技术实现（持续更新）</a></li>
+<li><a href="http://pelhans.com/2018/04/28/xiaoxiangkg-note9/">知识图谱入门 (九)知识问答</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/27665853">KBQA: 基于开放域知识库上的QA系统 | 每周一起读</a></li>
 </ul>
+<p><script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/flowchart/1.6.5/flowchart.min.js"></script><textarea id="flowchart-0-code" style="display: none">st=>start: Question
+op=>operation: hop、spo、chain、ner
+op1=>operation: Entity Linking + Relation Extraction
+op2=>operation: 统一单跳问题求解
+op3=>operation: 多跳链式问题求解
+op4=>operation: 多跳多实体问题求解
+e=>end: Answer 
+
+cond1=>condition: chain=1 ?
+cond2=>condition: hop=1 ?
+cond3=>condition: entity_num > 1 ?
+
+st->op->op1->op2->cond1
+
+cond1(yes)->cond2
+cond1(no)->cond3
+
+cond2(yes)->op3
+cond2(no)->e
+
+cond3(yes)->op4
+cond3(no)->e
+
+op3->e
+op4->e
+``` -->
+
+- 注释<textarea id="flowchart-0-options" style="display: none">{"scale":1,"line-width":2,"line-length":50,"text-margin":10,"font-size":12}</textarea><script>  var code = document.getElementById("flowchart-0-code").value;  var options = JSON.parse(decodeURIComponent(document.getElementById("flowchart-0-options").value));  var diagram = flowchart.parse(code);  diagram.drawSVG("flowchart-0", options);</script></p>
 
       
     </div>
@@ -876,7 +900,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中文知识图谱问答（从0到0-6-）"><span class="nav-number">1.</span> <span class="nav-text">中文知识图谱问答（从0到0.6+）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、任务"><span class="nav-number">1.1.</span> <span class="nav-text">一、任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、任务定义"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、任务定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是知识库？"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">什么是知识库？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是知识库问答？"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">什么是知识库问答？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、相关评测"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、相关评测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单问题：NLPCC-2015-2018"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">简单问题：NLPCC 2015-2018</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂问题：CCKS-2018-2019"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">复杂问题：CCKS  2018-2019</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、相关数据"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、相关数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#训练集"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">训练集</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#NLPCC-2016（14609条）2016、2018测试集答案"><span class="nav-number">1.1.3.1.1.</span> <span class="nav-text">NLPCC 2016（14609条）2016、2018测试集答案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CCKS-2019-（2298条）"><span class="nav-number">1.1.3.1.2.</span> <span class="nav-text">CCKS 2019 （2298条）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知识库"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">知识库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#NLPCC-2016-知识库网盘"><span class="nav-number">1.1.3.2.1.</span> <span class="nav-text">NLPCC 2016 知识库网盘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CCKS-2019-知识库网盘，密码：hcu8"><span class="nav-number">1.1.3.2.2.</span> <span class="nav-text">CCKS 2019 知识库网盘，密码：hcu8</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、相关工作"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、相关工作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、方法"><span class="nav-number">1.2.</span> <span class="nav-text">二、方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、创建数据库"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、创建训练数据"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、创建训练数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类单多跳问句（二分类）"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">分类单多跳问句（二分类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类链式问句（二分类）"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">分类链式问句（二分类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实体提及识别（NER序列标注）"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">实体提及识别（NER序列标注）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关系抽取（语义相似度计算，二分类）"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">关系抽取（语义相似度计算，二分类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主谓宾分类（三分类）"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">主谓宾分类（三分类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实体链接（二分类）"><span class="nav-number">1.2.2.6.</span> <span class="nav-text">实体链接（二分类）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、训练模型"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、训练模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、预测数据"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、预测数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、搜索答案"><span class="nav-number">1.2.5.</span> <span class="nav-text">5、搜索答案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、总结"><span class="nav-number">1.3.</span> <span class="nav-text">三、总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、参考文献"><span class="nav-number">1.4.</span> <span class="nav-text">四、参考文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、相关博客"><span class="nav-number">1.5.</span> <span class="nav-text">五、相关博客</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中文知识图谱问答（从0到0-6-）"><span class="nav-number">1.</span> <span class="nav-text">中文知识图谱问答（从0到0.6+）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、任务"><span class="nav-number">1.1.</span> <span class="nav-text">一、任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、任务定义"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、任务定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是知识库？"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">什么是知识库？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是知识库问答？"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">什么是知识库问答？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、相关评测"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、相关评测</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单问题：NLPCC-2015-2018"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">简单问题：NLPCC 2015-2018</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复杂问题：CCKS-2018-2019"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">复杂问题：CCKS  2018-2019</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、相关数据"><span class="nav-number">1.1.3.</span> <span class="nav-text">3、相关数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#训练集"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">训练集</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#NLPCC-2016（14609条）2016、2018测试集答案"><span class="nav-number">1.1.3.1.1.</span> <span class="nav-text">NLPCC 2016（14609条）2016、2018测试集答案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CCKS-2019-（2298条）"><span class="nav-number">1.1.3.1.2.</span> <span class="nav-text">CCKS 2019 （2298条）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知识库"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">知识库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#NLPCC-2016-知识库网盘"><span class="nav-number">1.1.3.2.1.</span> <span class="nav-text">NLPCC 2016 知识库网盘</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CCKS-2019-知识库网盘，密码：hcu8"><span class="nav-number">1.1.3.2.2.</span> <span class="nav-text">CCKS 2019 知识库网盘，密码：hcu8</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、相关工作"><span class="nav-number">1.1.4.</span> <span class="nav-text">4、相关工作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、方法"><span class="nav-number">1.2.</span> <span class="nav-text">二、方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、创建数据库"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、创建数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、创建训练数据"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、创建训练数据</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类单多跳问句（二分类）"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">分类单多跳问句（二分类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类链式问句（二分类）"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">分类链式问句（二分类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实体提及识别（NER序列标注）"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">实体提及识别（NER序列标注）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关系抽取（语义相似度计算，二分类）"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">关系抽取（语义相似度计算，二分类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主谓宾分类（三分类）"><span class="nav-number">1.2.2.5.</span> <span class="nav-text">主谓宾分类（三分类）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实体链接（二分类）"><span class="nav-number">1.2.2.6.</span> <span class="nav-text">实体链接（二分类）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、训练模型"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、训练模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、预测数据"><span class="nav-number">1.2.4.</span> <span class="nav-text">4、预测数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、搜索答案"><span class="nav-number">1.2.5.</span> <span class="nav-text">5、搜索答案</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
