@@ -104,7 +104,7 @@
 <meta property="og:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mCohTJ.png">
-<meta property="og:updated_time" content="2019-08-14T10:46:40.687Z">
+<meta property="og:updated_time" content="2019-08-19T03:00:49.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="中文知识图谱问答 CCKS2019 CKBQA - 参赛总结">
 <meta name="twitter:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
@@ -536,15 +536,15 @@
 </li>
 </ul>
 <h3 id="2、创建训练数据"><a href="#2、创建训练数据" class="headerlink" title="2、创建训练数据"></a>2、创建训练数据</h3><h4 id="分类单多跳问句（二分类）"><a href="#分类单多跳问句（二分类）" class="headerlink" title="分类单多跳问句（二分类）"></a>分类单多跳问句（二分类）</h4><ul>
-<li><p>单跳：<code>SPQRQL 只出现一个三元组</code></p>
+<li><p>单跳：<code>SPARQL 只出现一个三元组</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">q1:莫妮卡·贝鲁奇的代表作？</span><br><span class="line">select ?x where &#123; &lt;莫妮卡·贝鲁奇&gt; &lt;代表作品&gt; ?x. &#125;</span><br><span class="line">&lt;西西里的美丽传说&gt;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>双跳：<code>SPQRQL 出现两个以上三元组</code></p>
+<li><p>双跳：<code>SPARQL 出现两个以上三元组</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">q616:红豆的演唱者出生在？</span><br><span class="line">select ?y where &#123; ?x &lt;代表作品&gt; &lt;红豆_（王菲演唱歌曲）&gt;. ?x &lt;出生地&gt; ?y. &#125;</span><br><span class="line">&lt;东城区_（北京市东城区）&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="分类链式问句（二分类）"><a href="#分类链式问句（二分类）" class="headerlink" title="分类链式问句（二分类）"></a>分类链式问句（二分类）</h4><ul>
-<li>链式：<code>SPQRQL 多个三元组呈递进关系，x-&gt;y-&gt;z，非交集关系</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">q894:纳兰性德的父亲担任过什么官职？</span><br><span class="line">select ?y where &#123; &lt;纳兰性德&gt; &lt;父亲&gt; ?x. ?x &lt;主要职位&gt; ?y. &#125;</span><br><span class="line">&quot;武英殿大学士&quot;	&quot;太子太傅&quot;</span><br><span class="line"></span><br><span class="line">q554:宗馥莉任董事长的公司的公司口号是？</span><br><span class="line">select ?y where &#123; ?x &lt;董事长&gt; &lt;宗馥莉&gt;. ?x &lt;公司口号&gt; ?y. &#125;</span><br><span class="line">&quot;win happy health,娃哈哈就在你身边&quot;</span><br></pre></td></tr></table></figure>
+<li>链式：<code>SPARQL 多个三元组呈递进关系，x-&gt;y-&gt;z，非交集关系</code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">q894:纳兰性德的父亲担任过什么官职？</span><br><span class="line">select ?y where &#123; &lt;纳兰性德&gt; &lt;父亲&gt; ?x. ?x &lt;主要职位&gt; ?y. &#125;</span><br><span class="line">&quot;武英殿大学士&quot;	&quot;太子太傅&quot;</span><br><span class="line"></span><br><span class="line">q554:宗馥莉任董事长的公司的公司口号是？</span><br><span class="line">select ?y where &#123; ?x &lt;董事长&gt; &lt;宗馥莉&gt;. ?x &lt;公司口号&gt; ?y. &#125;</span><br><span class="line">&quot;win happy health,娃哈哈就在你身边&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="主谓宾分类（三分类）"><a href="#主谓宾分类（三分类）" class="headerlink" title="主谓宾分类（三分类）"></a>主谓宾分类（三分类）</h4><ul>
