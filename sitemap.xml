@@ -2,16 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.zhuzongkui.top/2018/09/10/use_git/</loc>
+    <loc>http://www.zhuzongkui.top/2019/08/04/ccks2019_ckbqa/</loc>
     
-    <lastmod>2019-09-03T01:15:17.474Z</lastmod>
+    <lastmod>2019-09-03T02:00:20.587Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://www.zhuzongkui.top/about/index.html</loc>
     
-    <lastmod>2019-09-02T10:33:31.743Z</lastmod>
+    <lastmod>2019-09-03T01:56:00.939Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/2018/08/10/hexo_hello_world/</loc>
+    
+    <lastmod>2019-09-03T01:54:17.456Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/2018/09/10/use_git/</loc>
+    
+    <lastmod>2019-09-03T01:15:17.474Z</lastmod>
     
   </url>
   
@@ -26,13 +40,6 @@
     <loc>http://www.zhuzongkui.top/2019/08/11/vim_base_config/</loc>
     
     <lastmod>2019-08-22T03:35:05.703Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/2019/08/04/ccks2019_ckbqa/</loc>
-    
-    <lastmod>2019-08-19T03:00:49.377Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>http://www.zhuzongkui.top/2019/04/17/install_cuda/</loc>
     
     <lastmod>2019-08-04T08:45:31.323Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/2018/08/10/hello-world/</loc>
-    
-    <lastmod>2019-08-04T08:45:31.321Z</lastmod>
     
   </url>
   
