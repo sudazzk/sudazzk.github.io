@@ -2,14 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.zhuzongkui.top/2018/08/10/hexo_hello_world/</loc>
+    <loc>http://www.zhuzongkui.top/2019/09/07/jupyter/</loc>
+    
+    <lastmod>2019-09-07T06:16:13.442Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/2019/09/07/anaconda/</loc>
+    
+    <lastmod>2019-09-07T06:15:01.677Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/2019/08/12/deeplearning_framework/</loc>
+    
+    <lastmod>2019-09-07T06:04:05.229Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/2018/08/10/hexo/</loc>
     
     <lastmod>2019-09-06T10:09:24.130Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://www.zhuzongkui.top/2019/08/10/MySQL_Config/</loc>
+    <loc>http://www.zhuzongkui.top/2019/08/10/mysql/</loc>
     
     <lastmod>2019-09-06T09:25:17.454Z</lastmod>
     
@@ -30,7 +51,7 @@
   </url>
   
   <url>
-    <loc>http://www.zhuzongkui.top/2018/09/10/use_git/</loc>
+    <loc>http://www.zhuzongkui.top/2018/09/10/git/</loc>
     
     <lastmod>2019-09-03T01:15:17.474Z</lastmod>
     
@@ -44,23 +65,9 @@
   </url>
   
   <url>
-    <loc>http://www.zhuzongkui.top/2019/08/11/vim_base_config/</loc>
+    <loc>http://www.zhuzongkui.top/2019/08/11/vim/</loc>
     
     <lastmod>2019-08-22T03:35:05.703Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/2019/08/12/deeplearning_framework/</loc>
-    
-    <lastmod>2019-08-12T01:03:36.459Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/2019/08/11/small_config/</loc>
-    
-    <lastmod>2019-08-12T00:24:07.932Z</lastmod>
     
   </url>
   
@@ -100,7 +107,7 @@
   </url>
   
   <url>
-    <loc>http://www.zhuzongkui.top/2019/04/17/install_cuda/</loc>
+    <loc>http://www.zhuzongkui.top/2019/04/17/cuda/</loc>
     
     <lastmod>2019-08-04T08:45:31.323Z</lastmod>
     
