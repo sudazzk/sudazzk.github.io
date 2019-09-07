@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="JuTzungKuei">
 <meta property="og:description" content="[TOC] 相关链接 官网：https://www.anaconda.com/ 下载安装包：https://www.anaconda.com/distribution/ 清华镜像 Miniconda Anaconda详细安装及使用教程  一、Anaconda3 安装与卸载Linux 安装1234567891011121314151617# 依次输入以下命令wget https://repo.con">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-07T06:15:01.677Z">
+<meta property="og:updated_time" content="2019-09-07T06:53:00.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Anaconda 使用教程">
 <meta name="twitter:description" content="[TOC] 相关链接 官网：https://www.anaconda.com/ 下载安装包：https://www.anaconda.com/distribution/ 清华镜像 Miniconda Anaconda详细安装及使用教程  一、Anaconda3 安装与卸载Linux 安装1234567891011121314151617# 依次输入以下命令wget https://repo.con">
@@ -405,7 +405,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      809 字
+                      823 字
                     </span>
               
 
@@ -462,9 +462,9 @@
 <li>同时安装多个包：<code>conda create -n env_name numpy matplotlib python=2.7</code></li>
 <li>再额外安装包：<code>conda install -n env_name [package]</code></li>
 <li>激活(Linux)：<code>source activate env_name</code></li>
-<li>激活(Windows)：<code>activate env_name</code> 或 <code>source activate env_name</code></li>
+<li>激活(Windows)：<code>activate env_name</code> 或 <code>conda activate env_name</code></li>
 <li>关闭(Linux)：<code>source deactivate</code></li>
-<li>关闭(Windows)：<code>deactivate</code> 或 <code>source deactivate</code></li>
+<li>关闭(Windows)：<code>deactivate</code> 或 <code>conda deactivate</code></li>
 <li>删除包：<code>conda remove -n env_name  [package]</code></li>
 <li>删除环境：<code>conda remove -n env_name --all</code></li>
 <li>导出环境：<code>conda env export &gt; environment.yaml</code></li>
@@ -477,6 +477,7 @@
 <li>2、安装 ipykernel：<code>conda install -n env_name ipykernel</code></li>
 <li>3、将环境写入 notebook 的 kernel 中：<br><code>python -m ipykernel install --user --name env_name --display-name env_name</code></li>
 <li>4、删除 kernel：<code>jupyter kernelspec remove env_name</code></li>
+<li>5、在激活的虚拟环境中打开：<code>jupyter notebook</code></li>
 </ul>
 <h1 id="四、Windows-下实际操作"><a href="#四、Windows-下实际操作" class="headerlink" title="四、Windows 下实际操作"></a>四、Windows 下实际操作</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line"></span><br><span class="line">conda create -n tf1.13 python=3.6</span><br><span class="line">conda install -n tf1.13 tensorflow=1.13</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> activate tf1.13</span><br><span class="line">conda install -n tf1.13 ipykernel</span><br><span class="line">python -m ipykernel install --user --name tf1.13 --display-name tf1.13</span><br></pre></td></tr></table></figure>
 <h1 id="五、pip-配置镜像"><a href="#五、pip-配置镜像" class="headerlink" title="五、pip 配置镜像"></a>五、pip 配置镜像</h1><ul>
