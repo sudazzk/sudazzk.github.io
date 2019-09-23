@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="JuTzungKuei">
 <meta property="og:description" content="谈谈评价指标中的宏平均和微平均 分类器的性能表现评价（混淆矩阵，准确率，召回率，F1,mAP、ROC曲线） python + sklearn ︱分类效果评估——acc、recall、F1、ROC、回归、距离 准确率(Accuracy), 精确率(Precision), 召回率(Recall)和F1-Measure   对于二分类问题，可将样例根据其真实类别和分类器预测类别划分为：     0 1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-04T08:45:31.319Z">
+<meta property="og:updated_time" content="2019-09-23T01:10:47.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="评价准则">
 <meta name="twitter:description" content="谈谈评价指标中的宏平均和微平均 分类器的性能表现评价（混淆矩阵，准确率，召回率，F1,mAP、ROC曲线） python + sklearn ︱分类效果评估——acc、recall、F1、ROC、回归、距离 准确率(Accuracy), 精确率(Precision), 召回率(Recall)和F1-Measure   对于二分类问题，可将样例根据其真实类别和分类器预测类别划分为：     0 1">
@@ -405,7 +405,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      725 字
+                      768 字
                     </span>
               
 
@@ -530,10 +530,10 @@
 <h2 id="宏平均-Macro-averaging"><a href="#宏平均-Macro-averaging" class="headerlink" title="宏平均 Macro-averaging"></a>宏平均 Macro-averaging</h2><ul>
 <li>先对每一个类统计指标值，然后在对所有类<strong>求算术平均值</strong></li>
 </ul>
-<script type="math/tex; mode=display">Macro\_P = \frac{1}{n}\sum_{i=1}^mP_i</script><script type="math/tex; mode=display">Macro\_R = \frac{1}{n}\sum_{i=1}^mR_i</script><script type="math/tex; mode=display">Macro\_F = \frac{1}{n}\sum_{i=1}^mF_i</script><script type="math/tex; mode=display">Macro\_F = \frac {2 * Macro\_P * Macro\_R} {Macro\_P + Macro\_R}</script><h2 id="微平均-Micro-averaging"><a href="#微平均-Micro-averaging" class="headerlink" title="微平均 Micro-averaging"></a>微平均 Micro-averaging</h2><ul>
+<script type="math/tex; mode=display">Macro\_P = \frac{1}{n}\sum_{i=1}^mP_i</script><script type="math/tex; mode=display">Macro\_R = \frac{1}{n}\sum_{i=1}^mR_i</script><script type="math/tex; mode=display">Macro\_F1 = \frac {2 * Macro\_P * Macro\_R} {Macro\_P + Macro\_R}</script><script type="math/tex; mode=display">Averaged\_F1 = \frac{1}{n}\sum_{i=1}^mF1_i</script><h2 id="微平均-Micro-averaging"><a href="#微平均-Micro-averaging" class="headerlink" title="微平均 Micro-averaging"></a>微平均 Micro-averaging</h2><ul>
 <li>对数据集中的每一个实例不分类别进行统计建立全局混淆矩阵，然后计算相应指标</li>
 </ul>
-<script type="math/tex; mode=display">Micro\_P = \frac {\sum_{i=1}^mTP_i} {\sum_{i=1}^mTP_i + \sum_{i=1}^mFP_i}</script><script type="math/tex; mode=display">= \frac {\sum_{i=1}^mTP_i} {N}</script><script type="math/tex; mode=display">Micro\_R = \frac {\sum_{i=1}^mTP_i} {\sum_{i=1}^mTP_i + \sum_{i=1}^mFN_i}</script><script type="math/tex; mode=display">= \frac {\sum_{i=1}^mTP_i} {N}</script><script type="math/tex; mode=display">Micro\_F = \frac {2 * Micro\_P * Micro\_R} {Micro\_P + Micro\_R}</script><script type="math/tex; mode=display">\text{如果对所有类别求微平均，那么上面三个值是相等的，且 = accuracy。}</script><hr>
+<script type="math/tex; mode=display">Micro\_P = \frac {\sum_{i=1}^mTP_i} {\sum_{i=1}^mTP_i + \sum_{i=1}^mFP_i}</script><script type="math/tex; mode=display">= \frac {\sum_{i=1}^mTP_i} {N}</script><script type="math/tex; mode=display">Micro\_R = \frac {\sum_{i=1}^mTP_i} {\sum_{i=1}^mTP_i + \sum_{i=1}^mFN_i}</script><script type="math/tex; mode=display">= \frac {\sum_{i=1}^mTP_i} {N}</script><script type="math/tex; mode=display">Micro\_F1 = \frac {2 * Micro\_P * Micro\_R} {Micro\_P + Micro\_R}</script><script type="math/tex; mode=display">\text{如果对所有类别求微平均，那么上面三个值是相等的，且 = accuracy。}</script><script type="math/tex; mode=display">\text{如果数据集中各个类的分布不平衡的话，建议使用微平均，宏平均没有考虑到各个类别的样本大小。}</script><hr>
 
       
     </div>
