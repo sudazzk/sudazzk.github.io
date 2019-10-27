@@ -104,7 +104,7 @@
 <meta property="og:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mCohTJ.png">
-<meta property="og:updated_time" content="2019-09-03T02:00:20.587Z">
+<meta property="og:updated_time" content="2019-10-27T10:28:36.717Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="中文知识图谱问答 CCKS2019 CKBQA - 参赛总结">
 <meta name="twitter:description" content="[TOC]  调研时间：2019.06.05~2019.06.19 参赛时间：2019.06.28~2019.07.25  中文知识图谱问答（从0到0.6+） Chinese Knowledge Base Question Answering（CKBQA）  一、任务1、任务定义什么是知识库？ 一条条知识，而把大量的知识汇聚起来就成了知识库。 123ex1：奥巴马出生在火奴鲁鲁ex2：姚明是中国人">
@@ -585,7 +585,7 @@
 <li><p>分类单多跳问句（二分类：BERT 做单句子分类）acc=89.13%</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># acc低的原因：以下问题实则单跳可以解决</span><br><span class="line">q542:习大大是哪里毕业的？</span><br><span class="line">select ?y where &#123; ?x &lt;别名&gt; &quot;习大大&quot; . ?x &lt;毕业院校&gt; ?y . &#125;</span><br><span class="line">&quot;清华大学&quot;</span><br><span class="line"></span><br><span class="line">q1560:小马哥有哪些主要成就？</span><br><span class="line">select ?y where &#123; ?x &lt;别名&gt;&quot;小马哥&quot;. ?x &lt;主要成就&gt; ?y. &#125;</span><br><span class="line">&quot;改变中国SNS现状&quot;	&quot;1998年创立 腾讯公司&quot;	&quot;腾讯慈善基金会&quot;</span><br><span class="line"></span><br><span class="line">q1574:习大大什么时候入党？</span><br><span class="line">select ?y where &#123; ?x &lt;别名&gt; &quot;习大大&quot;. ?x &lt;入党时间&gt; ?y . &#125;</span><br><span class="line">&quot;1974&quot;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>分类单多跳问句（二分类：BERT 做单句子分类）acc=96.15%</p>
+<li><p>分类链式问句（二分类：BERT 做单句子分类）acc=96.15%</p>
 </li>
 <li>主谓宾分类（三分类：BERT 做单句子分类）acc=91.63%</li>
 <li><p>实体提及识别（NER序列标注：BERT+BiLSTM+CRF 的 NER 模型）</p>
