@@ -1657,6 +1657,9 @@ pre .javascript .function {
     transform: rotateZ(-30deg);
   }
 }
+.page-post-detail .post-title {
+  color: #68228b;
+}
 .sidebar {
   position: fixed;
   right: 0;
@@ -1814,7 +1817,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e024f0;
+  background: #74f1a6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2993,7 +2996,7 @@ pre .javascript .function {
   text-decoration: underline;
 }
 code {
-  color: #ff7600;
+  color: #4169e1;
   background: #fbf7f8;
   margin: 2px;
 }
