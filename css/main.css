@@ -216,7 +216,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1.5;
-  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-family: 'Roboto Slab', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 h2,
 h3,
@@ -1010,13 +1010,13 @@ pre .javascript .function {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: normal;
   font-family: 'Italianno', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 .site-subtitle {
   margin-top: 10px;
-  font-size: 13px;
+  font-size: 20px;
   color: #ddd;
 }
 .use-motion .brand {
@@ -1817,7 +1817,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #06798c;
+  background: #62cb91;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2746,6 +2746,15 @@ pre .javascript .function {
 }
 .sidebar-position-right .footer-inner:before {
   float: right;
+}
+.header {
+  width: 80%;
+}
+.container .main-inner {
+  width: 80%;
+}
+.content-wrap {
+  width: calc(100% - 260px);
 }
 .site-brand-wrapper {
   position: relative;
