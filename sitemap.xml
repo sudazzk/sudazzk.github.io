@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.zhuzongkui.top/2019/08/12/deeplearning_framework/</loc>
+    
+    <lastmod>2019-11-09T06:11:46.190Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/2019/04/17/cuda/</loc>
+    
+    <lastmod>2019-11-09T06:09:08.896Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/2018/08/10/hexo/</loc>
+    
+    <lastmod>2019-11-09T06:08:52.435Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/2019/08/11/nlp_base_task/</loc>
+    
+    <lastmod>2019-11-09T06:08:01.710Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/2018/09/10/StandfordNLP%20NLTK/</loc>
+    
+    <lastmod>2019-11-09T06:07:27.617Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.zhuzongkui.top/2018/10/06/feature_select/</loc>
     
     <lastmod>2019-11-09T06:02:11.494Z</lastmod>
@@ -51,20 +86,6 @@
   </url>
   
   <url>
-    <loc>http://www.zhuzongkui.top/2019/08/12/deeplearning_framework/</loc>
-    
-    <lastmod>2019-11-09T05:57:53.180Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/2019/04/17/cuda/</loc>
-    
-    <lastmod>2019-11-09T05:57:35.768Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.zhuzongkui.top/2019/08/11/compress_commit/</loc>
     
     <lastmod>2019-11-09T05:57:26.568Z</lastmod>
@@ -75,13 +96,6 @@
     <loc>http://www.zhuzongkui.top/2019/08/04/ccks2019_ckbqa/</loc>
     
     <lastmod>2019-11-09T05:57:03.412Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/2018/09/10/StandfordNLP%20NLTK/</loc>
-    
-    <lastmod>2019-11-09T05:56:15.700Z</lastmod>
     
   </url>
   
@@ -114,13 +128,6 @@
   </url>
   
   <url>
-    <loc>http://www.zhuzongkui.top/2018/08/10/hexo/</loc>
-    
-    <lastmod>2019-11-09T05:29:48.061Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.zhuzongkui.top/about/index.html</loc>
     
     <lastmod>2019-11-07T05:55:46.689Z</lastmod>
@@ -138,13 +145,6 @@
     <loc>http://www.zhuzongkui.top/2018/09/10/git/</loc>
     
     <lastmod>2019-09-03T01:15:17.474Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/2019/08/11/nlp_base_task/</loc>
-    
-    <lastmod>2019-08-11T04:11:23.454Z</lastmod>
     
   </url>
   
