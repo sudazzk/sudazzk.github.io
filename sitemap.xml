@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.zhuzongkui.top/about/index.html</loc>
+    
+    <lastmod>2019-11-09T06:34:21.287Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.zhuzongkui.top/2019/08/12/deeplearning_framework/</loc>
     
     <lastmod>2019-11-09T06:11:46.190Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>http://www.zhuzongkui.top/2019/04/17/sort/</loc>
     
     <lastmod>2019-11-09T05:53:59.988Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/about/index.html</loc>
-    
-    <lastmod>2019-11-07T05:55:46.689Z</lastmod>
     
   </url>
   
