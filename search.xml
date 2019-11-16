@@ -8,8 +8,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>编程</tag>
         <tag>笔试</tag>
         <tag>刷题</tag>
       </tags>
@@ -22,15 +22,15 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>编程</tag>
         <tag>软件</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[zabbix 安装和配置]]></title>
     <url>%2F2019%2F09%2F27%2Fzabbix%2F</url>
-    <content type="text"><![CDATA[[TOC] 相关链接 官网：https://www.zabbix.com/download Ubuntu 安装 Zabbix 3 详细步骤 在 Ubuntu 16.04 Server 上安装 Zabbix Zabbix 系列博客教程目录 Linux Dash Ubuntu Server 14.04 安装状态监控Linux Dash 如何在Ubuntu 14.04安装 Linux Dash https://github.com/NoBey/linux-dash-zh ubuntu 下卸载 mysql8 linux服务器监控工具 每个系统管理员都要知道的 30 个 Linux 系统监控工具 你值得拥有 —— 25 个 Linux 性能监控工具 80 多个 Linux 系统管理员必备的监控工具 zabbix 自动化运维工具1、平台和环境1234ZABBIX VERSION: 3.0 LTSOS DISTRIBUTION: UbuntuOS VERSION: 16.04 (Xenial)DATABASE: MySQL (5.x，非8.x) 2、安装和配置服务端（server）Ⅰ、安装仓库（repository）123wget https://repo.zabbix.com/zabbix/3.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_3.0-2+xenial_all.debsudo dpkg -i zabbix-release_3.0-2+xenial_all.debsudo apt update Ⅱ、安装服务端、前端、客户端（server, frontend, agent）1sudo apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-agent Ⅲ、数据库初始化12345678910sudo apt-get install mysql-server # 若没有安装 mysql5.xmysql -uroot -p输入root用户的 passwordmysql&gt; create database zabbix character set utf8 collate utf8_bin;mysql&gt; grant all privileges on zabbix.* to zabbix@localhost identified by 'zabbix';mysql&gt; quit;# 导入初始模式和数据zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix输入密码：zabbix # 要等一会儿，不能强行中断 Ⅳ、服务端配置数据库123sudo vim /etc/zabbix/zabbix_server.conf# 修改DBPassword=zabbix Ⅴ、配置PHP时区1234567sudo vim /etc/zabbix/apache.conf# 修改php_value date.timezone Asia/Shanghaisudo vim /etc/php/7.0/apache2/php.ini# 修改date.timezone = Asia/Shanghai Ⅵ、启动、重启、停止、开机运行服务123456789sudo service zabbix-server startsudo service zabbix-server stopsudo service zabbix-server restartsudo service apache2 startsudo service apache2 stopsudo service apache2 restart # 重启apachesudo netstat -ntpl | grep zabbix # 查看进程sudo update-rc.d zabbix-server enable # 开机运行vim /etc/rc0.d/ # 查看是否有zabbix设置为开机自启动 Ⅶ、日志/var/log/zabbix/zabbix_server.log 3、web前端Ⅰ、安装 浏览器中输入：http://&lt;server_ip_or_name&gt;/zabbix 欢迎界面：Welcome to Zabbix 3.0 点击“Next step”后会出现校验配置页面 右侧均为“OK”说明配置正确生效，如果有红叉则需要查看之前相应的修改配置项。 点击“Next step”后会出现配置数据库连接界面 “Password”处填写“zabbix” 点击“Next step”后出现 zabbix 服务器信息界面 在“Name”处填写“zabbix” 点击“Next step”后会展示之前安装的配置项，再次点击“Next step”即可进入安装。 安装完成后点击“Finish”。 登陆 zabbix web， 初始登陆用户名为“Admin”，密码为“zabbix”。 Ⅱ、设置中文界面 首先点击 web 界面右上角的用户头像 然后进入“User”设置项，在“Language”处修改为“Chinese（zh_CN）”，然后点击“Update”跟新即可 12若不能选择 Chinese（zh_CN），安装中文环境 locale -asudo apt-get install language-pack-zh-hant language-pack-zh-hans Ⅲ、添加中文字体（解决中文全是方格问题）12345678910cd /etc/nginx/html/zabbix/fonts/ # 进入目录存放字体文件DejaVuSans.ttf # 仿宋简体-常规sudo vim /usr/share/zabbix/include/locales.inc.php# 修改'zh_CN' =&gt; ['name' =&gt; _('Chinese (zh_CN)'), 'display' =&gt; true],sudo vim /usr/share/zabbix/include/defines.inc.php # 修改文件中字体的配置define('ZBX_GRAPH_FONT_NAME', 'DejaVuSans'); # 指定字体文件名 4、客户端123456789101112131415sudo apt -y install zabbix-agentsudo service zabbix-agent startsudo service zabbix-agent stopsudo service zabbix-agent restartsudo netstat -ntpl | grep zabbixsudo service zabbix-agent statussudo update-rc.d zabbix-agent enable # 开机启动# 修改配置文件sudo vi /etc/zabbix/zabbix_agentd.confServer=192.168.126.122 # 接受数据的服务端ipServerActive=192.168.126.122 # 接受数据的服务端ipHostname=192.168.126.139 # 当前服务器的ip 5、添加监控Ⅰ、基本 zabbix监控第一台服务器（10） Zabbix分布式监控系统实践 自定义配置 zabbix添加监控服务器. 创建主机，成功后，可以看到对应的Host，但右侧不会显示绿色的被监控图标，因为目前还没有配置任何监控选项 主机名必须和上面的Hostname一致！ Ⅱ、监控多个GPU https://github.com/plambe/zabbix-nvidia-smi-multi-gpu/ 修改文件 123456789101112sudo vim /etc/zabbix/zabbix_agentd.conf# 复制 userparameter_nvidia-smi.conf.linux 文件里面的内容至文件末尾UserParameter=gpu.number,/usr/bin/nvidia-smi -L | /usr/bin/wc -lUserParameter=gpu.discovery,/etc/zabbix/scripts/get_gpus_info.shUserParameter=gpu.fanspeed[*],nvidia-smi --query-gpu=fan.speed --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.power[*],nvidia-smi --query-gpu=power.draw --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.temp[*],nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.utilization[*],nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.memfree[*],nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.memused[*],nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.memtotal[*],nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits -i $1 | tr -d "\n" 复制脚本，设置可执行 12345cd /etc/zabbix/sudo mkdir scriptscd scripts/sudo cp /data4/zzk/get_gpus_info.sh ./sudo chmod +x get_gpus_info.sh web端导入模板文件：zbx_nvidia-smi-multi-gpu.xml 6、普通用户Ⅰ、新建 【管理】→【用户】→【创建用户】→【别名】→【群组-选择普通用户】→【密码】→【密码确认】→【语言-中文】→【添加】Ⅱ、赋予权限 【监测中】→【聚合图形】→【xx名称-动作-属性】→【分享】→【用户组共享列表-添加普通用户】→【用户共享列表- 添加用户名】→【更新】]]></content>
+    <content type="text"><![CDATA[[TOC] 相关链接 官网：https://www.zabbix.com/download Ubuntu 安装 Zabbix 3 详细步骤 在 Ubuntu 16.04 Server 上安装 Zabbix Zabbix 系列博客教程目录 Linux Dash Ubuntu Server 14.04 安装状态监控Linux Dash 如何在Ubuntu 14.04安装 Linux Dash https://github.com/NoBey/linux-dash-zh ubuntu 下卸载 mysql8 linux服务器监控工具 每个系统管理员都要知道的 30 个 Linux 系统监控工具 你值得拥有 —— 25 个 Linux 性能监控工具 80 多个 Linux 系统管理员必备的监控工具 zabbix 自动化运维工具1、平台和环境1234ZABBIX VERSION: 3.0 LTSOS DISTRIBUTION: UbuntuOS VERSION: 16.04 (Xenial)DATABASE: MySQL (5.x，非8.x) 2、安装和配置服务端（server）Ⅰ、安装仓库（repository）123wget https://repo.zabbix.com/zabbix/3.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_3.0-2+xenial_all.debsudo dpkg -i zabbix-release_3.0-2+xenial_all.debsudo apt update Ⅱ、安装服务端、前端、客户端（server, frontend, agent）1sudo apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-agent Ⅲ、数据库初始化12345678910sudo apt-get install mysql-server # 若没有安装 mysql5.xmysql -uroot -p输入root用户的 passwordmysql&gt; create database zabbix character set utf8 collate utf8_bin;mysql&gt; grant all privileges on zabbix.* to zabbix@localhost identified by 'zabbix';mysql&gt; quit;# 导入初始模式和数据zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix输入密码：zabbix # 要等一会儿，不能强行中断 Ⅳ、服务端配置数据库123sudo vim /etc/zabbix/zabbix_server.conf# 修改DBPassword=zabbix Ⅴ、配置PHP时区1234567sudo vim /etc/zabbix/apache.conf# 修改php_value date.timezone Asia/Shanghaisudo vim /etc/php/7.0/apache2/php.ini# 修改date.timezone = Asia/Shanghai Ⅵ、启动、重启、停止、开机运行服务123456789sudo service zabbix-server startsudo service zabbix-server stopsudo service zabbix-server restartsudo service apache2 startsudo service apache2 stopsudo service apache2 restart # 重启apachesudo netstat -ntpl | grep zabbix # 查看进程sudo update-rc.d zabbix-server enable # 开机运行vim /etc/rc0.d/ # 查看是否有zabbix设置为开机自启动 Ⅶ、日志/var/log/zabbix/zabbix_server.log 3、web前端Ⅰ、安装 浏览器中输入：http://&lt;server_ip_or_name&gt;/zabbix 欢迎界面：Welcome to Zabbix 3.0 点击“Next step”后会出现校验配置页面 右侧均为“OK”说明配置正确生效，如果有红叉则需要查看之前相应的修改配置项。 点击“Next step”后会出现配置数据库连接界面 “Password”处填写“zabbix” 点击“Next step”后出现 zabbix 服务器信息界面 在“Name”处填写“zabbix” 点击“Next step”后会展示之前安装的配置项，再次点击“Next step”即可进入安装。 安装完成后点击“Finish”。 登陆 zabbix web， 初始登陆用户名为“Admin”，密码为“zabbix”。 Ⅱ、设置中文界面 首先点击 web 界面右上角的用户头像 然后进入“User”设置项，在“Language”处修改为“Chinese（zh_CN）”，然后点击“Update”跟新即可 12若不能选择 Chinese（zh_CN），安装中文环境 locale -asudo apt-get install language-pack-zh-hant language-pack-zh-hans Ⅲ、添加中文字体（解决中文全是方格问题）12345678910cd /etc/nginx/html/zabbix/fonts/ # 进入目录存放字体文件DejaVuSans.ttf # 仿宋简体-常规sudo vim /usr/share/zabbix/include/locales.inc.php# 修改'zh_CN' =&gt; ['name' =&gt; _('Chinese (zh_CN)'), 'display' =&gt; true],sudo vim /usr/share/zabbix/include/defines.inc.php # 修改文件中字体的配置define('ZBX_GRAPH_FONT_NAME', 'DejaVuSans'); # 指定字体文件名 4、客户端123456789101112131415sudo apt -y install zabbix-agentsudo service zabbix-agent startsudo service zabbix-agent stopsudo service zabbix-agent restartsudo netstat -ntpl | grep zabbixsudo service zabbix-agent statussudo update-rc.d zabbix-agent enable # 开机启动# 修改配置文件sudo vi /etc/zabbix/zabbix_agentd.confServer=192.168.126.122 # 接受数据的服务端ipServerActive=192.168.126.122 # 接受数据的服务端ipHostname=192.168.126.139 # 当前服务器的ip 5、添加监控Ⅰ、基本 zabbix监控第一台服务器（10） Zabbix分布式监控系统实践 自定义配置 zabbix添加监控服务器. 创建主机，成功后，可以看到对应的Host，但右侧不会显示绿色的被监控图标，因为目前还没有配置任何监控选项 主机名必须和上面的Hostname一致！ Ⅱ、监控多个GPU https://github.com/plambe/zabbix-nvidia-smi-multi-gpu/ 修改文件 123456789101112sudo vim /etc/zabbix/zabbix_agentd.conf# 复制 userparameter_nvidia-smi.conf.linux 文件里面的内容至文件末尾UserParameter=gpu.number,/usr/bin/nvidia-smi -L | /usr/bin/wc -lUserParameter=gpu.discovery,/etc/zabbix/scripts/get_gpus_info.shUserParameter=gpu.fanspeed[*],nvidia-smi --query-gpu=fan.speed --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.power[*],nvidia-smi --query-gpu=power.draw --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.temp[*],nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.utilization[*],nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.memfree[*],nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.memused[*],nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits -i $1 | tr -d "\n"UserParameter=gpu.memtotal[*],nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits -i $1 | tr -d "\n" 复制脚本，设置可执行 12345cd /etc/zabbix/sudo mkdir scriptscd scripts/sudo cp /data4/zzk/get_gpus_info.sh ./sudo chmod +x get_gpus_info.sh web端导入模板文件：zbx_nvidia-smi-multi-gpu.xml 6、普通用户Ⅰ、新建 【管理】→【用户】→【创建用户】→【别名】→【群组-选择普通用户】→【密码】→【密码确认】→【语言-中文】→【添加】 Ⅱ、赋予权限 【监测中】→【聚合图形】→【xx名称-动作-属性】→【分享】→【用户组共享列表-添加普通用户】→【用户共享列表- 添加用户名】→【更新】]]></content>
       <categories>
         <category>教程</category>
       </categories>
@@ -65,8 +65,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>编程</tag>
       </tags>
   </entry>
   <entry>
@@ -155,8 +155,8 @@
       <tags>
         <tag>NLP</tag>
         <tag>NER</tag>
-        <tag>文本分类</tag>
         <tag>数据库</tag>
+        <tag>文本分类</tag>
         <tag>KBQA</tag>
         <tag>BERT</tag>
         <tag>知识图谱</tag>
@@ -171,8 +171,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>编程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
       </tags>
