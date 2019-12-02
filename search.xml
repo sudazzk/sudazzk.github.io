@@ -49,8 +49,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>GPU</tag>
+        <tag>Linux</tag>
         <tag>软件</tag>
         <tag>运维</tag>
       </tags>
@@ -169,8 +169,8 @@
       <tags>
         <tag>NLP</tag>
         <tag>NER</tag>
-        <tag>文本分类</tag>
         <tag>数据库</tag>
+        <tag>文本分类</tag>
         <tag>KBQA</tag>
         <tag>BERT</tag>
         <tag>知识图谱</tag>
