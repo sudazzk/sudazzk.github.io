@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuzongkui.top/"/>
-  <updated>2019-11-09T05:58:59.443Z</updated>
+  <updated>2019-12-02T08:30:01.605Z</updated>
   <id>http://www.zhuzongkui.top/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>NEO4J 使用教程</title>
+    <link href="http://www.zhuzongkui.top/2019/12/02/neo4j/"/>
+    <id>http://www.zhuzongkui.top/2019/12/02/neo4j/</id>
+    <published>2019-12-02T06:35:00.000Z</published>
+    <updated>2019-12-02T08:30:01.605Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h1><h2 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h2><ul><li>官网：<a href="https://neo4j.com/" target="_blank" rel="noopener">https://neo4j.com/</a></li><li>官方手册：<a href="https://neo4j.com/docs/operations-manual/current/" target="_blank" rel="noopener">https://neo4j.com/docs/operations-manual/current/</a></li><li>neo4j教程：<a href="https://www.w3cschool.cn/neo4j/" target="_blank" rel="noopener">https://www.w3cschool.cn/neo4j/</a></li><li>neo4j 初步认识和使用：<a href="https://segmentfault.com/a/1190000014488430?utm_source=tag-newest" target="_blank" rel="noopener">https://segmentfault.com/a/1190000014488430?utm_source=tag-newest</a></li><li>Neo4j基础介绍：<a href="https://blog.csdn.net/liudongdong19/article/details/82772104" target="_blank" rel="noopener">https://blog.csdn.net/liudongdong19/article/details/82772104</a></li><li>Neo4j 学习笔记（-）：<a href="https://www.cnblogs.com/infoo/p/9840965.html" target="_blank" rel="noopener">https://www.cnblogs.com/infoo/p/9840965.html</a></li><li>Neo4j 学习笔记（二）：<a href="https://www.cnblogs.com/infoo/p/11947467.html" target="_blank" rel="noopener">https://www.cnblogs.com/infoo/p/11947467.html</a></li><li><a href="https://my.oschina.net/airship/blog/3003268" target="_blank" rel="noopener">neo4j 开启远程web访问7474端口 以 用浏览器打开远程neo4j的web控制台界面</a></li><li><a href="https://baijiahao.baidu.com/s?id=1620612689035884669&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">图数据库哪家强，图数据库选型入门指南</a></li><li><a href="https://codeday.me/bug/20190929/1832633.html" target="_blank" rel="noopener">启动Neo4j失败：地址localhost：7474已经在使用</a></li></ul><h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><ul><li>目前最流行的高性能的NoSQL图形数据库，结构化数据存储在网络上而不是在表中，完全由java开发</li><li>支持完整的事务，在属性图中，图是由顶点（Vertex），边（Edge）和属性（Property）组成的，顶点和边都可以设置属性，顶点也称作节点，边也称作关系，每个节点和关系都可以由一个或多个属性。</li><li>Neo4j创建的图是用顶点和边构建一个有向图，其查询语言cypher已经成为事实上的标准。</li></ul><h1 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h1><h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><ul><li>社区版：<a href="https://neo4j.com/download-center/#community" target="_blank" rel="noopener">https://neo4j.com/download-center/#community</a></li><li>链接地址（Linux版）：<a href="https://neo4j.com/artifact.php?name=neo4j-community-3.5.13-unix.tar.gz" target="_blank" rel="noopener">https://neo4j.com/artifact.php?name=neo4j-community-3.5.13-unix.tar.gz</a></li><li>链接地址（Windows）：<a href="https://neo4j.com/artifact.php?name=neo4j-community-3.5.13-windows.zip" target="_blank" rel="noopener">https://neo4j.com/artifact.php?name=neo4j-community-3.5.13-windows.zip</a></li></ul><h2 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tar -xf neo4j-community-3.5.13-unix.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> neo4j-community-3.5.13/</span><br><span class="line"><span class="comment">## 取消54行注释</span></span><br><span class="line">dbms.connectors.default_listen_address=0.0.0.0</span><br><span class="line"></span><br><span class="line">./bin/neo4j console    <span class="comment"># 以控制台应用运行</span></span><br><span class="line">./bin/neo4j start      <span class="comment"># 以后台进程运行</span></span><br></pre></td></tr></table></figure><h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><ul><li><a href="http://localhost:7474/" target="_blank" rel="noopener">http://localhost:7474/</a></li><li>初始用户名和密码：neo4j</li><li>修改密码：neo4j.</li></ul><h1 id="三、Python操作"><a href="#三、Python操作" class="headerlink" title="三、Python操作"></a>三、Python操作</h1><h2 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h2><ul><li><a href="https://py2neo.org/v4/" target="_blank" rel="noopener">The Py2neo v4 Handbook</a></li><li><a href="https://www.jianshu.com/p/e53175c81b22" target="_blank" rel="noopener">在python中使用neo4j全过程</a></li><li><a href="https://blog.csdn.net/yangfengling1023/article/details/82049715" target="_blank" rel="noopener">python操作neo4j</a> 【较详细】</li><li><a href="https://www.jianshu.com/p/da84712ef62b" target="_blank" rel="noopener">python通过py2neo模块操作Neo4j图数据库</a></li><li>安装 py2neo：<code>python -m pip install py2neo</code></li></ul><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> py2neo <span class="keyword">import</span> Node, Relationship, Graph, NodeMatcher, RelationshipMatcher</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建图形</span></span><br><span class="line">graph = Graph(<span class="string">'http://localhost:7474'</span>, username=<span class="string">'neo4j'</span>, password=<span class="string">'neo4j.'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建node</span></span><br><span class="line">a = Node(<span class="string">'label'</span>, name = <span class="string">'a'</span> )</span><br><span class="line">b = Node(<span class="string">'label'</span>, name = <span class="string">'b'</span> )</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在graph中绘制node</span></span><br><span class="line">graph.create(a)</span><br><span class="line">graph.create(b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 新建关系并绘制</span></span><br><span class="line">r1 = Relationship(a, <span class="string">'to'</span>, b, name = <span class="string">'to'</span>) <span class="comment">#可以增加一些属性，也可以省略</span></span><br><span class="line">graph.create(r1)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;一、介绍&quot;&gt;&lt;a href=&quot;#一、介绍&quot; class=&quot;headerlink&quot; title=&quot;一、介绍&quot;&gt;&lt;/a&gt;一、介绍&lt;/h1&gt;&lt;h2 id=&quot;相关链接&quot;&gt;&lt;a href=&quot;#相关链接&quot; class=&quot;headerlink&quot; tit
+      
+    
+    </summary>
+    
+      <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Linux" scheme="http://www.zhuzongkui.top/tags/Linux/"/>
+    
+      <category term="Windows" scheme="http://www.zhuzongkui.top/tags/Windows/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
+    
+      <category term="图数据库" scheme="http://www.zhuzongkui.top/tags/%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>剑指 Offer （Python 版）</title>
@@ -383,9 +415,9 @@
     
       <category term="NER" scheme="http://www.zhuzongkui.top/tags/NER/"/>
     
-      <category term="数据库" scheme="http://www.zhuzongkui.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
       <category term="文本分类" scheme="http://www.zhuzongkui.top/tags/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/"/>
+    
+      <category term="数据库" scheme="http://www.zhuzongkui.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
       <category term="KBQA" scheme="http://www.zhuzongkui.top/tags/KBQA/"/>
     
@@ -603,31 +635,6 @@
       <category term="文本分类" scheme="http://www.zhuzongkui.top/tags/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/"/>
     
       <category term="语义相似度" scheme="http://www.zhuzongkui.top/tags/%E8%AF%AD%E4%B9%89%E7%9B%B8%E4%BC%BC%E5%BA%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://www.zhuzongkui.top/2018/08/10/hexo/"/>
-    <id>http://www.zhuzongkui.top/2018/08/10/hexo/</id>
-    <published>2018-08-09T16:00:00.000Z</published>
-    <updated>2019-11-09T06:08:52.435Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><h3 id="一条命令"><a href="#一条命令" class="headerlink" title="一条命令"></a>一条命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp; hexo g &amp; hexo s <span class="comment"># 默认端口号：4000</span></span><br><span class="line">hexo clean &amp; hexo g &amp; hexo server -p 5000 <span class="comment"># 如果4000端口打不开，改用5000</span></span><br></pre></td></tr></table></figure><h3 id="简化命令"><a href="#简化命令" class="headerlink" title="简化命令"></a>简化命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#（1）安装 NodeJS：https://nodejs.org/en/ ，安装好后打开 git bash </span></span><br><span class="line">node -v, npm -v  <span class="comment"># 测试</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#（2）安装 hexo</span></span><br><span class="line">npm install hexo-cli -g  <span class="comment"># hexo 全局安装</span></span><br><span class="line"><span class="comment"># 若失败，配置国内镜像：https://www.jianshu.com/p/2afac1bc0af8</span></span><br><span class="line">hexo -v          <span class="comment"># 测试</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#（3）安装 hexok save</span></span><br><span class="line">npm install hexo --save</span><br><span class="line"></span><br><span class="line"><span class="comment">#（4）更新博客提交</span></span><br><span class="line">hexo c &amp; hexo g  <span class="comment"># 清理并生成</span></span><br><span class="line">hexo s -p 5000   <span class="comment"># 本地服务</span></span><br><span class="line">hexo d           <span class="comment"># 推送</span></span><br></pre></td></tr></table></figure><h3 id="学习教程"><a href="#学习教程" class="headerlink" title="学习教程"></a>学习教程</h3><h4 id="安装教程"><a href="#安装教程" class="headerlink" title="安装教程"></a>安装教程</h4><ul><li>Hexo 官方文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></li><li>Hexo 官方主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></li><li>Font Awesome Icons 图标：<a href="https://fontawesome.com/icons?from=io" target="_blank" rel="noopener">https://fontawesome.com/icons?from=io</a></li><li>Google Fonts 字体：<a href="https://fonts.google.com/" target="_blank" rel="noopener">https://fonts.google.com/</a></li><li>Hexo Next 官方文档：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="noopener">http://theme-next.iissnan.com/getting-started.html</a></li><li><a href="https://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="noopener">hexo从零开始到搭建完整</a></li><li><a href="https://blog.csdn.net/weixin_42152081/article/details/80635669" target="_blank" rel="noopener">如何把自己写的网页挂在Github上面（完整教程）</a></li><li><a href="https://gitee.com/hjm100/codes/wphgb16airu9mx3s0k4ez46" target="_blank" rel="noopener">手把手教你 hexo + github搭建自己的博客以及个人主页</a></li><li><a href="https://www.jianshu.com/p/2afac1bc0af8" target="_blank" rel="noopener">Hexo博客 新手安装及使用教程</a></li></ul><h4 id="优化教程"><a href="#优化教程" class="headerlink" title="优化教程"></a>优化教程</h4><ul><li><a href="https://www.jianshu.com/p/3a05351a37dc" target="_blank" rel="noopener">Hexo的Next主题详细配置</a></li><li><a href="https://www.jianshu.com/p/efbeddc5eb19" target="_blank" rel="noopener">Hexo+Next个人博客主题优化</a></li><li><a href="https://www.cnblogs.com/liziczh/p/9318656.html" target="_blank" rel="noopener">Hexo | （二）Next主题个性化设置</a></li><li><a href="http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html" target="_blank" rel="noopener">hexo的next主题个性化教程:打造炫酷网站</a></li><li>如何在markdown中插入数学公式：<a href="https://www.jianshu.com/p/7ab21c7f0674" target="_blank" rel="noopener">链接1</a> <a href="https://www.jianshu.com/p/888c5eaebabd" target="_blank" rel="noopener">链接2</a></li></ul><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-      <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-      <category term="Hexo" scheme="http://www.zhuzongkui.top/tags/Hexo/"/>
     
   </entry>
   
