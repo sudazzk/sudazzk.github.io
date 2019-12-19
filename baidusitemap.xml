@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.zhuzongkui.top/2019/08/12/deeplearning_framework/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/2019/09/07/anaconda/</loc>
+    <lastmod>2019-12-19</lastmod>
+  </url>  <url>
     <loc>http://www.zhuzongkui.top/2019/08/04/ccks2019_ckbqa/</loc>
     <lastmod>2019-12-17</lastmod>
   </url>  <url>
     <loc>http://www.zhuzongkui.top/2019/11/09/vscode/</loc>
-    <lastmod>2019-12-11</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/2019/09/07/anaconda/</loc>
     <lastmod>2019-12-11</lastmod>
   </url>  <url>
     <loc>http://www.zhuzongkui.top/2019/12/02/neo4j/</loc>
@@ -15,9 +18,6 @@
   </url>  <url>
     <loc>http://www.zhuzongkui.top/2019/09/27/zabbix/</loc>
     <lastmod>2019-11-16</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/2019/08/12/deeplearning_framework/</loc>
-    <lastmod>2019-11-09</lastmod>
   </url>  <url>
     <loc>http://www.zhuzongkui.top/2019/04/17/cuda/</loc>
     <lastmod>2019-11-09</lastmod>

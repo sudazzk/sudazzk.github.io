@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="JuTzungKuei">
 <meta property="og:description" content="[TOC] 相关链接 官网：https://www.anaconda.com/ 下载安装包：https://www.anaconda.com/distribution/ 清华镜像 Miniconda Anaconda详细安装及使用教程  一、Anaconda3 安装与卸载Linux 安装1234567891011121314151617# 依次输入以下命令wget https://repo.con">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-11T13:14:59.455Z">
+<meta property="og:updated_time" content="2019-12-19T06:50:49.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Anaconda 使用教程">
 <meta name="twitter:description" content="[TOC] 相关链接 官网：https://www.anaconda.com/ 下载安装包：https://www.anaconda.com/distribution/ 清华镜像 Miniconda Anaconda详细安装及使用教程  一、Anaconda3 安装与卸载Linux 安装1234567891011121314151617# 依次输入以下命令wget https://repo.con">
@@ -381,8 +381,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-12-11T21:14:59+08:00">
-                2019-12-11
+              <time title="更新于" itemprop="dateModified" datetime="2019-12-19T14:50:49+08:00">
+                2019-12-19
               </time>
             
           </span>
@@ -435,7 +435,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      841 字
+                      889 字
                     </span>
               
 
@@ -509,7 +509,7 @@
 <li>4、删除 kernel：<code>jupyter kernelspec remove env_name</code></li>
 <li>5、在激活的虚拟环境中打开：<code>jupyter notebook</code></li>
 </ul>
-<h1 id="四、Windows-下实际操作"><a href="#四、Windows-下实际操作" class="headerlink" title="四、Windows 下实际操作"></a>四、Windows 下实际操作</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line"></span><br><span class="line">conda create -n tf1.13 python=3.6</span><br><span class="line">conda install -n tf1.13 tensorflow=1.13         <span class="comment"># CPU版</span></span><br><span class="line">conda install -n tf1.13 tensorflow-gpu=1.13     <span class="comment"># GPU版</span></span><br><span class="line">conda install -n tf1.13 scikit-learn</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> activate tf1.13</span><br><span class="line">conda install -n tf1.13 ipykernel</span><br><span class="line">python -m ipykernel install --user --name tf1.13 --display-name tf1.13</span><br></pre></td></tr></table></figure>
+<h1 id="四、Windows-下实际操作"><a href="#四、Windows-下实际操作" class="headerlink" title="四、Windows 下实际操作"></a>四、Windows 下实际操作</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --<span class="built_in">set</span> show_channel_urls yes</span><br><span class="line"></span><br><span class="line">conda create -n tf1.13 python=3.6</span><br><span class="line">conda install -n tf1.13 tensorflow=1.13         <span class="comment"># CPU版</span></span><br><span class="line">conda install -n tf1.13 tensorflow-gpu=1.13     <span class="comment"># GPU版</span></span><br><span class="line">conda install -n tf1.13 scikit-learn</span><br><span class="line"></span><br><span class="line">conda install pytorch==1.2.0 torchvision==0.4.0 cudatoolkit=9.2 -c pytorch    <span class="comment"># CUDA 9.2</span></span><br><span class="line">conda install pytorch==1.2.0 torchvision==0.4.0 cudatoolkit=10.0 -c pytorch   <span class="comment"># CUDA 10.0</span></span><br><span class="line">conda install pytorch==1.2.0 torchvision==0.4.0 cpuonly -c pytorch            <span class="comment"># CPU Only</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> activate tf1.13</span><br><span class="line">conda install -n tf1.13 ipykernel</span><br><span class="line">python -m ipykernel install --user --name tf1.13 --display-name tf1.13</span><br></pre></td></tr></table></figure>
 <h1 id="五、pip-配置镜像"><a href="#五、pip-配置镜像" class="headerlink" title="五、pip 配置镜像"></a>五、pip 配置镜像</h1><ul>
 <li><a href="https://www.cnblogs.com/wqpkita/p/7248525.html" target="_blank" rel="noopener">国内镜像</a></li>
 </ul>
@@ -517,6 +517,7 @@
 <li>可以在使用pip的时候在后面加上-i参数，指定pip源<br><code>pip install scrapy -i https://pypi.tuna.tsinghua.edu.cn/simple</code><br><code>pip install numpy -i https://pypi.mirrors.ustc.edu.cn/simple</code></li>
 </ul>
 <h2 id="永久修改："><a href="#永久修改：" class="headerlink" title="永久修改："></a>永久修改：</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@ Linux</span><br><span class="line">mkdir ~/.pip</span><br><span class="line"><span class="built_in">cd</span> ~/.pip</span><br><span class="line">vim pip.conf</span><br><span class="line"></span><br><span class="line">@ Windows</span><br><span class="line">C:\Users\你的用户名\pip\pip.ini</span><br><span class="line">例：C:\Users\Administrator\pip\pip.ini</span><br><span class="line"></span><br><span class="line">文件内容：</span><br><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host=pypi.tuna.tsinghua.edu.cn</span><br></pre></td></tr></table></figure>
+
       
     </div>
 
