@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.zhuzongkui.top/2018/09/10/git/</loc>
+    <lastmod>2020-04-14</lastmod>
+  </url>  <url>
     <loc>http://www.zhuzongkui.top/2019/08/31/sklearn_cls/</loc>
     <lastmod>2020-04-14</lastmod>
   </url>  <url>
@@ -63,8 +66,5 @@
   </url>  <url>
     <loc>http://www.zhuzongkui.top/2018/10/07/evaluation/</loc>
     <lastmod>2019-09-23</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/2018/09/10/git/</loc>
-    <lastmod>2019-09-03</lastmod>
   </url>
 </urlset>
