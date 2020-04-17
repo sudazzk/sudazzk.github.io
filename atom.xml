@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuzongkui.top/"/>
-  <updated>2019-12-19T07:29:06.369Z</updated>
+  <updated>2020-04-17T11:22:50.795Z</updated>
   <id>http://www.zhuzongkui.top/</id>
   
   <author>
@@ -17,13 +17,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Markdown 文档管理工具</title>
+    <title>Markdown 文档/笔记管理工具</title>
     <link href="http://www.zhuzongkui.top/2019/12/19/doc_markdown/"/>
     <id>http://www.zhuzongkui.top/2019/12/19/doc_markdown/</id>
     <published>2019-12-19T06:55:48.000Z</published>
-    <updated>2019-12-19T07:29:06.369Z</updated>
+    <updated>2020-04-17T11:22:50.795Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Markdown-文档管理工具（静态网站生成器）"><a href="#Markdown-文档管理工具（静态网站生成器）" class="headerlink" title="Markdown 文档管理工具（静态网站生成器）"></a>Markdown 文档管理工具（静态网站生成器）</h1><ul><li>一键生成：<a href="https://github.com/matusnovak/doxybook" target="_blank" rel="noopener">https://github.com/matusnovak/doxybook</a></li><li>下载量趋势图：<a href="https://www.npmtrends.com/docsify-vs-docute-vs-gitbook-vs-vuepress-vs-mkdocs" target="_blank" rel="noopener">https://www.npmtrends.com/docsify-vs-docute-vs-gitbook-vs-vuepress-vs-mkdocs</a></li><li>对比：<a href="http://www.amdoing.com/static-site-generator-hexo-gitbook-vuepress-and-so-on/" target="_blank" rel="noopener">http://www.amdoing.com/static-site-generator-hexo-gitbook-vuepress-and-so-on/</a></li></ul><h2 id="docsify"><a href="#docsify" class="headerlink" title="docsify"></a>docsify</h2><ul><li><a href="https://docsify.js.org/#/zh-cn/" target="_blank" rel="noopener">中文官网</a></li><li><a href="https://blog.csdn.net/u012894692/article/details/82350605" target="_blank" rel="noopener">github+docsify生成文档网站</a></li><li><a href="https://www.jianshu.com/p/88e70f32b049" target="_blank" rel="noopener">docsify-写一个自己的网站</a></li><li><a href="https://www.jianshu.com/p/dc66e0b50d8e?utm_source=oschina-app" target="_blank" rel="noopener">docsify 不一样的文档工具</a></li><li><a href="http://www.imooc.com/article/287154" target="_blank" rel="noopener">Docsify快速搭建个人博客</a></li><li><a href="https://segmentfault.com/a/1190000017576714" target="_blank" rel="noopener">docsify - 生成文档网站简单使用教程</a></li></ul><h2 id="mkdocs"><a href="#mkdocs" class="headerlink" title="mkdocs"></a>mkdocs</h2><ul><li><a href="https://markdown-docs-zh.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">中文文档</a></li><li><a href="https://blog.csdn.net/weixin_37272286/article/details/80963675" target="_blank" rel="noopener">使用 Mkdocs 在 Github 上快速部署文章</a></li></ul><h2 id="vuepress"><a href="#vuepress" class="headerlink" title="vuepress"></a>vuepress</h2><ul><li><a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener">中文官网</a></li><li><a href="https://www.jianshu.com/p/7a2cc8a7f40c" target="_blank" rel="noopener">VuePress超详细简单教程</a></li><li><a href="https://www.cnblogs.com/softidea/p/10084946.html" target="_blank" rel="noopener">手把手教你使用 VuePress 搭建个人博客</a></li></ul><h2 id="docute"><a href="#docute" class="headerlink" title="docute"></a>docute</h2><ul><li><a href="https://docute.org/zh/" target="_blank" rel="noopener">中文官网</a></li></ul><h2 id="gitbook"><a href="#gitbook" class="headerlink" title="gitbook"></a>gitbook</h2><ul><li><a href="https://www.gitbook.com/" target="_blank" rel="noopener">官网</a></li></ul><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><ul><li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">中文文档</a></li></ul><h2 id="Jekyll"><a href="#Jekyll" class="headerlink" title="Jekyll"></a>Jekyll</h2><ul><li><a href="http://jekyllcn.com/" target="_blank" rel="noopener">中文官网</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="Markdown-文档管理工具（静态网站生成器）"><a href="#Markdown-文档管理工具（静态网站生成器）" class="headerlink" title="Markdown 文档管理工具（静态网站生成器）"></a>Markdown 文档管理工具（静态网站生成器）</h1><ul><li>一键生成：<a href="https://github.com/matusnovak/doxybook" target="_blank" rel="noopener">https://github.com/matusnovak/doxybook</a></li><li>下载量趋势图：<a href="https://www.npmtrends.com/docsify-vs-docute-vs-gitbook-vs-vuepress-vs-mkdocs" target="_blank" rel="noopener">https://www.npmtrends.com/docsify-vs-docute-vs-gitbook-vs-vuepress-vs-mkdocs</a></li><li>对比：<a href="http://www.amdoing.com/static-site-generator-hexo-gitbook-vuepress-and-so-on/" target="_blank" rel="noopener">http://www.amdoing.com/static-site-generator-hexo-gitbook-vuepress-and-so-on/</a></li><li>对比：<a href="https://www.zhihu.com/question/272447285" target="_blank" rel="noopener">https://www.zhihu.com/question/272447285</a></li></ul><h2 id="vuepress"><a href="#vuepress" class="headerlink" title="vuepress"></a>vuepress</h2><ul><li><a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener">中文官网</a></li><li><a href="https://www.jianshu.com/p/7a2cc8a7f40c" target="_blank" rel="noopener">VuePress超详细简单教程</a></li><li><a href="https://www.cnblogs.com/softidea/p/10084946.html" target="_blank" rel="noopener">手把手教你使用 VuePress 搭建个人博客</a></li><li><a href="https://www.lxx1.com/4226" target="_blank" rel="noopener">使用Vuepress 搭建文档网站并进行配置</a></li></ul><h2 id="docsify"><a href="#docsify" class="headerlink" title="docsify"></a>docsify</h2><ul><li><a href="https://docsify.js.org/#/zh-cn/" target="_blank" rel="noopener">中文官网</a></li><li><a href="https://blog.csdn.net/u012894692/article/details/82350605" target="_blank" rel="noopener">github+docsify生成文档网站</a></li><li><a href="https://www.jianshu.com/p/88e70f32b049" target="_blank" rel="noopener">docsify-写一个自己的网站</a></li><li><a href="https://www.jianshu.com/p/dc66e0b50d8e?utm_source=oschina-app" target="_blank" rel="noopener">docsify 不一样的文档工具</a></li><li><a href="http://www.imooc.com/article/287154" target="_blank" rel="noopener">Docsify快速搭建个人博客</a></li><li><a href="https://segmentfault.com/a/1190000017576714" target="_blank" rel="noopener">docsify - 生成文档网站简单使用教程</a></li></ul><h2 id="mkdocs"><a href="#mkdocs" class="headerlink" title="mkdocs"></a>mkdocs</h2><ul><li><a href="https://markdown-docs-zh.readthedocs.io/zh_CN/latest/" target="_blank" rel="noopener">中文文档</a></li><li><a href="https://blog.csdn.net/weixin_37272286/article/details/80963675" target="_blank" rel="noopener">使用 Mkdocs 在 Github 上快速部署文章</a></li></ul><h2 id="docute"><a href="#docute" class="headerlink" title="docute"></a>docute</h2><ul><li><a href="https://docute.org/zh/" target="_blank" rel="noopener">中文官网</a></li></ul><h2 id="gitbook"><a href="#gitbook" class="headerlink" title="gitbook"></a>gitbook</h2><ul><li><a href="https://www.gitbook.com/" target="_blank" rel="noopener">官网</a></li></ul><h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><ul><li><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">中文文档</a></li></ul><h2 id="Jekyll"><a href="#Jekyll" class="headerlink" title="Jekyll"></a>Jekyll</h2><ul><li><a href="http://jekyllcn.com/" target="_blank" rel="noopener">中文官网</a></li></ul>]]></content>
     
     <summary type="html">
     
@@ -98,9 +98,9 @@
       <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="笔试" scheme="http://www.zhuzongkui.top/tags/%E7%AC%94%E8%AF%95/"/>
     
@@ -130,9 +130,9 @@
       <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="软件" scheme="http://www.zhuzongkui.top/tags/%E8%BD%AF%E4%BB%B6/"/>
     
@@ -231,9 +231,9 @@
     
       <category term="Linux" scheme="http://www.zhuzongkui.top/tags/Linux/"/>
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
   </entry>
   
@@ -481,9 +481,9 @@
       <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="数据结构" scheme="http://www.zhuzongkui.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     

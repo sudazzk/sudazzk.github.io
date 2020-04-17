@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Markdown 文档管理工具]]></title>
+    <title><![CDATA[Markdown 文档/笔记管理工具]]></title>
     <url>%2F2019%2F12%2F19%2Fdoc_markdown%2F</url>
-    <content type="text"><![CDATA[Markdown 文档管理工具（静态网站生成器） 一键生成：https://github.com/matusnovak/doxybook 下载量趋势图：https://www.npmtrends.com/docsify-vs-docute-vs-gitbook-vs-vuepress-vs-mkdocs 对比：http://www.amdoing.com/static-site-generator-hexo-gitbook-vuepress-and-so-on/ docsify 中文官网 github+docsify生成文档网站 docsify-写一个自己的网站 docsify 不一样的文档工具 Docsify快速搭建个人博客 docsify - 生成文档网站简单使用教程 mkdocs 中文文档 使用 Mkdocs 在 Github 上快速部署文章 vuepress 中文官网 VuePress超详细简单教程 手把手教你使用 VuePress 搭建个人博客 docute 中文官网 gitbook 官网 Hexo 中文文档 Jekyll 中文官网]]></content>
+    <content type="text"><![CDATA[Markdown 文档管理工具（静态网站生成器） 一键生成：https://github.com/matusnovak/doxybook 下载量趋势图：https://www.npmtrends.com/docsify-vs-docute-vs-gitbook-vs-vuepress-vs-mkdocs 对比：http://www.amdoing.com/static-site-generator-hexo-gitbook-vuepress-and-so-on/ 对比：https://www.zhihu.com/question/272447285 vuepress 中文官网 VuePress超详细简单教程 手把手教你使用 VuePress 搭建个人博客 使用Vuepress 搭建文档网站并进行配置 docsify 中文官网 github+docsify生成文档网站 docsify-写一个自己的网站 docsify 不一样的文档工具 Docsify快速搭建个人博客 docsify - 生成文档网站简单使用教程 mkdocs 中文文档 使用 Mkdocs 在 Github 上快速部署文章 docute 中文官网 gitbook 官网 Hexo 中文文档 Jekyll 中文官网]]></content>
       <categories>
         <category>笔记</category>
       </categories>
@@ -34,8 +34,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>编程</tag>
+        <tag>Python</tag>
         <tag>笔试</tag>
         <tag>刷题</tag>
       </tags>
@@ -48,8 +48,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>编程</tag>
+        <tag>Python</tag>
         <tag>软件</tag>
       </tags>
   </entry>
@@ -91,8 +91,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>Python</tag>
         <tag>编程</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -197,8 +197,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>编程</tag>
+        <tag>Python</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
       </tags>
