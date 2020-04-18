@@ -1,0 +1,1068 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="GGAM3qWlwk">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Italianno:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Linux,编程,软件,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JuTzungKuei" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Vim 基本配置一、教程 Vim初级：配置和使用 Vim配置（python版）  二、李老师的 vim 配置 主页123456789101112131415161718192021222324252627282930313233343536373839set nocompatible &amp;quot; 关闭 vi 兼容模式syntax on &amp;quot; 自动语法高亮set number &amp;quot;">
+<meta name="keywords" content="Linux,编程,软件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim 基本配置">
+<meta property="og:url" content="http://www.zhuzongkui.top/vim/index.html">
+<meta property="og:site_name" content="JuTzungKuei">
+<meta property="og:description" content="Vim 基本配置一、教程 Vim初级：配置和使用 Vim配置（python版）  二、李老师的 vim 配置 主页123456789101112131415161718192021222324252627282930313233343536373839set nocompatible &amp;quot; 关闭 vi 兼容模式syntax on &amp;quot; 自动语法高亮set number &amp;quot;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-09T05:54:19.956Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim 基本配置">
+<meta name="twitter:description" content="Vim 基本配置一、教程 Vim初级：配置和使用 Vim配置（python版）  二、李老师的 vim 配置 主页123456789101112131415161718192021222324252627282930313233343536373839set nocompatible &amp;quot; 关闭 vi 兼容模式syntax on &amp;quot; 自动语法高亮set number &amp;quot;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博 主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.zhuzongkui.top/vim/">
+
+
+
+
+
+  <title> Vim 基本配置 | JuTzungKuei </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?56d10b8996a9765b754cb988e694134b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JuTzungKuei</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">zzk's homepage</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首 页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关 于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分 类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归 档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标 签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜 索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜 索 ..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuzongkui.top/vim/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zongkui Zhu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuTzungKuei">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Vim 基本配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-11T12:13:31+08:00">
+                2019-08-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-09T13:54:19+08:00">
+                2019-11-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">字数统计</span>
+                  
+                    <span title="字数统计" }}">
+                      900 字
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">阅读时长</span>
+                  
+                    <span title="阅读时长" }}">
+                      3 分钟
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Vim-基本配置"><a href="#Vim-基本配置" class="headerlink" title="Vim 基本配置"></a>Vim 基本配置</h1><h2 id="一、教程"><a href="#一、教程" class="headerlink" title="一、教程"></a>一、教程</h2><ul>
+<li><a href="http://harttle.land/2013/11/08/vim-config.html" target="_blank" rel="noopener">Vim初级：配置和使用</a></li>
+<li><a href="https://www.cnblogs.com/cjy15639731813/p/5886158.html" target="_blank" rel="noopener">Vim配置（python版）</a></li>
+</ul>
+<h2 id="二、李老师的-vim-配置-主页"><a href="#二、李老师的-vim-配置-主页" class="headerlink" title="二、李老师的 vim 配置 主页"></a>二、李老师的 vim 配置 <a href="http://hlt.suda.edu.cn/~zhli/" target="_blank" rel="noopener">主页</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible &quot; 关闭 vi 兼容模式</span><br><span class="line">syntax on &quot; 自动语法高亮</span><br><span class="line">set number &quot; 显示行号</span><br><span class="line">set cursorline &quot; 突出显示当前行</span><br><span class="line">set ruler &quot; 打开状态栏标尺</span><br><span class="line">set shiftwidth=4 &quot; 设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 4</span><br><span class="line">set softtabstop=4 &quot; 使得按退格键时可以一次删掉 4 个空格</span><br><span class="line">set tabstop=4 &quot; 设定 tab 长度为 4</span><br><span class="line">set nobackup &quot; 覆盖文件时不备份</span><br><span class="line">set autochdir &quot; 自动切换当前目录为当前文件所在的目录</span><br><span class="line">filetype plugin indent on &quot; 开启插件</span><br><span class="line">set backupcopy=yes &quot; 设置备份时的行为为覆盖</span><br><span class="line">set ignorecase smartcase &quot; 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感</span><br><span class="line">set nowrapscan &quot; 禁止在搜索到文件两端时重新搜索</span><br><span class="line">set incsearch &quot; 输入搜索内容时就显示搜索结果</span><br><span class="line">set hlsearch &quot; 搜索时高亮显示被找到的文本</span><br><span class="line">set noerrorbells &quot; 关闭错误信息响铃</span><br><span class="line">set novisualbell &quot; 关闭使用可视响铃代替呼叫</span><br><span class="line">set t_vb= &quot; 置空错误铃声的终端代码</span><br><span class="line">&quot; set showmatch &quot; 插入括号时，短暂地跳转到匹配的对应括号</span><br><span class="line">&quot; set matchtime=2 &quot; 短暂跳转到匹配括号的时间</span><br><span class="line">set magic &quot; 设置魔术</span><br><span class="line">set hidden &quot; 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存</span><br><span class="line">set guioptions-=T &quot; 隐藏工具栏</span><br><span class="line">set guioptions-=m &quot; 隐藏菜单栏</span><br><span class="line">set smartindent &quot; 开启新行时使用智能自动缩进</span><br><span class="line">set backspace=indent,eol,start</span><br><span class="line">&quot; 不设定在插入状态无法用退格键和 Delete 键删除回车符</span><br><span class="line">set cmdheight=1 &quot; 设定命令行的行数为 1</span><br><span class="line">set laststatus=2 &quot; 显示状态栏 (默认值为 1, 无法显示状态栏)</span><br><span class="line">set statusline=\ %&lt;%F[%1*%M%*%n%R%H]%=\ %y\ %0(%&#123;&amp;fileformat&#125;\ %&#123;&amp;encoding&#125;\ %c:%l/%L%)\ </span><br><span class="line">&quot; 设置在状态行显示的信息</span><br><span class="line">&quot;set foldenable &quot; 开始折叠</span><br><span class="line">&quot;set foldmethod=syntax &quot; 设置语法折叠</span><br><span class="line">set foldcolumn=0 &quot; 设置折叠区域的宽度</span><br><span class="line">setlocal foldlevel=1 &quot; 设置折叠层数为</span><br><span class="line">&quot; set foldclose=all &quot; 设置为自动关闭折叠 </span><br><span class="line"> nnoremap &lt;space&gt; @=((foldclosed(line(&apos;.&apos;)) &lt; 0) ? &apos;zc&apos; : &apos;zo&apos;)&lt;CR&gt;</span><br><span class="line">&quot; 用空格键来开关折叠</span><br></pre></td></tr></table></figure>
+<h2 id="三、python-注释"><a href="#三、python-注释" class="headerlink" title="三、python 注释"></a>三、python 注释</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">多行注释：</span><br><span class="line">  1. 首先按esc进入命令行模式下，按下Ctrl + v，进入列（也叫区块）模式;</span><br><span class="line">  2. 在行首使用上下键选择需要注释的多行;</span><br><span class="line">  3. 按下键盘（大写）“I”键，进入插入模式；</span><br><span class="line">  4. 然后输入注释符（“//”、“#”等）;</span><br><span class="line">  5. 最后按下“Esc”键。</span><br><span class="line">注：在按下esc键后，会稍等一会才会出现注释，不要着急~~时间很短的</span><br><span class="line"></span><br><span class="line">删除多行注释：</span><br><span class="line">  1. 首先按esc进入命令行模式下，按下Ctrl + v, 进入列模式;</span><br><span class="line">  2. 选定要取消注释的多行;</span><br><span class="line">  3. 按下“x”或者“d”.</span><br><span class="line">注意：如果是“//”注释，那需要执行两次该操作，如果是“#”注释，一次即可</span><br></pre></td></tr></table></figure>
+<h2 id="四、剪切-复制-粘贴"><a href="#四、剪切-复制-粘贴" class="headerlink" title="四、剪切/复制/粘贴"></a>四、剪切/复制/粘贴</h2><ul>
+<li><a href="https://blog.csdn.net/lanxinju/article/details/5727262" target="_blank" rel="noopener">vi/vim复制粘贴命令</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 一行</span><br><span class="line">yy          复制一行</span><br><span class="line">dd          剪切一行</span><br><span class="line">p（小写）    粘贴（光标往后）</span><br><span class="line">P（大写）    粘贴（光标往前）</span><br><span class="line"></span><br><span class="line"># 多行</span><br><span class="line">先将光标移到多行的开始处</span><br><span class="line">esc v 进入可视模式</span><br><span class="line">再将光标移到多行的结尾处</span><br><span class="line">y           复制上面选中的</span><br><span class="line">d           剪切选定块到缓冲区</span><br><span class="line">p（小写）    粘贴（光标往后）</span><br><span class="line">P（大写）    粘贴（光标往前）</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat.jpg" alt="Zongkui Zhu WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Zongkui Zhu Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+            <a href="/tags/软件/" rel="tag"><i class="fa fa-tag"></i> 软件</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/nlp_base_task/" rel="next" title="NLP 基本任务">
+                <i class="fa fa-chevron-left"></i> NLP 基本任务
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/deeplearning_framework/" rel="prev" title="深度学习框架 - 学习链接">
+                深度学习框架 - 学习链接 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Zongkui Zhu">
+          <p class="site-author-name" itemprop="name">Zongkui Zhu</p>
+           
+              <p class="site-description motion-element" itemprop="description">有句话说的好，但是我忘记了~</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日 志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分 类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标 签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sudazzk" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://gitee.com/sudazzk" target="_blank" title="Gitee">
+                  
+                    <i class="fa fa-fw fa-google"></i>
+                  
+                  Gitee
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/zzkv587" target="_blank" title="Blog">
+                  
+                    <i class="fa fa-fw fa-bold"></i>
+                  
+                  Blog
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/zhuzongkui" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.suda.edu.cn" target="_blank" title="University">
+                  
+                    <i class="fa fa-fw fa-university"></i>
+                  
+                  University
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://hlt.suda.edu.cn" target="_blank" title="Laboratory">
+                  
+                    <i class="fa fa-fw fa-flask"></i>
+                  
+                  Laboratory
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vim-基本配置"><span class="nav-number">1.</span> <span class="nav-text">Vim 基本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、教程"><span class="nav-number">1.1.</span> <span class="nav-text">一、教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、李老师的-vim-配置-主页"><span class="nav-number">1.2.</span> <span class="nav-text">二、李老师的 vim 配置 主页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、python-注释"><span class="nav-number">1.3.</span> <span class="nav-text">三、python 注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、剪切-复制-粘贴"><span class="nav-number">1.4.</span> <span class="nav-text">四、剪切/复制/粘贴</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zongkui Zhu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="local-search-pop-overlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

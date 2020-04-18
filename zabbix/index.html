@@ -1,0 +1,1137 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="GGAM3qWlwk">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Italianno:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Linux,GPU,软件,运维,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="JuTzungKuei" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="[TOC] 相关链接 官网：https://www.zabbix.com/download Ubuntu 安装 Zabbix 3 详细步骤 在 Ubuntu 16.04 Server 上安装 Zabbix Zabbix 系列博客教程目录  Linux Dash Ubuntu Server 14.04 安装状态监控Linux Dash 如何在Ubuntu 14.04安装 Linux Dash htt">
+<meta name="keywords" content="Linux,GPU,软件,运维">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zabbix 安装和配置">
+<meta property="og:url" content="http://www.zhuzongkui.top/zabbix/index.html">
+<meta property="og:site_name" content="JuTzungKuei">
+<meta property="og:description" content="[TOC] 相关链接 官网：https://www.zabbix.com/download Ubuntu 安装 Zabbix 3 详细步骤 在 Ubuntu 16.04 Server 上安装 Zabbix Zabbix 系列博客教程目录  Linux Dash Ubuntu Server 14.04 安装状态监控Linux Dash 如何在Ubuntu 14.04安装 Linux Dash htt">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-16T04:36:31.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="zabbix 安装和配置">
+<meta name="twitter:description" content="[TOC] 相关链接 官网：https://www.zabbix.com/download Ubuntu 安装 Zabbix 3 详细步骤 在 Ubuntu 16.04 Server 上安装 Zabbix Zabbix 系列博客教程目录  Linux Dash Ubuntu Server 14.04 安装状态监控Linux Dash 如何在Ubuntu 14.04安装 Linux Dash htt">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博 主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.zhuzongkui.top/zabbix/">
+
+
+
+
+
+  <title> zabbix 安装和配置 | JuTzungKuei </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?56d10b8996a9765b754cb988e694134b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JuTzungKuei</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">zzk's homepage</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首 页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关 于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分 类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归 档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标 签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜 索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜 索 ..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuzongkui.top/zabbix/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zongkui Zhu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuTzungKuei">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                zabbix 安装和配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-27T10:55:00+08:00">
+                2019-09-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-11-16T12:36:31+08:00">
+                2019-11-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">字数统计</span>
+                  
+                    <span title="字数统计" }}">
+                      1.3k 字
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">阅读时长</span>
+                  
+                    <span title="阅读时长" }}">
+                      5 分钟
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>[TOC]</p>
+<h1 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h1><ul>
+<li>官网：<a href="https://www.zabbix.com/download" target="_blank" rel="noopener">https://www.zabbix.com/download</a></li>
+<li><a href="https://blog.csdn.net/u012318074/article/details/72123802" target="_blank" rel="noopener">Ubuntu 安装 Zabbix 3 详细步骤</a></li>
+<li><a href="https://linux.cn/article-8760-1.html" target="_blank" rel="noopener">在 Ubuntu 16.04 Server 上安装 Zabbix</a></li>
+<li><a href="https://blog.csdn.net/Hehailiang_Dream/article/details/72597734" target="_blank" rel="noopener">Zabbix 系列博客教程目录</a></li>
+</ul>
+<h3 id="Linux-Dash"><a href="#Linux-Dash" class="headerlink" title="Linux Dash"></a>Linux Dash</h3><ul>
+<li><a href="https://www.jianshu.com/p/d8e6285548bf" target="_blank" rel="noopener">Ubuntu Server 14.04 安装状态监控Linux Dash</a></li>
+<li><a href="https://www.howtoing.com/how-to-install-linux-dash-on-ubuntu-14-04/" target="_blank" rel="noopener">如何在Ubuntu 14.04安装 Linux Dash</a></li>
+<li><a href="https://github.com/NoBey/linux-dash-zh" target="_blank" rel="noopener">https://github.com/NoBey/linux-dash-zh</a></li>
+<li><a href="https://blog.csdn.net/yjjddd85/article/details/88839232" target="_blank" rel="noopener">ubuntu 下卸载 mysql8</a></li>
+</ul>
+<h3 id="linux服务器监控工具"><a href="#linux服务器监控工具" class="headerlink" title="linux服务器监控工具"></a>linux服务器监控工具</h3><ul>
+<li><a href="https://blog.csdn.net/u011001084/article/details/79383540" target="_blank" rel="noopener">每个系统管理员都要知道的 30 个 Linux 系统监控工具</a></li>
+<li><a href="https://linux.cn/article-4481-3.html" target="_blank" rel="noopener">你值得拥有 —— 25 个 Linux 性能监控工具</a></li>
+<li><a href="https://www.cnblogs.com/findumars/p/5185184.html" target="_blank" rel="noopener">80 多个 Linux 系统管理员必备的监控工具</a></li>
+</ul>
+<h1 id="zabbix-自动化运维工具"><a href="#zabbix-自动化运维工具" class="headerlink" title="zabbix 自动化运维工具"></a>zabbix 自动化运维工具</h1><h2 id="1、平台和环境"><a href="#1、平台和环境" class="headerlink" title="1、平台和环境"></a>1、平台和环境</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ZABBIX VERSION: 3.0 LTS</span><br><span class="line">OS DISTRIBUTION: Ubuntu</span><br><span class="line">OS VERSION: 16.04 (Xenial)</span><br><span class="line">DATABASE: MySQL (5.x，非8.x)</span><br></pre></td></tr></table></figure>
+<h2 id="2、安装和配置服务端（server）"><a href="#2、安装和配置服务端（server）" class="headerlink" title="2、安装和配置服务端（server）"></a>2、安装和配置服务端（server）</h2><h3 id="Ⅰ、安装仓库（repository）"><a href="#Ⅰ、安装仓库（repository）" class="headerlink" title="Ⅰ、安装仓库（repository）"></a>Ⅰ、安装仓库（repository）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.zabbix.com/zabbix/3.0/ubuntu/pool/main/z/zabbix-release/zabbix-release_3.0-2+xenial_all.deb</span><br><span class="line">sudo dpkg -i zabbix-release_3.0-2+xenial_all.deb</span><br><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+<h3 id="Ⅱ、安装服务端、前端、客户端（server-frontend-agent）"><a href="#Ⅱ、安装服务端、前端、客户端（server-frontend-agent）" class="headerlink" title="Ⅱ、安装服务端、前端、客户端（server, frontend, agent）"></a>Ⅱ、安装服务端、前端、客户端（server, frontend, agent）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-agent</span><br></pre></td></tr></table></figure>
+<h3 id="Ⅲ、数据库初始化"><a href="#Ⅲ、数据库初始化" class="headerlink" title="Ⅲ、数据库初始化"></a>Ⅲ、数据库初始化</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server  <span class="comment"># 若没有安装 mysql5.x</span></span><br><span class="line">mysql -uroot -p</span><br><span class="line">输入root用户的 password</span><br><span class="line">mysql&gt; create database zabbix character <span class="built_in">set</span> utf8 collate utf8_bin;</span><br><span class="line">mysql&gt; grant all privileges on zabbix.* to zabbix@localhost identified by <span class="string">'zabbix'</span>;</span><br><span class="line">mysql&gt; quit;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入初始模式和数据</span></span><br><span class="line">zcat /usr/share/doc/zabbix-server-mysql*/create.sql.gz | mysql -uzabbix -p zabbix</span><br><span class="line">输入密码：zabbix <span class="comment"># 要等一会儿，不能强行中断</span></span><br></pre></td></tr></table></figure>
+<h3 id="Ⅳ、服务端配置数据库"><a href="#Ⅳ、服务端配置数据库" class="headerlink" title="Ⅳ、服务端配置数据库"></a>Ⅳ、服务端配置数据库</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/zabbix/zabbix_server.conf</span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line">DBPassword=zabbix</span><br></pre></td></tr></table></figure>
+<h3 id="Ⅴ、配置PHP时区"><a href="#Ⅴ、配置PHP时区" class="headerlink" title="Ⅴ、配置PHP时区"></a>Ⅴ、配置PHP时区</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/zabbix/apache.conf</span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line">php_value date.timezone Asia/Shanghai</span><br><span class="line"></span><br><span class="line">sudo vim /etc/php/7.0/apache2/php.ini</span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line">date.timezone = Asia/Shanghai</span><br></pre></td></tr></table></figure>
+<h3 id="Ⅵ、启动、重启、停止、开机运行服务"><a href="#Ⅵ、启动、重启、停止、开机运行服务" class="headerlink" title="Ⅵ、启动、重启、停止、开机运行服务"></a>Ⅵ、启动、重启、停止、开机运行服务</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo service zabbix-server start</span><br><span class="line">sudo service zabbix-server stop</span><br><span class="line">sudo service zabbix-server restart</span><br><span class="line">sudo service apache2 start</span><br><span class="line">sudo service apache2 stop</span><br><span class="line">sudo service apache2 restart  <span class="comment"># 重启apache</span></span><br><span class="line">sudo netstat -ntpl | grep zabbix  <span class="comment"># 查看进程</span></span><br><span class="line">sudo update-rc.d zabbix-server <span class="built_in">enable</span>  <span class="comment"># 开机运行</span></span><br><span class="line">vim /etc/rc0.d/  <span class="comment"># 查看是否有zabbix设置为开机自启动</span></span><br></pre></td></tr></table></figure>
+<h3 id="Ⅶ、日志"><a href="#Ⅶ、日志" class="headerlink" title="Ⅶ、日志"></a>Ⅶ、日志</h3><p><code>/var/log/zabbix/zabbix_server.log</code></p>
+<h2 id="3、web前端"><a href="#3、web前端" class="headerlink" title="3、web前端"></a>3、web前端</h2><h3 id="Ⅰ、安装"><a href="#Ⅰ、安装" class="headerlink" title="Ⅰ、安装"></a>Ⅰ、安装</h3><ul>
+<li>浏览器中输入：<code>http://&lt;server_ip_or_name&gt;/zabbix</code></li>
+<li>欢迎界面：Welcome to Zabbix 3.0</li>
+<li>点击“Next step”后会出现校验配置页面</li>
+<li>右侧均为“OK”说明配置正确生效，如果有红叉则需要查看之前相应的修改配置项。</li>
+<li>点击“Next step”后会出现配置数据库连接界面</li>
+<li>“Password”处填写“zabbix”</li>
+<li>点击“Next step”后出现 zabbix 服务器信息界面</li>
+<li>在“Name”处填写“zabbix”</li>
+<li>点击“Next step”后会展示之前安装的配置项，再次点击“Next step”即可进入安装。</li>
+<li>安装完成后点击“Finish”。</li>
+<li>登陆 zabbix web，</li>
+<li>初始登陆用户名为“Admin”，密码为“zabbix”。</li>
+</ul>
+<h3 id="Ⅱ、设置中文界面"><a href="#Ⅱ、设置中文界面" class="headerlink" title="Ⅱ、设置中文界面"></a>Ⅱ、设置中文界面</h3><ul>
+<li>首先点击 web 界面右上角的用户头像</li>
+<li>然后进入“User”设置项，在“Language”处修改为“Chinese（zh_CN）”，然后点击“Update”跟新即可</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">若不能选择 Chinese（zh_CN），安装中文环境 locale -a</span><br><span class="line">sudo apt-get install language-pack-zh-hant language-pack-zh-hans</span><br></pre></td></tr></table></figure>
+<h3 id="Ⅲ、添加中文字体（解决中文全是方格问题）"><a href="#Ⅲ、添加中文字体（解决中文全是方格问题）" class="headerlink" title="Ⅲ、添加中文字体（解决中文全是方格问题）"></a>Ⅲ、添加中文字体（解决中文全是方格问题）</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/nginx/html/zabbix/fonts/  <span class="comment"># 进入目录存放字体文件</span></span><br><span class="line">DejaVuSans.ttf  <span class="comment"># 仿宋简体-常规</span></span><br><span class="line"></span><br><span class="line">sudo vim /usr/share/zabbix/include/locales.inc.php</span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line"><span class="string">'zh_CN'</span> =&gt; [<span class="string">'name'</span> =&gt; _(<span class="string">'Chinese (zh_CN)'</span>), <span class="string">'display'</span> =&gt; <span class="literal">true</span>],</span><br><span class="line"></span><br><span class="line">sudo vim /usr/share/zabbix/include/defines.inc.php </span><br><span class="line"><span class="comment"># 修改文件中字体的配置</span></span><br><span class="line">define(<span class="string">'ZBX_GRAPH_FONT_NAME'</span>, <span class="string">'DejaVuSans'</span>);  <span class="comment"># 指定字体文件名</span></span><br></pre></td></tr></table></figure>
+<h2 id="4、客户端"><a href="#4、客户端" class="headerlink" title="4、客户端"></a>4、客户端</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install zabbix-agent</span><br><span class="line"></span><br><span class="line">sudo service zabbix-agent start</span><br><span class="line">sudo service zabbix-agent stop</span><br><span class="line">sudo service zabbix-agent restart</span><br><span class="line">sudo netstat -ntpl | grep zabbix</span><br><span class="line">sudo service zabbix-agent status</span><br><span class="line">sudo update-rc.d zabbix-agent <span class="built_in">enable</span> <span class="comment"># 开机启动</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改配置文件</span></span><br><span class="line">sudo vi /etc/zabbix/zabbix_agentd.conf</span><br><span class="line"></span><br><span class="line">Server=192.168.126.122  <span class="comment"># 接受数据的服务端ip</span></span><br><span class="line">ServerActive=192.168.126.122  <span class="comment"># 接受数据的服务端ip</span></span><br><span class="line">Hostname=192.168.126.139  <span class="comment"># 当前服务器的ip</span></span><br></pre></td></tr></table></figure>
+<h2 id="5、添加监控"><a href="#5、添加监控" class="headerlink" title="5、添加监控"></a>5、添加监控</h2><h3 id="Ⅰ、基本"><a href="#Ⅰ、基本" class="headerlink" title="Ⅰ、基本"></a>Ⅰ、基本</h3><ul>
+<li><a href="http://www.ttlsa.com/zabbix/zabbix-monitor-ttlsa-server-10/" target="_blank" rel="noopener">zabbix监控第一台服务器（10）</a></li>
+<li><a href="https://www.cnblogs.com/L-H-R-X-hehe/p/3826600.html" target="_blank" rel="noopener">Zabbix分布式监控系统实践 自定义配置</a></li>
+<li><a href="https://www.linuxidc.com/Linux/2017-05/144150p3.htm" target="_blank" rel="noopener">zabbix添加监控服务器.</a></li>
+<li>创建主机，成功后，可以看到对应的Host，但右侧不会显示绿色的被监控图标，因为目前还没有配置任何监控选项</li>
+<li><font color="#FF0000">主机名必须和上面的Hostname一致！</font>
+
+</li>
+</ul>
+<h3 id="Ⅱ、监控多个GPU"><a href="#Ⅱ、监控多个GPU" class="headerlink" title="Ⅱ、监控多个GPU"></a>Ⅱ、监控多个GPU</h3><ul>
+<li><p><a href="https://github.com/plambe/zabbix-nvidia-smi-multi-gpu/" target="_blank" rel="noopener">https://github.com/plambe/zabbix-nvidia-smi-multi-gpu/</a></p>
+</li>
+<li><p>修改文件</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/zabbix/zabbix_agentd.conf</span><br><span class="line"><span class="comment"># 复制 userparameter_nvidia-smi.conf.linux 文件里面的内容至文件末尾</span></span><br><span class="line"></span><br><span class="line">UserParameter=gpu.number,/usr/bin/nvidia-smi -L | /usr/bin/wc -l</span><br><span class="line">UserParameter=gpu.discovery,/etc/zabbix/scripts/get_gpus_info.sh</span><br><span class="line">UserParameter=gpu.fanspeed[*],nvidia-smi --query-gpu=fan.speed --format=csv,noheader,nounits -i <span class="variable">$1</span> | tr -d <span class="string">"\n"</span></span><br><span class="line">UserParameter=gpu.power[*],nvidia-smi --query-gpu=power.draw --format=csv,noheader,nounits -i <span class="variable">$1</span> | tr -d <span class="string">"\n"</span></span><br><span class="line">UserParameter=gpu.temp[*],nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits -i <span class="variable">$1</span> | tr -d <span class="string">"\n"</span></span><br><span class="line">UserParameter=gpu.utilization[*],nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits -i <span class="variable">$1</span> | tr -d <span class="string">"\n"</span></span><br><span class="line">UserParameter=gpu.memfree[*],nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits -i <span class="variable">$1</span> | tr -d <span class="string">"\n"</span></span><br><span class="line">UserParameter=gpu.memused[*],nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits -i <span class="variable">$1</span> | tr -d <span class="string">"\n"</span></span><br><span class="line">UserParameter=gpu.memtotal[*],nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits -i <span class="variable">$1</span> | tr -d <span class="string">"\n"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>复制脚本，设置可执行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/zabbix/</span><br><span class="line">sudo mkdir scripts</span><br><span class="line">cd scripts/</span><br><span class="line">sudo cp /data4/zzk/get_gpus_info.sh ./</span><br><span class="line">sudo chmod +x get_gpus_info.sh</span><br></pre></td></tr></table></figure>
+<ul>
+<li>web端导入模板文件：<code>zbx_nvidia-smi-multi-gpu.xml</code></li>
+</ul>
+<h2 id="6、普通用户"><a href="#6、普通用户" class="headerlink" title="6、普通用户"></a>6、普通用户</h2><h3 id="Ⅰ、新建"><a href="#Ⅰ、新建" class="headerlink" title="Ⅰ、新建"></a>Ⅰ、新建</h3><ul>
+<li>【管理】→【用户】→【创建用户】→【别名】→【群组-选择普通用户】→【密码】→【密码确认】→【语言-中文】→【添加】</li>
+</ul>
+<h3 id="Ⅱ、赋予权限"><a href="#Ⅱ、赋予权限" class="headerlink" title="Ⅱ、赋予权限"></a>Ⅱ、赋予权限</h3><ul>
+<li>【监测中】→【聚合图形】→【xx名称-动作-属性】→【分享】→【用户组共享列表-添加普通用户】→【用户共享列表- 添加用户名】→【更新】</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat.jpg" alt="Zongkui Zhu WeChat Pay">
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Zongkui Zhu Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"><i class="fa fa-tag"></i> Linux</a>
+          
+            <a href="/tags/GPU/" rel="tag"><i class="fa fa-tag"></i> GPU</a>
+          
+            <a href="/tags/软件/" rel="tag"><i class="fa fa-tag"></i> 软件</a>
+          
+            <a href="/tags/运维/" rel="tag"><i class="fa fa-tag"></i> 运维</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/anaconda/" rel="next" title="Anaconda 使用教程">
+                <i class="fa fa-chevron-left"></i> Anaconda 使用教程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/vscode/" rel="prev" title="VS Code 使用教程">
+                VS Code 使用教程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Zongkui Zhu">
+          <p class="site-author-name" itemprop="name">Zongkui Zhu</p>
+           
+              <p class="site-description motion-element" itemprop="description">有句话说的好，但是我忘记了~</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">日 志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分 类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-name">标 签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sudazzk" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://gitee.com/sudazzk" target="_blank" title="Gitee">
+                  
+                    <i class="fa fa-fw fa-google"></i>
+                  
+                  Gitee
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/zzkv587" target="_blank" title="Blog">
+                  
+                    <i class="fa fa-fw fa-bold"></i>
+                  
+                  Blog
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.com/zhuzongkui" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.suda.edu.cn" target="_blank" title="University">
+                  
+                    <i class="fa fa-fw fa-university"></i>
+                  
+                  University
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://hlt.suda.edu.cn" target="_blank" title="Laboratory">
+                  
+                    <i class="fa fa-fw fa-flask"></i>
+                  
+                  Laboratory
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#相关链接"><span class="nav-number">1.</span> <span class="nav-text">相关链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-Dash"><span class="nav-number">1.0.1.</span> <span class="nav-text">Linux Dash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#linux服务器监控工具"><span class="nav-number">1.0.2.</span> <span class="nav-text">linux服务器监控工具</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#zabbix-自动化运维工具"><span class="nav-number">2.</span> <span class="nav-text">zabbix 自动化运维工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、平台和环境"><span class="nav-number">2.1.</span> <span class="nav-text">1、平台和环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、安装和配置服务端（server）"><span class="nav-number">2.2.</span> <span class="nav-text">2、安装和配置服务端（server）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅰ、安装仓库（repository）"><span class="nav-number">2.2.1.</span> <span class="nav-text">Ⅰ、安装仓库（repository）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅱ、安装服务端、前端、客户端（server-frontend-agent）"><span class="nav-number">2.2.2.</span> <span class="nav-text">Ⅱ、安装服务端、前端、客户端（server, frontend, agent）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅲ、数据库初始化"><span class="nav-number">2.2.3.</span> <span class="nav-text">Ⅲ、数据库初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅳ、服务端配置数据库"><span class="nav-number">2.2.4.</span> <span class="nav-text">Ⅳ、服务端配置数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅴ、配置PHP时区"><span class="nav-number">2.2.5.</span> <span class="nav-text">Ⅴ、配置PHP时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅵ、启动、重启、停止、开机运行服务"><span class="nav-number">2.2.6.</span> <span class="nav-text">Ⅵ、启动、重启、停止、开机运行服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅶ、日志"><span class="nav-number">2.2.7.</span> <span class="nav-text">Ⅶ、日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、web前端"><span class="nav-number">2.3.</span> <span class="nav-text">3、web前端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅰ、安装"><span class="nav-number">2.3.1.</span> <span class="nav-text">Ⅰ、安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅱ、设置中文界面"><span class="nav-number">2.3.2.</span> <span class="nav-text">Ⅱ、设置中文界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅲ、添加中文字体（解决中文全是方格问题）"><span class="nav-number">2.3.3.</span> <span class="nav-text">Ⅲ、添加中文字体（解决中文全是方格问题）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、客户端"><span class="nav-number">2.4.</span> <span class="nav-text">4、客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、添加监控"><span class="nav-number">2.5.</span> <span class="nav-text">5、添加监控</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅰ、基本"><span class="nav-number">2.5.1.</span> <span class="nav-text">Ⅰ、基本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅱ、监控多个GPU"><span class="nav-number">2.5.2.</span> <span class="nav-text">Ⅱ、监控多个GPU</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、普通用户"><span class="nav-number">2.6.</span> <span class="nav-text">6、普通用户</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅰ、新建"><span class="nav-number">2.6.1.</span> <span class="nav-text">Ⅰ、新建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ⅱ、赋予权限"><span class="nav-number">2.6.2.</span> <span class="nav-text">Ⅱ、赋予权限</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zongkui Zhu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv"><i class="fa fa-user"></i> 访问人数<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv"><i class="fa fa-eye"></i> 总访问量<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="local-search-pop-overlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
