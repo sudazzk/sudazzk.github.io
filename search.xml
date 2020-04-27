@@ -8,8 +8,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>编程</tag>
       </tags>
   </entry>
   <entry>
@@ -46,8 +46,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>编程</tag>
         <tag>笔试</tag>
         <tag>刷题</tag>
       </tags>
@@ -60,8 +60,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>编程</tag>
         <tag>软件</tag>
       </tags>
   </entry>
@@ -103,8 +103,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>编程</tag>
       </tags>
   </entry>
   <entry>
@@ -136,7 +136,7 @@
   <entry>
     <title><![CDATA[Vim 基本配置]]></title>
     <url>%2Fvim%2F</url>
-    <content type="text"><![CDATA[Vim 基本配置一、教程 Vim初级：配置和使用 Vim配置（python版） 二、李老师的 vim 配置 主页123456789101112131415161718192021222324252627282930313233343536373839set nocompatible &quot; 关闭 vi 兼容模式syntax on &quot; 自动语法高亮set number &quot; 显示行号set cursorline &quot; 突出显示当前行set ruler &quot; 打开状态栏标尺set shiftwidth=4 &quot; 设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 4set softtabstop=4 &quot; 使得按退格键时可以一次删掉 4 个空格set tabstop=4 &quot; 设定 tab 长度为 4set nobackup &quot; 覆盖文件时不备份set autochdir &quot; 自动切换当前目录为当前文件所在的目录filetype plugin indent on &quot; 开启插件set backupcopy=yes &quot; 设置备份时的行为为覆盖set ignorecase smartcase &quot; 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感set nowrapscan &quot; 禁止在搜索到文件两端时重新搜索set incsearch &quot; 输入搜索内容时就显示搜索结果set hlsearch &quot; 搜索时高亮显示被找到的文本set noerrorbells &quot; 关闭错误信息响铃set novisualbell &quot; 关闭使用可视响铃代替呼叫set t_vb= &quot; 置空错误铃声的终端代码&quot; set showmatch &quot; 插入括号时，短暂地跳转到匹配的对应括号&quot; set matchtime=2 &quot; 短暂跳转到匹配括号的时间set magic &quot; 设置魔术set hidden &quot; 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存set guioptions-=T &quot; 隐藏工具栏set guioptions-=m &quot; 隐藏菜单栏set smartindent &quot; 开启新行时使用智能自动缩进set backspace=indent,eol,start&quot; 不设定在插入状态无法用退格键和 Delete 键删除回车符set cmdheight=1 &quot; 设定命令行的行数为 1set laststatus=2 &quot; 显示状态栏 (默认值为 1, 无法显示状态栏)set statusline=\ %&lt;%F[%1*%M%*%n%R%H]%=\ %y\ %0(%&#123;&amp;fileformat&#125;\ %&#123;&amp;encoding&#125;\ %c:%l/%L%)\ &quot; 设置在状态行显示的信息&quot;set foldenable &quot; 开始折叠&quot;set foldmethod=syntax &quot; 设置语法折叠set foldcolumn=0 &quot; 设置折叠区域的宽度setlocal foldlevel=1 &quot; 设置折叠层数为&quot; set foldclose=all &quot; 设置为自动关闭折叠 nnoremap &lt;space&gt; @=((foldclosed(line(&apos;.&apos;)) &lt; 0) ? &apos;zc&apos; : &apos;zo&apos;)&lt;CR&gt;&quot; 用空格键来开关折叠 三、python 注释12345678910111213多行注释： 1. 首先按esc进入命令行模式下，按下Ctrl + v，进入列（也叫区块）模式; 2. 在行首使用上下键选择需要注释的多行; 3. 按下键盘（大写）“I”键，进入插入模式； 4. 然后输入注释符（“//”、“#”等）; 5. 最后按下“Esc”键。注：在按下esc键后，会稍等一会才会出现注释，不要着急~~时间很短的删除多行注释： 1. 首先按esc进入命令行模式下，按下Ctrl + v, 进入列模式; 2. 选定要取消注释的多行; 3. 按下“x”或者“d”.注意：如果是“//”注释，那需要执行两次该操作，如果是“#”注释，一次即可 四、剪切/复制/粘贴 vi/vim复制粘贴命令 1234567891011121314# 一行yy 复制一行dd 剪切一行p（小写） 粘贴（光标往后）P（大写） 粘贴（光标往前）# 多行先将光标移到多行的开始处esc v 进入可视模式再将光标移到多行的结尾处y 复制上面选中的d 剪切选定块到缓冲区p（小写） 粘贴（光标往后）P（大写） 粘贴（光标往前）]]></content>
+    <content type="text"><![CDATA[Vim 基本配置一、教程 http://vimdoc.sourceforge.net/ 英 http://vimcdoc.sourceforge.net/ 中 Vim documentation: options Vim初级：配置和使用 Vim配置（python版） Vim 配置入门 vim 常用配置 二、vim 基本常用配置 vim ~.vimrc123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&quot; 基本配置syntax on &quot; 语法高亮set nocompatible &quot; 不与 Vi 兼容，去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限set showmode &quot; 在底部显示，当前处于命令模式还是插入模式set showcmd &quot; 在底部显示，当前键入的指令&quot; set mouse=a &quot; 支持使用鼠标set encoding=utf-8 &quot; 使用 utf-8 编码set t_Co=256 &quot; 启用256色filetype indent on &quot; 针对不同的文件采取不同的缩进方式filetype plugin indent on &quot; 开启插件,启动智能补全filetype on &quot; 检测文件类型&quot; 缩进set autoindent &quot; 按下回车键后，下一行的缩进会自动跟上一行的缩进保持一致set tabstop=4 &quot; 设定 tab 长度为 4set shiftwidth=4 &quot; 设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 4set softtabstop=4 &quot; 使得按退格键时可以一次删掉 4 个空格set smartindent &quot; 开启新行时使用智能自动缩进set laststatus=2 &quot; 显示状态栏 (默认值为 1, 无法显示状态栏)&quot; 外观set number &quot; 显示行号set relativenumber &quot; 显示光标所在的当前行的行号，其他行都为相对于该行的相对行号set cursorline &quot; 突出显示当前行&quot; set textwidth=80 &quot; 设置行宽，即一行显示多少个字符set ruler &quot; 打开状态栏标尺，在状态栏显示光标的当前位置（位于哪一行哪一列）&quot; 搜索set showmatch &quot; 光标遇到圆括号、方括号、大括号时，自动高亮对应的另一个圆括号、方括号和大括号set hlsearch &quot; 搜索时，高亮显示匹配结果set incsearch &quot; 输入搜索内容时就显示搜索结果&quot; set ignorecase &quot; 搜索时忽略大小写set ignorecase smartcase &quot; 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感set nowrapscan &quot; 禁止在搜索到文件两端时重新搜索&quot; 编辑set nobackup &quot; 覆盖文件时不备份set backupcopy=yes &quot; 设置备份时的行为为覆盖set spell spelllang=en_us &quot; 打开英语单词的拼写检查set autochdir &quot; 自动切换当前目录为当前文件所在的目录set noerrorbells &quot; 关闭错误信息响铃set novisualbell &quot; 关闭使用可视响铃代替呼叫set magic &quot; 设置魔术set hidden &quot; 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存set guioptions-=T &quot; 隐藏工具栏set guioptions-=m &quot; 隐藏菜单栏set backspace=indent,eol,start &quot; 不设定在插入状态无法用退格键和 Delete 键删除回车符set cmdheight=1 &quot; 设定命令行的行数为 1 三、python 注释12345678910111213多行注释： 1. 首先按esc进入命令行模式下，按下Ctrl + v，进入列（也叫区块）模式; 2. 在行首使用上下键选择需要注释的多行; 3. 按下键盘（大写）“I”键，进入插入模式； 4. 然后输入注释符（“//”、“#”等）; 5. 最后按下“Esc”键。注：在按下esc键后，会稍等一会才会出现注释，不要着急~~时间很短的删除多行注释： 1. 首先按esc进入命令行模式下，按下Ctrl + v, 进入列模式; 2. 选定要取消注释的多行; 3. 按下“x”或者“d”.注意：如果是“//”注释，那需要执行两次该操作，如果是“#”注释，一次即可 四、剪切/复制/粘贴 vi/vim复制粘贴命令 1234567891011121314# 一行yy 复制一行dd 剪切一行p（小写） 粘贴（光标往后）P（大写） 粘贴（光标往前）# 多行先将光标移到多行的开始处esc v 进入可视模式再将光标移到多行的结尾处y 复制上面选中的d 剪切选定块到缓冲区p（小写） 粘贴（光标往后）P（大写） 粘贴（光标往前）]]></content>
       <categories>
         <category>教程</category>
       </categories>
@@ -209,8 +209,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>编程</tag>
         <tag>数据结构</tag>
         <tag>算法</tag>
       </tags>
