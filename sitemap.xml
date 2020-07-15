@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.zhuzongkui.top/vim/</loc>
+    
+    <lastmod>2020-07-15T05:53:44.353Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.zhuzongkui.top/python_common/</loc>
     
     <lastmod>2020-06-03T05:08:15.743Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://www.zhuzongkui.top/sklearn_cls/</loc>
     
     <lastmod>2020-05-26T03:41:37.765Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/vim/</loc>
-    
-    <lastmod>2020-05-11T03:31:41.813Z</lastmod>
     
   </url>
   
