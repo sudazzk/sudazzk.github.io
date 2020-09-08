@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.zhuzongkui.top/git/</loc>
+    
+    <lastmod>2020-09-08T02:47:34.165Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.zhuzongkui.top/virtuoso/</loc>
     
     <lastmod>2020-09-07T00:50:54.962Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://www.zhuzongkui.top/hexo/</loc>
     
     <lastmod>2020-04-18T05:12:07.224Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/git/</loc>
-    
-    <lastmod>2020-04-14T16:58:21.975Z</lastmod>
     
   </url>
   
