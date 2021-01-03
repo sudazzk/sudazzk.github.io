@@ -111,7 +111,7 @@
 <meta property="og:site_name" content="JuTzungKuei">
 <meta property="og:description" content="[TOC]  Git简明指南：（可能需要翻墙）git - 简明指南 码云（Gitee.com）帮助文档 官网：https://git-scm.com/ 入门教程：https://git-scm.com/book/zh/v2 廖雪峰Git教程 菜鸟教程：https://www.runoob.com/git/git-tutorial.html 易百教程：https://www.yiibai.com/g">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-08T02:47:34.165Z">
+<meta property="og:updated_time" content="2021-01-03T03:43:54.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单使用 Git">
 <meta name="twitter:description" content="[TOC]  Git简明指南：（可能需要翻墙）git - 简明指南 码云（Gitee.com）帮助文档 官网：https://git-scm.com/ 入门教程：https://git-scm.com/book/zh/v2 廖雪峰Git教程 菜鸟教程：https://www.runoob.com/git/git-tutorial.html 易百教程：https://www.yiibai.com/g">
@@ -381,8 +381,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2020-09-08T10:47:34+08:00">
-                2020-09-08
+              <time title="更新于" itemprop="dateModified" datetime="2021-01-03T11:43:54+08:00">
+                2021-01-03
               </time>
             
           </span>
@@ -435,7 +435,7 @@
                     <span class="post-meta-item-text">字数统计</span>
                   
                     <span title="字数统计" }}">
-                      1k 字
+                      1.2k 字
                     </span>
               
 
@@ -491,7 +491,7 @@
 <h1 id="四、标签"><a href="#四、标签" class="headerlink" title="四、标签"></a>四、标签</h1><p>1、添加标签：<code>git tag -a &lt;tagname&gt; -m &lt;操作名&gt;</code></p>
 <h1 id="五、更新"><a href="#五、更新" class="headerlink" title="五、更新"></a>五、更新</h1><p>1、同步远程和本地合并：<code>git pull</code>  == <code>fetch</code> + <code>merge</code></p>
 <p>2、放弃本地，只要远程：<code>git fetch origin</code></p>
-<h1 id="六、回退"><a href="#六、回退" class="headerlink" title="六、回退"></a>六、回退</h1><p>1、<code>git reset --hard 目标版本号</code></p>
+<h1 id="六、回退"><a href="#六、回退" class="headerlink" title="六、回退"></a>六、回退</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard 目标版本号  <span class="comment"># 撤销commit，撤销git add，代码不留</span></span><br><span class="line">git reset --soft 目标版本号  <span class="comment"># 撤销commit，不撤git add，代码保留</span></span><br><span class="line">git reset --mixed 目标版本号 <span class="comment"># 撤销commit，撤销git add，代码保留 (同下)</span></span><br><span class="line">git reset 目标版本号         <span class="comment"># 撤销commit，撤销git add，代码保留 (这个好)</span></span><br><span class="line"></span><br><span class="line">git commit --amend          <span class="comment"># 修改最后一次的commit消息，vim中编辑保存</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span>                     <span class="comment"># 查看历史</span></span><br><span class="line">git rebase -i HEAD~n        <span class="comment"># 修改最后第n次的commit消息，把pick修改为edit，顺序跟git log相反</span></span><br><span class="line">git commit --amend          <span class="comment"># 继续</span></span><br><span class="line">git rebase --<span class="built_in">continue</span>       <span class="comment"># 保存结果</span></span><br></pre></td></tr></table></figure>
 <h1 id="七、忽略"><a href="#七、忽略" class="headerlink" title="七、忽略"></a>七、忽略</h1><ul>
 <li>有些时候，你必须把某些文件放到Git工作目录中，但又不能提交它们，比如保存了数据库密码的配置文件等。</li>
 <li>在Git工作区的根目录下创建一个特殊的.gitignore文件，然后把要忽略的文件名填进去，Git就会自动忽略这些文件。</li>
@@ -776,7 +776,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
