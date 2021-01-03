@@ -66,9 +66,41 @@
       <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
       <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
-      <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+  </entry>
+  
+  <entry>
+    <title>Docker 学习</title>
+    <link href="http://www.zhuzongkui.top/docker/"/>
+    <id>http://www.zhuzongkui.top/docker/</id>
+    <published>2020-01-03T03:20:00.000Z</published>
+    <updated>2021-01-03T03:21:55.134Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install curl</span><br><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br><span class="line">sudo usermod -aG docker zkzhu</span><br></pre></td></tr></table></figure><h1 id="镜像加速"><a href="#镜像加速" class="headerlink" title="镜像加速"></a>镜像加速</h1><ul><li><a href="https://www.cnblogs.com/nhdlb/p/12567154.html" target="_blank" rel="noopener">https://www.cnblogs.com/nhdlb/p/12567154.html</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/docker/daemon.json</span><br><span class="line">&#123;</span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://docker.mirrors.ustc.edu.cn&quot;]</span><br><span class="line">&#125;</span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br></pre></td></tr></table></figure></li></ul><h1 id="docker-常用命令"><a href="#docker-常用命令" class="headerlink" title="docker 常用命令"></a>docker 常用命令</h1><h2 id="镜像相关"><a href="#镜像相关" class="headerlink" title="镜像相关"></a>镜像相关</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker commit -a 作者 -m 说明 容器名 新镜像名  <span class="comment"># 从容器创建一个新的镜像</span></span><br><span class="line">docker cp /tmp 容器名:/tmp  <span class="comment"># 主机拷贝到容器</span></span><br><span class="line">docker pull 镜像名  <span class="comment"># 拉取镜像</span></span><br><span class="line">docker images -a  <span class="comment"># 列出本地所有镜像</span></span><br><span class="line">docker rmi -f 镜像名  <span class="comment"># 删除镜像</span></span><br><span class="line">docker build -t 镜像名:tag -f Dockerfile .  <span class="comment"># 使用Dockerfile创建镜像</span></span><br></pre></td></tr></table></figure><h2 id="容器操作相关"><a href="#容器操作相关" class="headerlink" title="容器操作相关"></a>容器操作相关</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a  <span class="comment"># 查看所有容器</span></span><br><span class="line">docker create <span class="comment"># 创建容器不运行</span></span><br><span class="line">docker run    <span class="comment"># 创建容器并运行</span></span><br><span class="line">docker run -dit -p 主机端口:容器端口 --name 容器名 镜像名  <span class="comment"># 后台,交互,伪输入终端，-P 随机端口映射</span></span><br><span class="line">docker start/stop/restart 容器名  <span class="comment"># 启动，停止，重启</span></span><br><span class="line">docker <span class="built_in">kill</span> 容器名  <span class="comment"># 杀掉容器</span></span><br><span class="line">docker rm -f 容器名   <span class="comment"># 删除容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it 容器名 /bin/bash  <span class="comment"># 在容器中执行命令，退出容器：exit</span></span><br><span class="line">docker port 容器名  <span class="comment"># 列出容器的端口映射</span></span><br></pre></td></tr></table></figure><h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FROM 基础镜像</span><br><span class="line">RUN &lt;shell命令&gt;  <span class="comment"># 换行 \ &amp;&amp;  ，在docker build 时运行</span></span><br><span class="line">COPY 源路径 目标路径  <span class="comment"># 拷贝</span></span><br><span class="line">CMD 运行程序  <span class="comment"># docker run 时运行</span></span><br><span class="line">ENV key=value  <span class="comment"># 环境变量</span></span><br><span class="line">EXPOSE  <span class="comment"># 声明端口</span></span><br><span class="line">WORKDIR  <span class="comment"># 指定工作目录</span></span><br></pre></td></tr></table></figure><h1 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull euleros  <span class="comment"># 拉取euleros镜像</span></span><br><span class="line">docker run -dit --name zzk_test euleros  <span class="comment"># 创建容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it zzk_test /bin/bash       <span class="comment"># 进去容器</span></span><br></pre></td></tr></table></figure><h1 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h1><ul><li>官网: <a href="https://www.docker.com" target="_blank" rel="noopener">https://www.docker.com</a></li><li>教程：<a href="https://www.runoob.com/docker/docker-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/docker/docker-tutorial.html</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;安装docker&quot;&gt;&lt;a href=&quot;#安装docker&quot; class=&quot;headerlink&quot; title=&quot;安装docker&quot;&gt;&lt;/a&gt;安装docker&lt;/h1&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;tab
+      
+    
+    </summary>
+    
+      <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="Linux" scheme="http://www.zhuzongkui.top/tags/Linux/"/>
+    
+      <category term="镜像" scheme="http://www.zhuzongkui.top/tags/%E9%95%9C%E5%83%8F/"/>
+    
+      <category term="docker" scheme="http://www.zhuzongkui.top/tags/docker/"/>
+    
+      <category term="容器" scheme="http://www.zhuzongkui.top/tags/%E5%AE%B9%E5%99%A8/"/>
     
   </entry>
   
@@ -154,9 +186,9 @@
       <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="笔试" scheme="http://www.zhuzongkui.top/tags/%E7%AC%94%E8%AF%95/"/>
     
@@ -186,9 +218,9 @@
       <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="软件" scheme="http://www.zhuzongkui.top/tags/%E8%BD%AF%E4%BB%B6/"/>
     
@@ -287,9 +319,9 @@
     
       <category term="Linux" scheme="http://www.zhuzongkui.top/tags/Linux/"/>
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
   </entry>
   
@@ -537,9 +569,9 @@
       <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="数据结构" scheme="http://www.zhuzongkui.top/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
@@ -598,34 +630,6 @@
     
     
       <category term="统计学习" scheme="http://www.zhuzongkui.top/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>特征选择方法</title>
-    <link href="http://www.zhuzongkui.top/feature_select/"/>
-    <id>http://www.zhuzongkui.top/feature_select/</id>
-    <published>2018-10-06T10:24:38.000Z</published>
-    <updated>2019-11-09T06:02:11.494Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>CHI、IG： <a href="http://songlj.iteye.com/blog/2241763" target="_blank" rel="noopener">http://songlj.iteye.com/blog/2241763</a></li><li>IG、CHI、TC、TS、IIG <a href="https://blog.csdn.net/Fighting_No1/article/details/51003386" target="_blank" rel="noopener">文本挖掘（四）——特征选择</a> </li><li><a href="https://blog.csdn.net/qq_16912257/article/details/52994788" target="_blank" rel="noopener">From My Github - 文本分类</a></li></ul><h3 id="表1：词频统计（文档数量）"><a href="#表1：词频统计（文档数量）" class="headerlink" title="表1：词频统计（文档数量）"></a>表1：词频统计（文档数量）</h3><p>其中，文档总数：N = A+B+C+D</p><div class="table-container"><table><thead><tr><th>-</th><th style="text-align:center">包含词条 t</th><th style="text-align:center">不包含词条 t</th></tr></thead><tbody><tr><td><strong>属于类别 c</strong></td><td style="text-align:center">A</td><td style="text-align:center">C</td></tr><tr><td><strong>不属于类别 c</strong></td><td style="text-align:center">B</td><td style="text-align:center">D </td></tr></tbody></table></div><hr><h2 id="1、文档频率-DF-（document-frequency）"><a href="#1、文档频率-DF-（document-frequency）" class="headerlink" title="1、文档频率 DF （document frequency）"></a>1、文档频率 DF （document frequency）</h2><ul><li>文档频率指训练集中包含该特征词条的文本总数</li></ul><script type="math/tex; mode=display">DF = A + B</script><p><code>选择 DF &gt; 某个阈值的特征词条</code></p><h2 id="2、信息增益-IG-（information-gain）"><a href="#2、信息增益-IG-（information-gain）" class="headerlink" title="2、信息增益 IG （information gain）"></a>2、信息增益 IG （information gain）</h2><ul><li>通过特征词在文本中出现和不出现前后的信息量之差来推断该特征词所带的信息量</li></ul><script type="math/tex; mode=display">IG(t) = H(c) - H(c|t)</script><script type="math/tex; mode=display">H(c) = - \sum_{i=1}^mP(c_i)log P(c_i)</script><script type="math/tex; mode=display">H(c|t) = - P(t) \sum_{i=1}^m P(c_i|t) log P(c_i|t) - P(\bar{t}) \sum_{i=1}^m P(c_i|\bar{t}) log P(c_i|\bar{t})</script><script type="math/tex; mode=display">P(t)=\frac {A+B}{N} \text{：表示样本集中包含词 t 的文本的概率}</script><script type="math/tex; mode=display">P(c_i)=\frac {A+C}{N} \text{：表示类文本在样本集中出现的概率}</script><script type="math/tex; mode=display">P(c_i|t)=\frac {A}{A+B} \text{：表示文本包含词 t 时属于 c 的条件概率}</script><h2 id="3、互信息-MI-（mutual-information）"><a href="#3、互信息-MI-（mutual-information）" class="headerlink" title="3、互信息 MI （mutual information）"></a>3、互信息 MI （mutual information）</h2><ul><li>互信息衡量了特征词条和类别之间的相关性<script type="math/tex; mode=display">MI(t,c) = log \frac {P(t,c)} {P(t)*P(c)} = log \frac {\frac{A}{N}} {\frac{A+B}{N}*\frac{A+C}{N}}</script><script type="math/tex; mode=display">= log \frac {A*N} {(A+C)*(A+B)} = log \frac { \frac{A}{A+C} } { \frac{A+B}{N} }</script><script type="math/tex; mode=display">= log \frac{A}{A+C} - log \frac{A+B}{N} = log P(t|c) - log P(t)</script><script type="math/tex; mode=display">MI_{avg}(t) = \sum_{i=1}^m P(c_i) MI(t,c_i)</script><script type="math/tex; mode=display">MI_{max}(t) = \max_{i=1}^m \{ MI(t,c_i) \}</script></li></ul><p>MI(t,c) = 0，当 t 和 c 相互独立时<br>弱点：得分被词条的边缘概率强烈的影响；（条件概率相等时，低频词比高频词有更高的分数）</p><h2 id="4、卡方统计-CHI（Chi-Square-Statistic）"><a href="#4、卡方统计-CHI（Chi-Square-Statistic）" class="headerlink" title="4、卡方统计 CHI（Chi-Square Statistic）"></a>4、卡方统计 CHI（Chi-Square Statistic）</h2><ul><li>卡方统计量也用于表征两个变量的相关性，与互信息相比，它同时考虑了特征在某类文本中出现和不出现时的情况</li><li>度量了 t 和 c 之间的独立性<script type="math/tex; mode=display">CHI(t,c) = \frac {N * (AD-BC)^2} {(A+C)*(B+D)*(A+B)*(C+D)}</script><script type="math/tex; mode=display">CHI_{avg}(t) = \sum_{i=1}^m P(c_i) CHI(t,c_i)</script><script type="math/tex; mode=display">CHI_{max}(t) = \max_{i=1}^m \{ CHI(t,c_i) \}</script></li><li>卡方统计是一个规范值，因此卡方统计值对于相同的类别可以跨词进行比较</li><li>如果列联表中的任何单元被轻微填充，这种归一化就会失效（低频词的例子）</li><li>因此，卡方统计对于低频词是不可靠的。</li></ul><h2 id="5、词条强度-单词权-TS-（term-strength）"><a href="#5、词条强度-单词权-TS-（term-strength）" class="headerlink" title="5、词条强度/单词权 TS （term strength）"></a>5、词条强度/单词权 TS （term strength）</h2><h3 id="法1：博客"><a href="#法1：博客" class="headerlink" title="法1：博客"></a>法1：<a href="https://blog.csdn.net/Fighting_No1/article/details/51003386" target="_blank" rel="noopener">博客</a></h3><ul><li>TS 计算的是一个词出现的条件概率，即该词在一对相关文本中的某一个文本中出现的条件下，在另一个文本中出现的概率<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">（1）计算文本数据集中每一对文本的相似度；</span><br><span class="line">（2）选择出所有相似度超过阈值的文本对；</span><br><span class="line">（3）对所有的单词，根据下式计算它的单词权。</span><br></pre></td></tr></table></figure></li></ul><script type="math/tex; mode=display">TS(t) = \frac {\text{均包含词t的相关文本对数}} {\text{文本集中的相关文本对总数}}</script><p>若有一个文本集，其中有N篇文本，M对相关文本有序对，有K对同时包含词t的相关文本有序对，则</p><script type="math/tex; mode=display">TS(t)=P(t|M) = \frac{K}{M} = \frac{\sum_{i=1}^m c_i\text{类包含词t相关文本对数}} {\sum_{i=1}^m c_i\text{类相关文本对数}}</script><script type="math/tex; mode=display">\approx \sum_{i=1}^m c_i\text{类包含词t相关文本对数}</script><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">即TS(t)表示在文本集的所有相关文本有序对的集合中，同时包含词t的相关文本有序对的比例。</span><br><span class="line">若TS(t)值越大，说明词t在相关文本集中出现得越多，即越重要。</span><br><span class="line">缺点：要计算文本间的相似度，所以复杂度较高；阈值不易确定。</span><br></pre></td></tr></table></figure><hr><h3 id="法2：（Yang-Yiming-论文里）文本聚类中的特征选择方法"><a href="#法2：（Yang-Yiming-论文里）文本聚类中的特征选择方法" class="headerlink" title="法2：（Yang Yiming 论文里）文本聚类中的特征选择方法"></a>法2：（Yang Yiming 论文里）<a href="http://www.docin.com/p-761617862.html" target="_blank" rel="noopener">文本聚类中的特征选择方法</a></h3><ul><li>这个方法基于词条出现在密切相关的文档中的频率来评估词条的重要性</li><li>使用一组训练文档来派生出文档对，其相似度（余弦值）高于某个阈值</li><li>x 和 y 是一对相似文档</li></ul><script type="math/tex; mode=display">TS(t) = P(t \in y | t \in x)</script><ul><li>基于文档聚类，假设有许多共享词的文档是相似的，在相关文档的重叠区域内的词条的信息量相对较大</li><li>这个方法不是基于特定任务的；不使用与词条类别相关的信息。</li></ul><hr><h3 id="法3：PPT-1-18页"><a href="#法3：PPT-1-18页" class="headerlink" title="法3：PPT-1 18页"></a>法3：<a href="https://wenku.baidu.com/view/d43cf16fb7360b4c2f3f643c.html" target="_blank" rel="noopener">PPT-1 18页</a></h3><ul><li><a href="https://wenku.baidu.com/view/2938f07f24c52cc58bd63186bceb19e8b8f6ec0d.html?re=view" target="_blank" rel="noopener">PPT-2 18页</a></li></ul><p>词强度（term strength）</p><script type="math/tex; mode=display">\text{已知一个词（特征）在某文档（实例）中出现，}</script><script type="math/tex; mode=display">\text{该词在同类（目标函数值相同）文档中出现的概率为词强度。}</script><script type="math/tex; mode=display">s(t) = P(t \in d_{Y=y}^i | t \in d_{Y=y}^j)</script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;CHI、IG： &lt;a href=&quot;http://songlj.iteye.com/blog/2241763&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://songlj.iteye.com/blog/2241763&lt;/a&gt;&lt;/li&gt;
-      
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="统计学习" scheme="http://www.zhuzongkui.top/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="特征选择" scheme="http://www.zhuzongkui.top/tags/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9/"/>
     
   </entry>
   
