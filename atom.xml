@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuzongkui.top/"/>
-  <updated>2021-01-11T02:41:34.466Z</updated>
+  <updated>2021-01-15T03:04:33.897Z</updated>
   <id>http://www.zhuzongkui.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 编程规范和静态检查</title>
+    <link href="http://www.zhuzongkui.top/python_static_check/"/>
+    <id>http://www.zhuzongkui.top/python_static_check/</id>
+    <published>2021-01-14T15:28:20.000Z</published>
+    <updated>2021-01-15T03:04:33.897Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h2 id="一、代码风格指南"><a href="#一、代码风格指南" class="headerlink" title="一、代码风格指南"></a>一、代码风格指南</h2><h3 id="PEP-8"><a href="#PEP-8" class="headerlink" title="PEP 8"></a>PEP 8</h3><ul><li><a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">https://www.python.org/dev/peps/pep-0008/</a></li><li>Python 代码风格指南（Style Guide for Python Code）</li><li>规则：行长度、缩进、多行表达式、命名约定等</li></ul><h3 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h3><ul><li><a href="https://zh-google-styleguide.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://zh-google-styleguide.readthedocs.io/en/latest/</a></li></ul><h2 id="二、静态代码风格检查工具"><a href="#二、静态代码风格检查工具" class="headerlink" title="二、静态代码风格检查工具"></a>二、静态代码风格检查工具</h2><h3 id="Pylint"><a href="#Pylint" class="headerlink" title="Pylint"></a>Pylint</h3><ul><li><a href="https://www.pylint.org/" target="_blank" rel="noopener">https://www.pylint.org/</a><br>python -m pip install pylint<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pylint -h</span><br><span class="line">pylint --persistent=n --generate-rcfile &gt; pylint.conf  <span class="comment"># 生成默认的配置文件</span></span><br><span class="line">pylint --rcfile=pylint.conf xxx.py                     <span class="comment"># 检查单个文件</span></span><br><span class="line">pylint --rcfile=pylint.conf package                    <span class="comment"># 检查某个包</span></span><br><span class="line">--ignore=&lt;file&gt;                                        <span class="comment"># 忽视文件</span></span><br><span class="line">--reports=n 或 -rn                                     <span class="comment"># 简单报告</span></span><br><span class="line">--<span class="built_in">disable</span>-msg=C0103,C0301,W0312,W0511,W0232,E1101      <span class="comment"># 禁止指定id的msg</span></span><br><span class="line">pylint --<span class="built_in">help</span>-msg=[id]                                 <span class="comment"># 查看错误的详细信息</span></span><br></pre></td></tr></table></figure></li></ul><h3 id="Flake8"><a href="#Flake8" class="headerlink" title="Flake8"></a>Flake8</h3><ul><li><a href="https://flake8.pycqa.org/en/latest/" target="_blank" rel="noopener">https://flake8.pycqa.org/en/latest/</a></li><li>检查代码逻辑<code>PyFlakes</code>、编码风格<code>Pep8</code>、代码复杂度NedBatchelder’s McCabe<br>python -m pip install flake8 pep8-naming flake8-import-order flake8-todo flake8-quotes  # 风格、命名、导入顺序、todo、引号<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">flake8 --version  <span class="comment"># 检查安装了哪些插件</span></span><br><span class="line">flake8 --first --import-order-style=google test.py</span><br><span class="line">flake8 xxx_dir</span><br><span class="line">flake8 --import-order-style=google --exclude=*<span class="built_in">test</span>*.py,*.pyc --config=cicd/.flake8</span><br></pre></td></tr></table></figure></li></ul><h3 id="pycodestyle"><a href="#pycodestyle" class="headerlink" title="pycodestyle"></a>pycodestyle</h3><h3 id="Google的pytype、Microsoft的pyright、Facebook的Pyre-Pysa"><a href="#Google的pytype、Microsoft的pyright、Facebook的Pyre-Pysa" class="headerlink" title="Google的pytype、Microsoft的pyright、Facebook的Pyre Pysa"></a>Google的pytype、Microsoft的pyright、Facebook的Pyre Pysa</h3><h2 id="三、代码格式化工具"><a href="#三、代码格式化工具" class="headerlink" title="三、代码格式化工具"></a>三、代码格式化工具</h2><h3 id="Autopep8"><a href="#Autopep8" class="headerlink" title="Autopep8"></a>Autopep8</h3><ul><li><a href="https://github.com/hhatto/autopep8" target="_blank" rel="noopener">https://github.com/hhatto/autopep8</a></li><li>python -m pip install autopep8</li></ul><h3 id="Yapf"><a href="#Yapf" class="headerlink" title="Yapf"></a>Yapf</h3><ul><li><a href="https://github.com/google/yapf" target="_blank" rel="noopener">https://github.com/google/yapf</a></li><li>python -m pip install yapf</li></ul><h3 id="Black"><a href="#Black" class="headerlink" title="Black"></a>Black</h3><ul><li><a href="https://github.com/psf/black" target="_blank" rel="noopener">https://github.com/psf/black</a></li><li>python -m pip install black</li></ul><h2 id="四、覆盖率测试工具"><a href="#四、覆盖率测试工具" class="headerlink" title="四、覆盖率测试工具"></a>四、覆盖率测试工具</h2><h3 id="Coverage"><a href="#Coverage" class="headerlink" title="Coverage"></a>Coverage</h3><ul><li><a href="https://coverage.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://coverage.readthedocs.io/en/latest/</a></li></ul><h2 id="五、单元测试"><a href="#五、单元测试" class="headerlink" title="五、单元测试"></a>五、单元测试</h2><h3 id="nose"><a href="#nose" class="headerlink" title="nose"></a>nose</h3><ul><li><a href="https://nose.readthedocs.io/en/latest/" target="_blank" rel="noopener">https://nose.readthedocs.io/en/latest/</a></li><li>python -m pip install nose</li><li>nosetests only_test_this.py</li></ul><h2 id="六、重复率检查"><a href="#六、重复率检查" class="headerlink" title="六、重复率检查"></a>六、重复率检查</h2><h3 id="simian"><a href="#simian" class="headerlink" title="simian"></a>simian</h3><ul><li><a href="http://www.harukizaemon.com/simian/installation.html" target="_blank" rel="noopener">http://www.harukizaemon.com/simian/installation.html</a></li></ul><h2 id="七、圈复杂度"><a href="#七、圈复杂度" class="headerlink" title="七、圈复杂度"></a>七、圈复杂度</h2><h3 id="mccabe"><a href="#mccabe" class="headerlink" title="mccabe"></a>mccabe</h3><ul><li><a href="https://github.com/pycqa/mccabe" target="_blank" rel="noopener">https://github.com/pycqa/mccabe</a></li></ul><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://www.cnblogs.com/Running_Zhang/p/4122100.html" target="_blank" rel="noopener">https://www.cnblogs.com/Running_Zhang/p/4122100.html</a></li><li><a href="https://blog.csdn.net/qq_26948143/article/details/88169097" target="_blank" rel="noopener">https://blog.csdn.net/qq_26948143/article/details/88169097</a></li><li><a href="https://www.cnblogs.com/bonelee/p/11045196.html" target="_blank" rel="noopener">https://www.cnblogs.com/bonelee/p/11045196.html</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;一、代码风格指南&quot;&gt;&lt;a href=&quot;#一、代码风格指南&quot; class=&quot;headerlink&quot; title=&quot;一、代码风格指南&quot;&gt;&lt;/a&gt;一、代码风格指南&lt;/h2&gt;&lt;h3 id=&quot;PEP-8&quot;&gt;&lt;a href=&quot;#PEP-8&quot; clas
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
+    
+      <category term="编程" scheme="http://www.zhuzongkui.top/tags/%E7%BC%96%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker 学习</title>
@@ -603,33 +631,6 @@
       <category term="深度学习" scheme="http://www.zhuzongkui.top/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
       <category term="GPU" scheme="http://www.zhuzongkui.top/tags/GPU/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>评价准则</title>
-    <link href="http://www.zhuzongkui.top/evaluation/"/>
-    <id>http://www.zhuzongkui.top/evaluation/</id>
-    <published>2018-10-07T03:35:50.000Z</published>
-    <updated>2019-09-23T01:10:47.738Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><a href="http://www.cnblogs.com/robert-dlut/p/5276927.html" target="_blank" rel="noopener">谈谈评价指标中的宏平均和微平均</a></li><li><a href="https://blog.csdn.net/sinat_26917383/article/details/51114244" target="_blank" rel="noopener">分类器的性能表现评价（混淆矩阵，准确率，召回率，F1,mAP、ROC曲线）</a></li><li><a href="https://blog.csdn.net/sinat_26917383/article/details/75199996?locationNum=3&amp;fps=1" target="_blank" rel="noopener">python + sklearn ︱分类效果评估——acc、recall、F1、ROC、回归、距离</a></li><li><a href="https://www.cnblogs.com/sddai/p/5696870.html" target="_blank" rel="noopener">准确率(Accuracy), 精确率(Precision), 召回率(Recall)和F1-Measure</a></li></ul><hr><p>对于二分类问题，可将样例根据其真实类别和分类器预测类别划分为：</p><div class="table-container"><table><thead><tr><th>0</th><th style="text-align:center">1</th><th style="text-align:center">2</th><th style="text-align:center">真实类别</th><th style="text-align:center">预测类别</th></tr></thead><tbody><tr><td>真正例</td><td style="text-align:center">True Positive</td><td style="text-align:center">TP</td><td style="text-align:center">正例</td><td style="text-align:center">正例 </td></tr><tr><td>假正例</td><td style="text-align:center">False Positive</td><td style="text-align:center">FP</td><td style="text-align:center">负例</td><td style="text-align:center">正例 </td></tr><tr><td>假负例</td><td style="text-align:center">False Negative</td><td style="text-align:center">FN</td><td style="text-align:center">正例</td><td style="text-align:center">负例 </td></tr><tr><td>真负例</td><td style="text-align:center">True Negative</td><td style="text-align:center">TN</td><td style="text-align:center">负例</td><td style="text-align:center">负例 </td></tr></tbody></table></div><p>然后可以构建混淆矩阵（Confusion Matrix）如下表所示：</p><div class="table-container"><table><thead><tr><th>-</th><th style="text-align:center">预测 正例</th><th style="text-align:center">预测 负例 </th></tr></thead><tbody><tr><td><strong>真实 正例</strong></td><td style="text-align:center">TP</td><td style="text-align:center">FN </td></tr><tr><td><strong>真实 负例</strong></td><td style="text-align:center">FP</td><td style="text-align:center">TN</td></tr></tbody></table></div><hr><script type="math/tex; mode=display">\text{测试集：} X_{test} = \{(x_i, y_i) | i = 1, 2, ..., N \}</script><script type="math/tex; mode=display">N \text{：表示测试集中的样本个数}</script><script type="math/tex; mode=display">x_i \text{：表示测试集中的数据样本}</script><script type="math/tex; mode=display">y_i \text{：表示数据样本的类别号}</script><script type="math/tex; mode=display">\text{假设要研究的分类问题含有 m 个类别，则} y_i \in \{c_1, c_2, ..., c_m \}</script><script type="math/tex; mode=display">\text{在分类问题中对于测试集的第j个类别，假设被正确分类的样本数量为} TP_j</script><script type="math/tex; mode=display">\text{被错误分类的样本数量为} FN_j</script><script type="math/tex; mode=display">\text{其它类别被错误分类为该类的样本数量为} FP_j</script><hr><h2 id="精确度"><a href="#精确度" class="headerlink" title="精确度"></a>精确度</h2><script type="math/tex; mode=display">Accuracy = \frac {\sum_{j=1}^mTP_j} {N} = \frac {TP+TN} {N}</script><script type="math/tex; mode=display">= \frac { \text{分类正确的样本个数} } { \text{分类的所有样本个数} }</script><h2 id="查全率-召回率-R"><a href="#查全率-召回率-R" class="headerlink" title="查全率/召回率 R"></a>查全率/召回率 R</h2><ul><li>第j个类别的查全率表示在本类样本中，被正确分类的样本所占的比例，它表示这个类别的分类精度</li></ul><script type="math/tex; mode=display">Recall_j = \frac {TP_j} {TP_j + FN_j} , 1 \leq j \leq m</script><h2 id="查准率-准确率-P"><a href="#查准率-准确率-P" class="headerlink" title="查准率/准确率 P"></a>查准率/准确率 P</h2><ul><li>第j个类别的查准率表示被分类为该类的样本中，真正属于该类的样本所占的比例，它表示这个类别的分类纯度</li></ul><script type="math/tex; mode=display">Precision_j = \frac {TP_j} {TP_j + FP_j} , 1 \leq j \leq m</script><h2 id="F1-标准"><a href="#F1-标准" class="headerlink" title="F1 标准"></a>F1 标准</h2><ul><li>F1 值比较合理地评价分类器对每一类样本的分类性能。</li></ul><script type="math/tex; mode=display">F_\beta = \frac {(1 + \beta^2) * P * R} {(\beta^2 * P) + R}</script><script type="math/tex; mode=display">F1 = \frac {2 * R_j * P_j} {R_j + P_j} , 1 \leq j \leq m, \beta = 1</script><script type="math/tex; mode=display">= \frac {2} {1/P + 1/R}</script><hr><h2 id="宏平均-Macro-averaging"><a href="#宏平均-Macro-averaging" class="headerlink" title="宏平均 Macro-averaging"></a>宏平均 Macro-averaging</h2><ul><li>先对每一个类统计指标值，然后在对所有类<strong>求算术平均值</strong></li></ul><script type="math/tex; mode=display">Macro\_P = \frac{1}{n}\sum_{i=1}^mP_i</script><script type="math/tex; mode=display">Macro\_R = \frac{1}{n}\sum_{i=1}^mR_i</script><script type="math/tex; mode=display">Macro\_F1 = \frac {2 * Macro\_P * Macro\_R} {Macro\_P + Macro\_R}</script><script type="math/tex; mode=display">Averaged\_F1 = \frac{1}{n}\sum_{i=1}^mF1_i</script><h2 id="微平均-Micro-averaging"><a href="#微平均-Micro-averaging" class="headerlink" title="微平均 Micro-averaging"></a>微平均 Micro-averaging</h2><ul><li>对数据集中的每一个实例不分类别进行统计建立全局混淆矩阵，然后计算相应指标</li></ul><script type="math/tex; mode=display">Micro\_P = \frac {\sum_{i=1}^mTP_i} {\sum_{i=1}^mTP_i + \sum_{i=1}^mFP_i}</script><script type="math/tex; mode=display">= \frac {\sum_{i=1}^mTP_i} {N}</script><script type="math/tex; mode=display">Micro\_R = \frac {\sum_{i=1}^mTP_i} {\sum_{i=1}^mTP_i + \sum_{i=1}^mFN_i}</script><script type="math/tex; mode=display">= \frac {\sum_{i=1}^mTP_i} {N}</script><script type="math/tex; mode=display">Micro\_F1 = \frac {2 * Micro\_P * Micro\_R} {Micro\_P + Micro\_R}</script><script type="math/tex; mode=display">\text{如果对所有类别求微平均，那么上面三个值是相等的，且 = accuracy。}</script><script type="math/tex; mode=display">\text{如果数据集中各个类的分布不平衡的话，建议使用微平均，宏平均没有考虑到各个类别的样本大小。}</script><hr>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/robert-dlut/p/5276927.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;谈谈评价指标中的宏平均和微平均&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;ht
-      
-    
-    </summary>
-    
-      <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="统计学习" scheme="http://www.zhuzongkui.top/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
