@@ -100,11 +100,11 @@
     
       <category term="Linux" scheme="http://www.zhuzongkui.top/tags/Linux/"/>
     
-      <category term="镜像" scheme="http://www.zhuzongkui.top/tags/%E9%95%9C%E5%83%8F/"/>
-    
       <category term="docker" scheme="http://www.zhuzongkui.top/tags/docker/"/>
     
       <category term="容器" scheme="http://www.zhuzongkui.top/tags/%E5%AE%B9%E5%99%A8/"/>
+    
+      <category term="镜像" scheme="http://www.zhuzongkui.top/tags/%E9%95%9C%E5%83%8F/"/>
     
   </entry>
   
@@ -344,13 +344,13 @@
     
       <category term="Linux" scheme="http://www.zhuzongkui.top/tags/Linux/"/>
     
+      <category term="镜像" scheme="http://www.zhuzongkui.top/tags/%E9%95%9C%E5%83%8F/"/>
+    
       <category term="Windows" scheme="http://www.zhuzongkui.top/tags/Windows/"/>
     
       <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="虚拟环境" scheme="http://www.zhuzongkui.top/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/"/>
-    
-      <category term="镜像" scheme="http://www.zhuzongkui.top/tags/%E9%95%9C%E5%83%8F/"/>
     
   </entry>
   
