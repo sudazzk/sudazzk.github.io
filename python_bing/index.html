@@ -85,7 +85,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Python,编程,">
 
 
 
@@ -103,16 +103,18 @@
 
 
 
-<meta name="description" content="有句话说的好，但是我忘记了~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="JuTzungKuei">
-<meta property="og:url" content="http://www.zhuzongkui.top/archives/page/2/index.html">
+<meta name="description" content="[TOC] 概念 并发：串行 并行：并排运行  并行编程测试1234567891011121314151617181920212223242526272829303132333435363738394041424344from concurrent import futuresimport timeimport osprint(&quot;cpu 数量：&quot;, os.cpu_count())  # 测试笔记本">
+<meta name="keywords" content="Python,编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python 线程池 和 进程池 使用">
+<meta property="og:url" content="http://www.zhuzongkui.top/python_bing/index.html">
 <meta property="og:site_name" content="JuTzungKuei">
-<meta property="og:description" content="有句话说的好，但是我忘记了~">
+<meta property="og:description" content="[TOC] 概念 并发：串行 并行：并排运行  并行编程测试1234567891011121314151617181920212223242526272829303132333435363738394041424344from concurrent import futuresimport timeimport osprint(&quot;cpu 数量：&quot;, os.cpu_count())  # 测试笔记本">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-06-05T02:58:33.046Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JuTzungKuei">
-<meta name="twitter:description" content="有句话说的好，但是我忘记了~">
+<meta name="twitter:title" content="Python 线程池 和 进程池 使用">
+<meta name="twitter:description" content="[TOC] 概念 并发：串行 并行：并排运行  并行编程测试1234567891011121314151617181920212223242526272829303132333435363738394041424344from concurrent import futuresimport timeimport osprint(&quot;cpu 数量：&quot;, os.cpu_count())  # 测试笔记本">
 
 
 
@@ -140,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://www.zhuzongkui.top/archives/page/2/">
+  <link rel="canonical" href="http://www.zhuzongkui.top/python_bing/">
 
 
 
 
 
-  <title> 归 档 | JuTzungKuei </title>
+  <title> Python 线程池 和 进程池 使用 | JuTzungKuei </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -181,7 +183,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -317,383 +319,250 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 27 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.zhuzongkui.top/python_bing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zongkui Zhu">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JuTzungKuei">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Python 线程池 和 进程池 使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-24T16:04:26+08:00">
+                2021-01-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-06-05T10:58:33+08:00">
+                2021-06-05
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">字数统计</span>
+                  
+                    <span title="字数统计" }}">
+                      290 字
+                    </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                  
+                    <span class="post-meta-item-text">阅读时长</span>
+                  
+                    <span title="阅读时长" }}">
+                      1 分钟
+                    </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>[TOC]</p>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><ul>
+<li>并发：串行</li>
+<li>并行：并排运行</li>
+</ul>
+<h1 id="并行编程测试"><a href="#并行编程测试" class="headerlink" title="并行编程测试"></a>并行编程测试</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> concurrent <span class="keyword">import</span> futures</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">"cpu 数量："</span>, os.cpu_count())  <span class="comment"># 测试笔记本是4核</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(id, num)</span>:</span>  <span class="comment"># 涉及到多参数问题</span></span><br><span class="line">    time.sleep(num)</span><br><span class="line">    print(<span class="string">f"task <span class="subst">&#123;id&#125;</span> finished"</span>)</span><br><span class="line">    <span class="keyword">return</span> id</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 线程池 默认的是cpu的数目*5</span></span><br><span class="line">start = time.time()</span><br><span class="line"><span class="keyword">with</span> futures.ThreadPoolExecutor() <span class="keyword">as</span> tp:</span><br><span class="line">    task_list = [tp.submit(test, i, i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">8</span>, <span class="number">0</span>, <span class="number">-1</span>)]</span><br><span class="line">    <span class="comment"># task_result = [t.result() for t in task_list]  # 有任务结束，就返回，有序结果</span></span><br><span class="line">    task_result = [t.result() <span class="keyword">for</span> t <span class="keyword">in</span> futures.as_completed(task_list)]  <span class="comment"># 有任务结束，就返回结果，无序</span></span><br><span class="line">    print(task_result)</span><br><span class="line">print(time.time() - start)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start = time.time()</span><br><span class="line"><span class="keyword">with</span> futures.ThreadPoolExecutor() <span class="keyword">as</span> tp:</span><br><span class="line">    task_result = tp.map(<span class="keyword">lambda</span> args: test(*args), [(i, i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">8</span>, <span class="number">0</span>, <span class="number">-1</span>)])</span><br><span class="line">    print(list(task_result))  <span class="comment"># 原始顺序</span></span><br><span class="line">print(time.time() - start)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 进程池 默认的是cpu的数目</span></span><br><span class="line">start = time.time()</span><br><span class="line"><span class="keyword">with</span> futures.ProcessPoolExecutor() <span class="keyword">as</span> pp:</span><br><span class="line">    task_list = [pp.submit(test, i, i) <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">8</span>, <span class="number">0</span>, <span class="number">-1</span>)]</span><br><span class="line">    <span class="comment"># task_result = [t.result() for t in task_list]  # 有任务结束，就返回，有序结果</span></span><br><span class="line">    task_result = [t.result() <span class="keyword">for</span> t <span class="keyword">in</span> futures.as_completed(task_list)]  <span class="comment"># 有任务结束，就返回，无序结果</span></span><br><span class="line">    print(task_result)</span><br><span class="line">print(time.time() - start)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进程池的map测试，需要修改测试函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试结果：线程池速度优于进程池</span></span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://www.cnblogs.com/haiyan123/p/7461294.html" target="_blank" rel="noopener">https://www.cnblogs.com/haiyan123/p/7461294.html</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/uploads/wechat.jpg" alt="Zongkui Zhu WeChat Pay">
+          <p>微信打赏</p>
         </div>
       
       
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/uploads/alipay.jpg" alt="Zongkui Zhu Alipay">
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
+    </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      <h1 class="post-title">
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+            <a href="/tags/编程/" rel="tag"><i class="fa fa-tag"></i> 编程</a>
+          
+        </div>
+      
+
+      
         
-            <a class="post-title-link" href="/anaconda/" itemprop="url">
-              
-                <span itemprop="name">Anaconda 使用教程</span>
-              
-            </a>
-        
-      </h1>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-07T12:39:00+08:00" content="2019-09-07">
-          09-07
-        </time>
-      </div>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/python_static_check/" rel="next" title="Python 编程规范和静态检查">
+                <i class="fa fa-chevron-left"></i> Python 编程规范和静态检查
+              </a>
+            
+          </div>
 
-    </header>
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/jupyter/" itemprop="url">
-              
-                <span itemprop="name">Jupyter Notebook 使用教程</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-09-07T11:40:00+08:00" content="2019-09-07">
-          09-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/sklearn_cls/" itemprop="url">
-              
-                <span itemprop="name">scikit-learn 之 文本分类</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-31T15:06:34+08:00" content="2019-08-31">
-          08-31
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/deeplearning_framework/" itemprop="url">
-              
-                <span itemprop="name">深度学习框架 - 学习链接</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-12T08:40:30+08:00" content="2019-08-12">
-          08-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/vim/" itemprop="url">
-              
-                <span itemprop="name">Vim 基本配置</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-11T12:13:31+08:00" content="2019-08-11">
-          08-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/nlp_base_task/" itemprop="url">
-              
-                <span itemprop="name">NLP 基本任务</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-11T12:11:00+08:00" content="2019-08-11">
-          08-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/compress_commit/" itemprop="url">
-              
-                <span itemprop="name">解压缩命令-使用教程</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-11T11:09:41+08:00" content="2019-08-11">
-          08-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/mysql/" itemprop="url">
-              
-                <span itemprop="name">MySQL 安装配置教程（Windows、Linux）</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-10T20:05:48+08:00" content="2019-08-10">
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/ccks2019_ckbqa/" itemprop="url">
-              
-                <span itemprop="name">中文知识图谱问答 CCKS2019 CKBQA - 参赛总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-04T16:03:44+08:00" content="2019-08-04">
-          08-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/sort/" itemprop="url">
-              
-                <span itemprop="name">常用的排序算法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-17T20:50:46+08:00" content="2019-04-17">
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
           
           </div>
@@ -701,6 +570,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -720,8 +593,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/uploads/avatar.png" alt="Zongkui Zhu">
           <p class="site-author-name" itemprop="name">Zongkui Zhu</p>
@@ -840,6 +722,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#并行编程测试"><span class="nav-number">2.</span> <span class="nav-text">并行编程测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -977,11 +875,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
@@ -1150,26 +1046,6 @@
 
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 

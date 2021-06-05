@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.zhuzongkui.top/python_common/</loc>
+    
+    <lastmod>2021-06-05T03:56:13.231Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.zhuzongkui.top/python_static_check/</loc>
     
-    <lastmod>2021-01-15T03:04:33.897Z</lastmod>
+    <lastmod>2021-06-05T02:58:33.048Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/python_bing/</loc>
+    
+    <lastmod>2021-06-05T02:58:33.046Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.zhuzongkui.top/nlp_base_task/</loc>
+    
+    <lastmod>2021-06-05T02:58:33.042Z</lastmod>
     
   </url>
   
@@ -47,13 +68,6 @@
     <loc>http://www.zhuzongkui.top/vim/</loc>
     
     <lastmod>2020-07-15T05:53:44.353Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/python_common/</loc>
-    
-    <lastmod>2020-06-03T05:08:15.743Z</lastmod>
     
   </url>
   
@@ -124,13 +138,6 @@
     <loc>http://www.zhuzongkui.top/cuda/</loc>
     
     <lastmod>2019-11-09T06:09:08.896Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/nlp_base_task/</loc>
-    
-    <lastmod>2019-11-09T06:08:01.710Z</lastmod>
     
   </url>
   
