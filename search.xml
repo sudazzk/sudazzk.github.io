@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Oh My Zsh 离线安装]]></title>
+    <url>%2Fzsh_offline%2F</url>
+    <content type="text"><![CDATA[[TOC] 离线安装 zsh 官网：https://www.zsh.org/ 教程：https://zhuanlan.zhihu.com/p/113014284【有点麻烦】 还是建议有网安装：sudo apt install zsh 下载oh-my-zsh ZIP安装包 官网：https://ohmyz.sh/ 主题：https://github.com/ohmyzsh/ohmyzsh/wiki/Themes 插件：https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins ohmyzsh：https://github.com/ohmyzsh/ohmyzsh/ 推荐三个插件： https://github.com/zsh-users/zsh-autosuggestions https://github.com/zsh-users/zsh-syntax-highlighting https://github.com/zsh-users/zsh-history-substring-search 离线安装 oh my zsh 已有ZIP压缩包文件 1234ohmyzsh-master.zipzsh-autosuggestions-master.zipzsh-syntax-highlighting-master.zipzsh-history-substring-search-master.zip 解压 1234567891011unzip ohmyzsh-master.zip -d ./mv ohmyzsh-master ~/.oh-my-zshunzip zsh-autosuggestions-master.zip -d ./mv zsh-autosuggestions-master ~/.oh-my-zsh/plugins/zsh-autosuggestionsunzip zsh-syntax-highlighting-master.zip -d ./mv zsh-syntax-highlighting-master ~/.oh-my-zsh/plugins/zsh-syntax-highlightingunzip zsh-history-substring-search-master.zip -d ./mv zsh-history-substring-search-master ~/.oh-my-zsh/plugins/zsh-history-substring-search 修改安装脚本文件 12345678910111213141516171819202122232425262728293031323334cd ~/.oh-my-zsh/toolscp install.sh install.sh.back # 备份安装脚本vim install.sh# 删除或者注释掉 setup_ohmyzsh() 函数，第91行~第123行# 删除或者注释调用 setup_ohmyzsh 函数的地方，第263行~第290行263 if ! command_exists zsh; then264 echo "$&#123;YELLOW&#125;Zsh is not installed.$&#123;RESET&#125; Please install zsh first."265 exit 1266 fi267 268 if [ -d "$ZSH" ]; then269 echo "$&#123;YELLOW&#125;The \$ZSH folder already exists ($ZSH).$&#123;RESET&#125;"270 if [ "$custom_zsh" = yes ]; then271 cat &lt;&lt;EOF272 273 You ran the installer with the \$ZSH setting or the \$ZSH variable is274 exported. You have 3 options:275 276 1. Unset the ZSH variable when calling the installer:277 $(fmt_code "ZSH= sh install.sh")278 2. Install Oh My Zsh to a directory that doesn't exist yet:279 $(fmt_code "ZSH=path/to/new/ohmyzsh/folder sh install.sh")280 3. (Caution) If the folder doesn't contain important information,281 you can just remove it with $(fmt_code "rm -r $ZSH")282 283 EOF284 else285 echo "You'll need to remove it if you want to reinstall."286 fi287 exit 1288 fi289 290 setup_ohmyzsh 最后执行安装：sh install.sh，然后输入：y，成功 配置 编辑：vim ~/.zshrc 1234567891011# 推荐默认主题：robbyrussell 或者 agnosterZSH_THEME="agnoster"plugins=( git zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search vscode z extract) 刷新：source ~/.zshrc agnoster 主题乱码 Ubuntu、VsCode 显示乱码，原因是未配置Powerline字体 agnoster主题下面有备注官网：https://github.com/powerline/fonts123456789# Ubuntusudo apt-get install fonts-powerline# VsCode# 打开设置，搜索字体，在控制字体系列里添加'PowerlineSymbols'# 或者直接打开 setting.json 文件，作如下修改"editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback', 'PowerlineSymbols'" 参考 https://blog.csdn.net/u012814856/article/details/100668640]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>APP</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Oh My Zsh 在线安装]]></title>
+    <url>%2Fzsh_online%2F</url>
+    <content type="text"><![CDATA[[TOC] 安装 官网：https://ohmyz.sh/ 国内镜像12sudo apt install zshsh -c "$(wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh -O -)" 切换 切换bash：chsh -s /bin/bash 切换zsh：chsh -s /bin/zsh 需要系统注销，重新登录 配置 主题：https://github.com/ohmyzsh/ohmyzsh/wiki/Themes 12vim ~/.zshrcZSH_THEME="主题名" 插件：https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins 编辑文件：vim ~/.zshrc 12345678910plugins=( git zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search vscode sudo autojump z extract) 插件详细安装及解释 1234567891011121314151617181920212223242526# Zsh命令自动补全插件 zsh-autosuggestions【tab 补全】git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions# Zsh命令语法高亮插件 zsh-syntax-highlightinggit clone https://github.com/zsh-users/zsh-syntax-highlighting.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-syntax-highlighting# zsh-history-substring-search【自动记住曾经使用过的历史命令用于以后作命令提示】git clone https://github.com/zsh-users/zsh-history-substring-search $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-history-substring-search# vscode【vs 文件路径】git clone https://github.com/valentinocossar/vscode.git $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/vscode# sudo【需要加sudo，按两下ESC】# autojump【省去多次cd，直接跳转目录：j + 目录名】sudo apt-get install autojump# z【是oh-my-zsh默认就装好的，需要自己开启，功能同autojump】# extract【所有的压缩文件，都可以直接x filename，真香】# bat【相比 cat 增加了行号和颜色高亮】# https://github.com/sharkdp/bat# https://github.com/sharkdp/bat/releases 根据系统，下载最新版wget https://github.com/sharkdp/bat/releases/download/v0.18.2/bat_0.18.2_amd64.debsudo dpkg -i bat_0.18.2_amd64.deb 刷新：source ~/.zshrc z命令使用 只有你访问过的路径才会被记录1234567891011# 显示记录的路径z# 切换到一个名字带有 "foo" 的路径z foo# 切换到一个名字带有 "foo" 并且后面带有 "bar" 的路径（例：fooesbar):z foo bar# 列出在 z 的数据库中名字带有 "foo" 的路径z -l foo 其他技巧 搜索历史命令：ctrl + r 命令别名：1234vim .zshrc# alias 简短命令='原始命令' gcb='git checkout -b'# 查看有哪些别名：alias 参考 https://www.cnblogs.com/sandea/p/10757533.html https://zhuanlan.zhihu.com/p/61447507 https://www.cnblogs.com/monsterdev/p/11166720.html https://blog.csdn.net/qq_39530754/article/details/104714976]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>APP</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[深度学习框架 - 版本对应]]></title>
+    <url>%2Fdeeplearning_version%2F</url>
+    <content type="text"><![CDATA[1、深度学习所需环境 Python2、Python3：https://www.python.org/、https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/ TensorFlow：（Google）https://www.tensorflow.org/、https://tensorflow.google.cn/、 Pytorch：（Facebook）https://pytorch.org/ cuda driver：NVIDIA 显卡驱动（最底层） https://www.nvidia.cn/Download/index.aspx?lang=cn cudatoolkit：cuda相关的工具包 https://developer.nvidia.com/cuda-toolkit-archive cuda：nvidia推出的用于自家GPU的并行计算框架 https://developer.nvidia.com/cuda-toolkit-archive cudnn：nvidia打造的针对深度神经网络的加速库 https://developer.nvidia.com/rdp/cudnn-download 2、版本对应 TensorFlow 与 cuDNN、CUDA 的对应版本：https://tensorflow.google.cn/install/source#gpu、https://tensorflow.google.cn/install/source_windows#gpu Pytorch 与 CUDA 的对应版本：https://pytorch.org/get-started/previous-versions/ 显卡驱动 与 CUDA 的对应版本：https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html cuDNN 与 CUDA 的对应版本：https://developer.nvidia.com/rdp/cudnn-archive 3、查看版本 Python：命令行 python or which python Tensorflow 法1： 12import tensorflow as tfprint(tf.__version__) 法2：命令行 pip list or conda list Pytorch 法1： 12import torchprint(torch.__version__) 法2：命令行 pip list or conda list 显卡驱动：命令行 nvidia-smi or cat /proc/driver/nvidia/version CUDA：nvcc -V or nvcc --version，但前提是添加了环境变量【见下面】，cat /usr/local/cuda/version.txt cuDNN 12cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2 4、安装版本 conda自动完成：conda install tensorflow-gpu==1.13.1 显卡驱动：https://www.nvidia.cn/Download/index.aspx?lang=cn cuda：下载 https://developer.nvidia.com/cuda-toolkit-archive 12345678910sudo sh cuda_9.0.176_384.81_linux.runvim ~/.bashrc# cuda-9.0# export PATH="/usr/local/cuda-9.0/bin:$PATH"# export LD_LIBRARY_PATH="/usr/local/cuda-9.0/lib64:$LD_LIBRARY_PATH"# cuda-10.0export PATH="/usr/local/cuda-10.0/bin:$PATH"export LD_LIBRARY_PATH="/usr/local/cuda-10.0/lib64:$LD_LIBRARY_PATH" cudnn：https://developer.nvidia.com/rdp/cudnn-archive 官方教程：https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#handle-uninstallation 5、指定GPU的id123456CUDA_VISIBLE_DEVICES=1 python my_script.py # 命令行export CUDA_VISIBLE_DEVICES=1 # shell脚本import osos.environ["CUDA_VISIBLE_DEVICES"] = "0" # Python 6、BERT 与 显卡12G内存、batch size、sequence length关系 System Seq Length Max Batch Size BERT-Base 64 64 … 128 32 … 256 16 … 320 14 … 384 12 … 512 6 BERT-Large 64 12 … 128 6 … 256 2 … 320 1 … 384 0 … 512 0 7、BERT tf：https://github.com/google-research/bert torch：https://github.com/huggingface/transformers、 https://github.com/Meelfy/pytorch_pretrained_BERT https://huggingface.co/models?filter=bert]]></content>
+      <categories>
+        <category>总结</category>
+      </categories>
+      <tags>
+        <tag>NLP</tag>
+        <tag>Python</tag>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Win10 安装 Elasticsearch 及 ik 分词器]]></title>
+    <url>%2Fes%2F</url>
+    <content type="text"><![CDATA[Es 下载 下载地址：https://www.elastic.co/cn/downloads/elasticsearch 指定版本：https://www.elastic.co/cn/downloads/past-releases#elasticsearch 这里下载：elasticsearch-7.6.0-windows-x86_64.zip 解压启动es1234unzip elasticsearch-7.6.0-windows-x86_64.zip -d ./ # 或者解压软件直接解压到当前目录即可cd elasticsearch-7.6.0/bin# 双击 elasticsearch.bat 启动es，需稍等10scurl http://localhost:9200/ # 测试，正常无任何问题 ik 分词器 下载地址：https://github.com/medcl/elasticsearch-analysis-ik 指定版本：https://github.com/medcl/elasticsearch-analysis-ik/releases 这里下载：elasticsearch-analysis-ik-7.6.0.zip，已编译，非源码 解压安装 1234567891011解压到指定目录：elasticsearch-7.6.0/plugins/ikik 需要新建，ik目录有以下8个文件或目录config/commons-codec-1.9.jarcommons-logging-1.2.jarelasticsearch-analysis-ik-7.6.0.jarhttpclient-4.5.2.jarhttpcore-4.4.4.jarplugin-descriptor.propertiesplugin-security.policy 坑爹的地方：双击 elasticsearch.bat 启动会直接闪退，并且已排除文件路径有空格 坑爹解决方案： 12345678双击打开解压后的文件：elasticsearch-analysis-ik-7.6.0.jar找到文件：elasticsearch-analysis-ik-7.6.0.jar/META-INF/maven/org.elasticsearch/elasticsearch-analysis-ik/pom.xml编辑文件第15行：&lt;elasticsearch.version&gt;7.4.0&lt;/elasticsearch.version&gt;修改为Es对应版本号：&lt;elasticsearch.version&gt;7.6.0&lt;/elasticsearch.version&gt;保存，退出jar文件最后双击elasticsearch.bat 完美启动 注意：解压后删除 elasticsearch-analysis-ik-7.6.0.zip，不要将 zip 文件 和 ik 目录同时放在elasticsearch-7.6.0/plugins/ 目录下面 控制台日志乱码问题：1234vi elasticsearch-7.6.0/config/jvm.options添加 -Dfile.encoding=GBK]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>APP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python 进阶学习]]></title>
+    <url>%2Fpython_advance%2F</url>
+    <content type="text"><![CDATA[1、VsCode Debug 配置文件 配置当前路径、命令行参数1234567891011121314&quot;configurations&quot;: [ &#123; &quot;name&quot;: &quot;Python: 当前文件&quot;, &quot;type&quot;: &quot;python&quot;, &quot;request&quot;: &quot;launch&quot;, &quot;program&quot;: &quot;$&#123;file&#125;&quot;, &quot;console&quot;: &quot;integratedTerminal&quot;, &quot;args&quot;: [ &quot;--data&quot;, &quot;./data/&quot;, &quot;--output&quot;, &quot;./output/&quot;, &quot;--lang&quot;, &quot;en&quot;], &quot;cwd&quot;: &quot;$&#123;fileDirname&#125;&quot; &#125; ] 2、生成requirements.txt12python -m pip install pipreqspipreqs ./ --encoding=utf-8 3、单星号、双星号 单星号（*）：*agrs，将所以参数以元组(tuple)的形式导入 双星号（**）：**kwargs，将参数以字典的形式导入123456789101112131415161718192021def foo(param1, *param2): print(param1) print(param2) print(param2[2])foo(1, 2, 3, 4, 5)def bar(param1, **param2): print(param1) print(param2) print(param2["a"])bar(1, a=2, b=3)"""输出：1(2, 3, 4, 5)41&#123;'a': 2, 'b': 3&#125;2""" 4、list, np.array, torch.tensor 相互转换12345678ndarray = np.array(list) # list 转 numpy数组list = ndarray.tolist() # numpy 转 listtensor=torch.Tensor(list) # list 转 torch.Tensorlist = tensor.numpy().tolist() # torch.Tensor 转 list 先转numpy，后转listndarray = tensor.cpu().numpy() # torch.Tensor 转 numpy *gpu上的tensor不能直接转为numpytensor = torch.from_numpy(ndarray) # numpy 转 torch.Tensor 5、np.array, torch.tensor 数组嵌套12345678910111213141516171819import numpy as npa = [1, 2, 3]b = [0, 1, 0]a = np.array(a)b = np.array(b)c = a[b]print(c)# 输出：[1 2 1]import torcha = [1, 2, 3]b = [0, 1, 0]a = torch.Tensor(a)b = torch.Tensor(b)b = b.gt(0)c = a[b]print(c)# 输出：tensor([2.]) 6、Python 执行 shell12345678910111213141516import osimport subprocessx1 = os.system('pwd') # 直接输出shell结果，不会赋值给x1print('x1', x1) # 打印结果：0, 表示命令执行成功x2 = os.popen('pwd').read() # 不直接输出shell结果，会赋值给x2print('x2', x2) # 打印结果：/home/zzk, os.popen() 返回的是一个【文件对象】x3 = subprocess.call('pwd', shell=True) # 直接输出shell结果print('x3', x3) # 打印结果：0subprocess.call('echo 123', shell=True)subprocess.call(['echo', '456'], shell=False)x4 = subprocess.Popen('cd ../ &amp;&amp; pwd', stdout=subprocess.PIPE, shell=True)print('x4', x4.communicate()) # 打印结果 7、卸载所有三方包123pip listpip freeze&gt;python_modules.txtpip uninstall -r python_modules.txt -y]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python 线程池 和 进程池 使用]]></title>
     <url>%2Fpython_bing%2F</url>
     <content type="text"><![CDATA[[TOC] 概念 并发：串行 并行：并排运行 并行编程测试1234567891011121314151617181920212223242526272829303132333435363738394041424344from concurrent import futuresimport timeimport osprint("cpu 数量：", os.cpu_count()) # 测试笔记本是4核def test(id, num): # 涉及到多参数问题 time.sleep(num) print(f"task &#123;id&#125; finished") return id# 线程池 默认的是cpu的数目*5start = time.time()with futures.ThreadPoolExecutor() as tp: task_list = [tp.submit(test, i, i) for i in range(8, 0, -1)] # task_result = [t.result() for t in task_list] # 有任务结束，就返回，有序结果 task_result = [t.result() for t in futures.as_completed(task_list)] # 有任务结束，就返回结果，无序 print(task_result)print(time.time() - start)start = time.time()with futures.ThreadPoolExecutor() as tp: task_result = tp.map(lambda args: test(*args), [(i, i) for i in range(8, 0, -1)]) print(list(task_result)) # 原始顺序print(time.time() - start)# 进程池 默认的是cpu的数目start = time.time()with futures.ProcessPoolExecutor() as pp: task_list = [pp.submit(test, i, i) for i in range(8, 0, -1)] # task_result = [t.result() for t in task_list] # 有任务结束，就返回，有序结果 task_result = [t.result() for t in futures.as_completed(task_list)] # 有任务结束，就返回，无序结果 print(task_result)print(time.time() - start)# 进程池的map测试，需要修改测试函数# 测试结果：线程池速度优于进程池 参考 https://www.cnblogs.com/haiyan123/p/7461294.html]]></content>
@@ -8,8 +68,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>Code</tag>
       </tags>
   </entry>
   <entry>
@@ -20,8 +80,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>Code</tag>
       </tags>
   </entry>
   <entry>
@@ -32,10 +92,9 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>docker</tag>
-        <tag>容器</tag>
-        <tag>镜像</tag>
+        <tag>Image</tag>
+        <tag>APP</tag>
+        <tag>Shell</tag>
       </tags>
   </entry>
   <entry>
@@ -46,8 +105,9 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>知识图谱</tag>
-        <tag>KBQA</tag>
+        <tag>APP</tag>
+        <tag>DB</tag>
+        <tag>KG</tag>
       </tags>
   </entry>
   <entry>
@@ -58,8 +118,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>Code</tag>
       </tags>
   </entry>
   <entry>
@@ -70,22 +130,20 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>Markdown</tag>
-        <tag>Vuepress</tag>
+        <tag>APP</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Neo4j 使用教程]]></title>
     <url>%2Fneo4j%2F</url>
-    <content type="text"><![CDATA[[TOC] 一、介绍相关链接 官网：https://neo4j.com/ 官方手册：https://neo4j.com/docs/operations-manual/current/ 中文文档：http://neo4j.com.cn/public/docs/index.html neo4j教程：https://www.w3cschool.cn/neo4j/ neo4j 初步认识和使用：https://segmentfault.com/a/1190000014488430?utm_source=tag-newest Neo4j基础介绍：https://blog.csdn.net/liudongdong19/article/details/82772104 Neo4j 学习笔记（-）：https://www.cnblogs.com/infoo/p/9840965.html Neo4j 学习笔记（二）：https://www.cnblogs.com/infoo/p/11947467.html neo4j 开启远程web访问7474端口 以 用浏览器打开远程neo4j的web控制台界面 图数据库哪家强，图数据库选型入门指南 启动Neo4j失败：地址localhost：7474已经在使用 基础知识 目前最流行的高性能的NoSQL图形数据库，结构化数据存储在网络上而不是在表中，完全由java开发 支持完整的事务，在属性图中，图是由顶点（Vertex），边（Edge）和属性（Property）组成的，顶点和边都可以设置属性，顶点也称作节点，边也称作关系，每个节点和关系都可以由一个或多个属性。 Neo4j创建的图是用顶点和边构建一个有向图，其查询语言cypher已经成为事实上的标准。 二、安装链接 社区版：https://neo4j.com/download-center/#community 链接地址（Linux版）：https://neo4j.com/artifact.php?name=neo4j-community-3.5.13-unix.tar.gz 链接地址（Windows）：https://neo4j.com/artifact.php?name=neo4j-community-3.5.13-windows.zip 命令12345678tar -xf neo4j-community-3.5.13-unix.tar.gzcd neo4j-community-3.5.13/## 取消54行注释dbms.connectors.default_listen_address=0.0.0.0./bin/neo4j console # 以控制台应用运行./bin/neo4j start # 以后台进程运行 浏览器 http://localhost:7474/ 初始用户名和密码：neo4j 修改密码：neo4j. 三、Python操作学习链接 The Py2neo v4 Handbook 在python中使用neo4j全过程 python操作neo4j 【较详细】 python通过py2neo模块操作Neo4j图数据库 neo4j︱与python结合的py2neo使用教程（四） py2neo使用指南 py2neo基本用法 安装 py2neo：python -m pip install py2neo 创建代码12345678910111213141516from py2neo import Node, Relationship, Graph, NodeMatcher, RelationshipMatcher# 新建图形graph = Graph('http://localhost:7474', username='neo4j', password='neo4j.')# 新建nodea = Node('label', name = 'a' )b = Node('label', name = 'b' )# 在graph中绘制nodegraph.create(a)graph.create(b)# 新建关系并绘制r1 = Relationship(a, 'to', b, name = 'to') #可以增加一些属性，也可以省略graph.create(r1) 相关术语图 Graph graph = Graph(url,username=’name’,password=’pw’) 节点 Node 构成一张图的基本元素是节点和关系。 在Neo4j中，节点和关系都可以包含属性。 class Node(labels, *properties) 关系 Relationship 节点之间的关系是图数据库很重要的一部分。 一个关系连接两个节点，必须有一个开始节点和结束节点。 class Relationship(start_node, type, end_node, **properties) 属性 节点和关系都可以设置自己的属性。 属性是由Key-Value键值对组成，键名是字符串。 属性值是要么是原始值，要么是原始值类型的一个数组。 查询代码 后续补充… 四、数据导入链接 图数据库 Neo4j 的部署、数据导入和简单使用 学习Neo4j几小时小结~批量导入数据 使用neo4j图数据库的import工具导入数据 -方法和注意事项 Neo4j—数据导入JM68 方法数据样例：./zzk/person.txt12345678910111213141516一灯大师 技能/武功 一阳指一灯大师 传功 王重阳王重阳 师弟 周伯通周伯通 别名 老顽童周伯通 义弟 郭靖郭靖 义弟 杨康杨康 儿子 杨过杨过 妻子 小龙女杨过 师傅 小龙女小龙女 后人 黄衫女子黄衫女子 惩戒 周芷若郭靖 女儿 郭襄郭襄 创立 峨嵋派周芷若 因爱生恨 张无忌张君宝 创立 武当派张无忌 太师父 张君宝 处理数据：./zzk/do_data.py1234567891011121314151617181920212223242526def read_write(txt_file, node_file, edge_file): node_dict = &#123;&#125; with open(txt_file, "r", encoding="utf-8") as ft: for line in ft: row = line.rstrip().split() if row[0] not in node_dict: node_dict[row[0]] = len(node_dict) if row[2] not in node_dict: node_dict[row[2]] = len(node_dict) with open(node_file, "w", encoding="utf-8") as fn: fn.write("entity:ID,name,:LABEL" + "\n") for node in node_dict: fn.write("e" + str(node_dict[node]) + "," + node + ",Entity\n") with open(edge_file, "w", encoding="utf-8") as fe: fe.write(":START_ID,:END_ID,:TYPE" + "\n") with open(txt_file, "r", encoding="utf-8") as ft: for line in ft: row = line.rstrip().split() fe.write("e"+str(node_dict[row[0]]) + "," + "e"+str(node_dict[row[2]]) + "," + row[1] + "\n")if __name__ == "__main__": read_write("person.txt", "node.csv", "edge.csv") 处理结果：./zzk/node.csv1234567891011121314151617entity:ID,name,:LABELe0,一灯大师,Entitye1,一阳指,Entitye2,王重阳,Entitye3,周伯通,Entitye4,老顽童,Entitye5,郭靖,Entitye6,杨康,Entitye7,杨过,Entitye8,小龙女,Entitye9,黄衫女子,Entitye10,周芷若,Entitye11,郭襄,Entitye12,峨嵋派,Entitye13,张无忌,Entitye14,张君宝,Entitye15,武当派,Entity 处理结果：./zzk/edge.csv1234567891011121314151617:START_ID,:END_ID,:TYPEe0,e1,技能/武功e0,e2,传功e2,e3,师弟e3,e4,别名e3,e5,义弟e5,e6,义弟e6,e7,儿子e7,e8,妻子e7,e8,师傅e8,e9,后人e9,e10,惩戒e5,e11,女儿e11,e12,创立e10,e13,因爱生恨e14,e15,创立e13,e14,太师父 导入数据1./bin/neo4j-import --into ./data/databases/new_graph.db --nodes ./zzk/node.csv --relationships ./zzk/edge.csv 查看 修改配置文件：vim ./conf/neo4j.conf 第9行 dbms.active_database=new_graph.db 命令：./bin/neo4j console 浏览器：http://localhost:7474 删库跑路 rm -rf ./data/databases/new_graph.db]]></content>
+    <content type="text"><![CDATA[[TOC] 一、介绍相关链接 官网：https://neo4j.com/ 官方手册：https://neo4j.com/docs/operations-manual/current/ 中文文档：http://neo4j.com.cn/public/docs/index.html neo4j教程：https://www.w3cschool.cn/neo4j/ neo4j 初步认识和使用：https://segmentfault.com/a/1190000014488430?utm_source=tag-newest Neo4j基础介绍：https://blog.csdn.net/liudongdong19/article/details/82772104 Neo4j 学习笔记（-）：https://www.cnblogs.com/infoo/p/9840965.html Neo4j 学习笔记（二）：https://www.cnblogs.com/infoo/p/11947467.html neo4j 开启远程web访问7474端口 以 用浏览器打开远程neo4j的web控制台界面 图数据库哪家强，图数据库选型入门指南 启动Neo4j失败：地址localhost：7474已经在使用 基础知识 目前最流行的高性能的NoSQL图形数据库，结构化数据存储在网络上而不是在表中，完全由java开发 支持完整的事务，在属性图中，图是由顶点（Vertex），边（Edge）和属性（Property）组成的，顶点和边都可以设置属性，顶点也称作节点，边也称作关系，每个节点和关系都可以由一个或多个属性。 Neo4j创建的图是用顶点和边构建一个有向图，其查询语言cypher已经成为事实上的标准。 二、安装链接 社区版：https://neo4j.com/download-center/#community 链接地址（Linux版）：https://neo4j.com/artifact.php?name=neo4j-community-3.5.13-unix.tar.gz 链接地址（Windows）：https://neo4j.com/artifact.php?name=neo4j-community-3.5.13-windows.zip 命令12345678tar -xf neo4j-community-3.5.13-unix.tar.gzcd neo4j-community-3.5.13/## 取消54行注释dbms.connectors.default_listen_address=0.0.0.0./bin/neo4j console # 以控制台应用运行./bin/neo4j start # 以后台进程运行 浏览器 http://localhost:7474/ 初始用户名和密码：neo4j 修改密码：neo4j. 三、Python操作学习链接 The Py2neo v4 Handbook 在python中使用neo4j全过程 python操作neo4j 【较详细】 python通过py2neo模块操作Neo4j图数据库 neo4j︱与python结合的py2neo使用教程（四） py2neo使用指南 py2neo基本用法 安装 py2neo：python -m pip install py2neo 创建代码12345678910111213141516from py2neo import Node, Relationship, Graph, NodeMatcher, RelationshipMatcher# 新建图形graph = Graph('http://localhost:7474', username='neo4j', password='neo4j.')# 新建nodea = Node('label', name = 'a' )b = Node('label', name = 'b' )# 在graph中绘制nodegraph.create(a)graph.create(b)# 新建关系并绘制r1 = Relationship(a, 'to', b, name = 'to') #可以增加一些属性，也可以省略graph.create(r1) 相关术语图 Graph graph = Graph(url,图数据库username=’name’,password=’pw’) 节点 Node 构成一张图的基本元素是节点和关系。 在Neo4j中，节点和关系都可以包含属性。 class Node(labels, *properties) 关系 Relationship 节点之间的关系是图数据库很重要的一部分。 一个关系连接两个节点，必须有一个开始节点和结束节点。 class Relationship(start_node, type, end_node, **properties) 属性 节点和关系都可以设置自己的属性。 属性是由Key-Value键值对组成，键名是字符串。 属性值是要么是原始值，要么是原始值类型的一个数组。 查询代码 后续补充… 四、数据导入链接 图数据库 Neo4j 的部署、数据导入和简单使用 学习Neo4j几小时小结~批量导入数据 使用neo4j图数据库的import工具导入数据 -方法和注意事项 Neo4j—数据导入JM68 方法数据样例：./zzk/person.txt12345678910111213141516一灯大师 技能/武功 一阳指一灯大师 传功 王重阳王重阳 师弟 周伯通周伯通 别名 老顽童周伯通 义弟 郭靖郭靖 义弟 杨康杨康 儿子 杨过杨过 妻子 小龙女杨过 师傅 小龙女小龙女 后人 黄衫女子黄衫女子 惩戒 周芷若郭靖 女儿 郭襄郭襄 创立 峨嵋派周芷若 因爱生恨 张无忌张君宝 创立 武当派张无忌 太师父 张君宝 处理数据：./zzk/do_data.py1234567891011121314151617181920212223242526def read_write(txt_file, node_file, edge_file): node_dict = &#123;&#125; with open(txt_file, "r", encoding="utf-8") as ft: for line in ft: row = line.rstrip().split() if row[0] not in node_dict: node_dict[row[0]] = len(node_dict) if row[2] not in node_dict: node_dict[row[2]] = len(node_dict) with open(node_file, "w", encoding="utf-8") as fn: fn.write("entity:ID,name,:LABEL" + "\n") for node in node_dict: fn.write("e" + str(node_dict[node]) + "," + node + ",Entity\n") with open(edge_file, "w", encoding="utf-8") as fe: fe.write(":START_ID,:END_ID,:TYPE" + "\n") with open(txt_file, "r", encoding="utf-8") as ft: for line in ft: row = line.rstrip().split() fe.write("e"+str(node_dict[row[0]]) + "," + "e"+str(node_dict[row[2]]) + "," + row[1] + "\n")if __name__ == "__main__": read_write("person.txt", "node.csv", "edge.csv") 处理结果：./zzk/node.csv1234567891011121314151617entity:ID,name,:LABELe0,一灯大师,Entitye1,一阳指,Entitye2,王重阳,Entitye3,周伯通,Entitye4,老顽童,Entitye5,郭靖,Entitye6,杨康,Entitye7,杨过,Entitye8,小龙女,Entitye9,黄衫女子,Entitye10,周芷若,Entitye11,郭襄,Entitye12,峨嵋派,Entitye13,张无忌,Entitye14,张君宝,Entitye15,武当派,Entity 处理结果：./zzk/edge.csv1234567891011121314151617:START_ID,:END_ID,:TYPEe0,e1,技能/武功e0,e2,传功e2,e3,师弟e3,e4,别名e3,e5,义弟e5,e6,义弟e6,e7,儿子e7,e8,妻子e7,e8,师傅e8,e9,后人e9,e10,惩戒e5,e11,女儿e11,e12,创立e10,e13,因爱生恨e14,e15,创立e13,e14,太师父 导入数据1./bin/neo4j-import --into ./data/databases/new_graph.db --nodes ./zzk/node.csv --relationships ./zzk/edge.csv 查看 修改配置文件：vim ./conf/neo4j.conf 第9行 dbms.active_database=new_graph.db 命令：./bin/neo4j console 浏览器：http://localhost:7474 删库跑路 rm -rf ./data/databases/new_graph.db]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Windows</tag>
-        <tag>Python</tag>
-        <tag>图数据库</tag>
+        <tag>APP</tag>
+        <tag>DB</tag>
+        <tag>KG</tag>
       </tags>
   </entry>
   <entry>
@@ -96,23 +154,21 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
-        <tag>笔试</tag>
-        <tag>刷题</tag>
+        <tag>Code</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[VS Code 使用教程]]></title>
     <url>%2Fvscode%2F</url>
-    <content type="text"><![CDATA[[TOC] VS Code 文档 快捷键 官方速查表 VScode快捷键（最全） 展示命令面板：Ctrl+Shift+P, F1 打开用户设置：Ctrl+, 打开键盘快捷: Ctrl+K Ctrl+S 折叠所有区域：Ctrl+K Ctrl+0 展开所有子域：Ctrl+K Ctrl+] 新建窗口：Ctrl+Shift+N 拆分编辑：Ctrl+\ 转到某行：Ctrl+G 转到文件：Ctrl+P 返回/前进：Alt+ ←/→ 复制当前行：Ctrl+C 剪切当前行：Ctrl+X 查找：Ctrl+F 替换：Ctrl+H 插入多个光标：Alt + Click 列选择：Shift+Alt+Click 文档格式化：Shift+Alt+F 重命名符号：F2 放大/缩小：Ctrl + = / - 打开终端：`Ctrl+`` Debug 开始/暂停：F5 Debug 下一步：F11 Debug 上一步：Shift+F11 Debug 跳过：F10 Debug 切换断点：F9 插件 PYTHON开发利器之VS Code 常用插件介绍 VS Code 必备插件推荐 30个极大提高开发效率的Visual Studio Code插件 VS Code 插件推荐合集（持续更新） 超实用VS Code插件推荐——不定期更新！ 插件离线安装在服务器 离线安装 VSCode Remote-SSH 简单的 VSCode 插件离线安装方法 利用 Settings Sync 同步vs code配置 VSCode 云同步扩展设置 Settings Sync 插件 1234gist.github.com 无法访问解决办法windows下 打开C:\Windows\System32\drivers\etc\hosts文件 编辑器打开，在最后行添加192.30.253.118 gist.github.com Personal access tokens：****4606e10869db482c04**** 12345ctrl + p&gt;sync高级选项编辑扩展本地设置&quot;token&quot;: 复制粘贴 创建的Gist仓库的ID：****2a9c160ee35e**** 12插件名右击选择【配置扩展设置】【设置同步使用的 GitHub Gist ID】复制粘贴 VScode Remote ssh VSCode:Remote-SSH配置实录 VSCode远程编辑,Remote-SSH,Remote Development VScode Remote ssh ==离线安装==服务器 报错解决：Downloading VS Code Server failed. Please try again later. vscode搭建远程开发123456789101112# remote-ssh 连接，失败后，点击查看细节# 终端输入命令，查看链接，手动下载ps -aux | grep vscode wget -nv -O vscode-server-linux-x64.tar.gzhttps://update.code.visualstudio.com/commit:2213894ea0415ee8c85c5eea0d0ff81ecc191529/server-linux-x64/stable# 安装cd ~/.vscode-server/bin/*/tar -zxvf vscode-server-linux-x64.tar.gz -C ./mv vscode-server-linux-x64/* .touch 0 配置git 如何给VScode配置git Git+VSCode基本使用 Visual Studio Code第二弹：Vscode与Git的完美结合 Code Server — VSCODE 服务器版（不太好用） Code Server — VSCODE 服务器版 （推荐）VS code在线工具——code-serve 在云服务器上的安装和使用 与常见的问题解决 (超详细) VSCode下C/C++环境配置 https://blog.csdn.net/danxibaoxxx/article/details/81289651 KoroFileHeader 文件头、函数头注释 https://blog.csdn.net/sueRimn/article/details/88048276]]></content>
+    <content type="text"><![CDATA[[TOC] VS Code 文档 快捷键 官方速查表 VScode快捷键（最全） 展示命令面板：Ctrl+Shift+P, F1 打开用户设置：Ctrl+, 打开键盘快捷: Ctrl+K Ctrl+S 折叠所有区域：Ctrl+K Ctrl+0 展开所有子域：Ctrl+K Ctrl+] 新建窗口：Ctrl+Shift+N 拆分编辑：Ctrl+\ 转到某行：Ctrl+G 转到文件：Ctrl+P 返回/前进：Alt+ ←/→ 复制当前行：Ctrl+C 剪切当前行：Ctrl+X 查找：Ctrl+F 替换：Ctrl+H 插入多个光标：Alt + Click 列选择：Shift+Alt+Click 文档格式化：Shift+Alt+F 重命名符号：F2 放大/缩小：Ctrl + = / - 打开终端：`Ctrl+`` Debug 开始/暂停：F5 Debug 下一步：F11 Debug 上一步：Shift+F11 Debug 跳过：F10 Debug 切换断点：F9 插件 PYTHON开发利器之VS Code 常用插件介绍 VS Code 必备插件推荐 30个极大提高开发效率的Visual Studio Code插件 VS Code 插件推荐合集（持续更新） 超实用VS Code插件推荐——不定期更新！ 插件离线安装在服务器 离线安装 VSCode Remote-SSH 简单的 VSCode 插件离线安装方法 利用 Settings Sync 同步vs code配置 VSCode 云同步扩展设置 Settings Sync 插件 1234gist.github.com 无法访问解决办法windows下 打开C:\Windows\System32\drivers\etc\hosts文件 编辑器打开，在最后行添加192.30.253.118 gist.github.com Personal access tokens：****4606e10869db482c04**** 12345ctrl + p&gt;sync高级选项编辑扩展本地设置&quot;token&quot;: 复制粘贴 创建的Gist仓库的ID：****2a9c160ee35e**** 12插件名右击选择【配置扩展设置】【设置同步使用的 GitHub Gist ID】复制粘贴 VScode Remote ssh VSCode:Remote-SSH配置实录 VSCode远程编辑,Remote-SSH,Remote Development VScode Remote ssh 离线安装 报错解决：Downloading VS Code Server failed. Please try again later. vscode搭建远程开发 1234567891011121314# VSCode本地升级后，再连远程服务器报错# remote-ssh 连接，失败后，点击查看细节 details# 终端输入命令，查看链接，手动下载ps -aux | grep vscode wget -nv -O vscode-server-linux-x64.tar.gzhttps://update.code.visualstudio.com/commit:&#123;ID&#125;/server-linux-x64/stable# 下载vscode-server-linux-x64.tar.gz文件，放到~/.vscode-server/bin/*/目录下面# 然后解压安装cd ~/.vscode-server/bin/*/tar -zxvf vscode-server-linux-x64.tar.gz -C ./mv vscode-server-linux-x64/* .touch 0 配置git 如何给VScode配置git Git+VSCode基本使用 Visual Studio Code第二弹：Vscode与Git的完美结合 Code Server — VSCODE 服务器版（不太好用） Code Server — VSCODE 服务器版 （推荐）VS code在线工具——code-serve 在云服务器上的安装和使用 与常见的问题解决 (超详细) VSCode下C/C++环境配置 https://blog.csdn.net/danxibaoxxx/article/details/81289651 KoroFileHeader 文件头、函数头注释 https://blog.csdn.net/sueRimn/article/details/88048276]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
-        <tag>软件</tag>
+        <tag>APP</tag>
+        <tag>Code</tag>
       </tags>
   </entry>
   <entry>
@@ -123,10 +179,7 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>GPU</tag>
-        <tag>软件</tag>
-        <tag>运维</tag>
+        <tag>APP</tag>
       </tags>
   </entry>
   <entry>
@@ -137,11 +190,9 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>镜像</tag>
-        <tag>Windows</tag>
         <tag>Python</tag>
-        <tag>虚拟环境</tag>
+        <tag>Image</tag>
+        <tag>APP</tag>
       </tags>
   </entry>
   <entry>
@@ -152,9 +203,9 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>编程</tag>
         <tag>Python</tag>
+        <tag>APP</tag>
+        <tag>Code</tag>
       </tags>
   </entry>
   <entry>
@@ -165,10 +216,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>统计学习</tag>
-        <tag>特征选择</tag>
-        <tag>文本分类</tag>
-        <tag>特征提取</tag>
+        <tag>NLP</tag>
+        <tag>ML</tag>
       </tags>
   </entry>
   <entry>
@@ -180,20 +229,20 @@
       </categories>
       <tags>
         <tag>NLP</tag>
-        <tag>深度学习</tag>
+        <tag>ML</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Vim 基本配置]]></title>
     <url>%2Fvim%2F</url>
-    <content type="text"><![CDATA[Vim 基本配置一、教程 http://vimdoc.sourceforge.net/ 英 http://vimcdoc.sourceforge.net/ 中 Vim documentation: options Vim初级：配置和使用 Vim配置（python版） Vim 配置入门 vim 常用配置 二、vim 基本常用配置 vim ~/.vimrc123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354&quot; 基本配置syntax on &quot; 语法高亮set nocompatible &quot; 不与 Vi 兼容，去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限set showmode &quot; 在底部显示，当前处于命令模式还是插入模式set showcmd &quot; 在底部显示，当前键入的指令&quot; set mouse=a &quot; 支持使用鼠标set encoding=utf-8 &quot; 使用 utf-8 编码&quot; set t_Co=256 &quot; 启用256色filetype indent on &quot; 针对不同的文件采取不同的缩进方式filetype plugin indent on &quot; 开启插件,启动智能补全filetype on &quot; 检测文件类型&quot; 缩进set autoindent &quot; 按下回车键后，下一行的缩进会自动跟上一行的缩进保持一致set tabstop=4 &quot; 设定 tab 长度为 4set shiftwidth=4 &quot; 设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 4set softtabstop=4 &quot; 使得按退格键时可以一次删掉 4 个空格set smartindent &quot; 开启新行时使用智能自动缩进set laststatus=2 &quot; 显示状态栏 (默认值为 1, 无法显示状态栏)&quot; 外观set number &quot; 显示行号&quot; set relativenumber &quot; 显示光标所在的当前行的行号，其他行都为相对于该行的相对行号set cursorline &quot; 突出显示当前行&quot; set textwidth=80 &quot; 设置行宽，即一行显示多少个字符set ruler &quot; 打开状态栏标尺，在状态栏显示光标的当前位置（位于哪一行哪一列）&quot; 搜索set showmatch &quot; 光标遇到圆括号、方括号、大括号时，自动高亮对应的另一个圆括号、方括号和大括号set hlsearch &quot; 搜索时，高亮显示匹配结果set incsearch &quot; 输入搜索内容时就显示搜索结果&quot; set ignorecase &quot; 搜索时忽略大小写set ignorecase smartcase &quot; 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感set nowrapscan &quot; 禁止在搜索到文件两端时重新搜索&quot; 编辑set nobackup &quot; 覆盖文件时不备份set backupcopy=yes &quot; 设置备份时的行为为覆盖&quot; set spell spelllang=en_us &quot; 打开英语单词的拼写检查set autochdir &quot; 自动切换当前目录为当前文件所在的目录set noerrorbells &quot; 关闭错误信息响铃set novisualbell &quot; 关闭使用可视响铃代替呼叫set magic &quot; 设置魔术set hidden &quot; 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存set guioptions-=T &quot; 隐藏工具栏set guioptions-=m &quot; 隐藏菜单栏set backspace=indent,eol,start &quot; 不设定在插入状态无法用退格键和 Delete 键删除回车符set cmdheight=1 &quot; 设定命令行的行数为 1 三、python 注释12345678910111213多行注释： 1. 首先按esc进入命令行模式下，按下Ctrl + v，进入列（也叫区块）模式; 2. 在行首使用上下键选择需要注释的多行; 3. 按下键盘（大写）“I”键，进入插入模式； 4. 然后输入注释符（“//”、“#”等）; 5. 最后按下“Esc”键。注：在按下esc键后，会稍等一会才会出现注释，不要着急~~时间很短的删除多行注释： 1. 首先按esc进入命令行模式下，按下Ctrl + v, 进入列模式; 2. 选定要取消注释的多行; 3. 按下“x”或者“d”.注意：如果是“//”注释，那需要执行两次该操作，如果是“#”注释，一次即可 四、剪切/复制/粘贴 vi/vim复制粘贴命令 1234567891011121314# 一行yy 复制一行dd 剪切一行p（小写） 粘贴（光标往后）P（大写） 粘贴（光标往前）# 多行先将光标移到多行的开始处esc v 进入可视模式再将光标移到多行的结尾处y 复制上面选中的d 剪切选定块到缓冲区p（小写） 粘贴（光标往后）P（大写） 粘贴（光标往前）]]></content>
+    <content type="text"><![CDATA[Vim 基本配置一、教程 http://vimdoc.sourceforge.net/ 英 http://vimcdoc.sourceforge.net/ 中 Vim documentation: options Vim初级：配置和使用 Vim配置（python版） Vim 配置入门 vim 常用配置 二、vim 基本常用配置 vim ~/.vimrc1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859&quot; 基本配置syntax on &quot; 语法高亮set nocompatible &quot; 不与 Vi 兼容，去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限set showmode &quot; 在底部显示，当前处于命令模式还是插入模式set showcmd &quot; 在底部显示，当前键入的指令&quot; set mouse=a &quot; 支持使用鼠标set encoding=utf-8 &quot; 使用 utf-8 编码&quot; set t_Co=256 &quot; 启用256色filetype indent on &quot; 针对不同的文件采取不同的缩进方式filetype plugin indent on &quot; 开启插件,启动智能补全filetype on &quot; 检测文件类型&quot; 缩进set autoindent &quot; 按下回车键后，下一行的缩进会自动跟上一行的缩进保持一致set tabstop=4 &quot; 设定 tab 长度为 4set shiftwidth=4 &quot; 设定 &lt;&lt; 和 &gt;&gt; 命令移动时的宽度为 4set softtabstop=4 &quot; 使得按退格键时可以一次删掉 4 个空格set smartindent &quot; 开启新行时使用智能自动缩进set laststatus=2 &quot; 显示状态栏 (默认值为 1, 无法显示状态栏)&quot; 外观set number &quot; 显示行号&quot; set relativenumber &quot; 显示光标所在的当前行的行号，其他行都为相对于该行的相对行号set cursorline &quot; 突出显示当前行&quot; set textwidth=80 &quot; 设置行宽，即一行显示多少个字符set ruler &quot; 打开状态栏标尺，在状态栏显示光标的当前位置（位于哪一行哪一列）&quot; 搜索set showmatch &quot; 光标遇到圆括号、方括号、大括号时，自动高亮对应的另一个圆括号、方括号和大括号set hlsearch &quot; 搜索时，高亮显示匹配结果set incsearch &quot; 输入搜索内容时就显示搜索结果&quot; set ignorecase &quot; 搜索时忽略大小写set ignorecase smartcase &quot; 搜索时忽略大小写，但在有一个或以上大写字母时仍保持对大小写敏感set nowrapscan &quot; 禁止在搜索到文件两端时重新搜索&quot; 编辑set nobackup &quot; 覆盖文件时不备份set backupcopy=yes &quot; 设置备份时的行为为覆盖&quot; set spell spelllang=en_us &quot; 打开英语单词的拼写检查set autochdir &quot; 自动切换当前目录为当前文件所在的目录set noerrorbells &quot; 关闭错误信息响铃set novisualbell &quot; 关闭使用可视响铃代替呼叫set magic &quot; 设置魔术set hidden &quot; 允许在有未保存的修改时切换缓冲区，此时的修改由 vim 负责保存set guioptions-=T &quot; 隐藏工具栏set guioptions-=m &quot; 隐藏菜单栏set backspace=indent,eol,start &quot; 不设定在插入状态无法用退格键和 Delete 键删除回车符set cmdheight=1 &quot; 设定命令行的行数为 1&quot; 重新打开文件时如何回到上次停留的位置即上次退出文件时的位置if has(&quot;autocmd&quot;) au BufReadPost * if line(&quot;&apos;\&quot;&quot;) &gt; 1 &amp;&amp; line(&quot;&apos;\&quot;&quot;) &lt;= line(&quot;$&quot;) | exe &quot;normal! g&apos;\&quot;&quot; | endifendif 三、python 注释12345678910111213多行注释： 1. 首先按esc进入命令行模式下，按下Ctrl + v，进入列（也叫区块）模式; 2. 在行首使用上下键选择需要注释的多行; 3. 按下键盘（大写）“I”键，进入插入模式； 4. 然后输入注释符（“//”、“#”等）; 5. 最后按下“Esc”键。注：在按下esc键后，会稍等一会才会出现注释，不要着急~~时间很短的删除多行注释： 1. 首先按esc进入命令行模式下，按下Ctrl + v, 进入列模式; 2. 选定要取消注释的多行; 3. 按下“x”或者“d”.注意：如果是“//”注释，那需要执行两次该操作，如果是“#”注释，一次即可 四、剪切/复制/粘贴 vi/vim复制粘贴命令 1234567891011121314# 一行yy 复制一行dd 剪切一行p（小写） 粘贴（光标往后）P（大写） 粘贴（光标往前）# 多行先将光标移到多行的开始处esc v 进入可视模式再将光标移到多行的结尾处y 复制上面选中的d 剪切选定块到缓冲区p（小写） 粘贴（光标往后）P（大写） 粘贴（光标往前）]]></content>
       <categories>
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>编程</tag>
-        <tag>软件</tag>
+        <tag>APP</tag>
+        <tag>Shell</tag>
+        <tag>Code</tag>
       </tags>
   </entry>
   <entry>
@@ -215,9 +264,7 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>Shell</tag>
-        <tag>编程</tag>
       </tags>
   </entry>
   <entry>
@@ -228,9 +275,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>Windows</tag>
-        <tag>数据库</tag>
+        <tag>APP</tag>
+        <tag>DB</tag>
       </tags>
   </entry>
   <entry>
@@ -242,13 +288,8 @@
       </categories>
       <tags>
         <tag>NLP</tag>
-        <tag>NER</tag>
-        <tag>数据库</tag>
-        <tag>文本分类</tag>
-        <tag>知识图谱</tag>
-        <tag>KBQA</tag>
-        <tag>BERT</tag>
-        <tag>SPARQL</tag>
+        <tag>DB</tag>
+        <tag>KG</tag>
       </tags>
   </entry>
   <entry>
@@ -259,10 +300,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>编程</tag>
         <tag>Python</tag>
-        <tag>数据结构</tag>
-        <tag>算法</tag>
+        <tag>Code</tag>
       </tags>
   </entry>
   <entry>
@@ -273,8 +312,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>深度学习</tag>
-        <tag>GPU</tag>
+        <tag>APP</tag>
+        <tag>ML</tag>
       </tags>
   </entry>
   <entry>
@@ -285,7 +324,7 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>统计学习</tag>
+        <tag>ML</tag>
       </tags>
   </entry>
   <entry>
@@ -296,8 +335,8 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>统计学习</tag>
-        <tag>特征选择</tag>
+        <tag>NLP</tag>
+        <tag>ML</tag>
       </tags>
   </entry>
   <entry>
@@ -309,10 +348,6 @@
       </categories>
       <tags>
         <tag>NLP</tag>
-        <tag>分词</tag>
-        <tag>NER</tag>
-        <tag>词性标注</tag>
-        <tag>句法分析</tag>
       </tags>
   </entry>
   <entry>
@@ -323,7 +358,7 @@
         <category>笔记</category>
       </categories>
       <tags>
-        <tag>Git</tag>
+        <tag>APP</tag>
       </tags>
   </entry>
   <entry>
@@ -335,8 +370,6 @@
       </categories>
       <tags>
         <tag>NLP</tag>
-        <tag>文本分类</tag>
-        <tag>语义相似度</tag>
       </tags>
   </entry>
   <entry>
@@ -347,7 +380,7 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>APP</tag>
       </tags>
   </entry>
 </search>

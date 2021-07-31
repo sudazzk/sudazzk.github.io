@@ -1,85 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.zhuzongkui.top/hexo/</loc>
-    <lastmod>2021-06-05</lastmod>
+    <loc>http://www.zhuzongkui.top/zsh_offline/</loc>
+    <lastmod>2021-07-31</lastmod>
   </url>  <url>
-    <loc>http://www.zhuzongkui.top/python_common/</loc>
-    <lastmod>2021-06-05</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/python_static_check/</loc>
-    <lastmod>2021-06-05</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/python_bing/</loc>
-    <lastmod>2021-06-05</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/nlp_base_task/</loc>
-    <lastmod>2021-06-05</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/git/</loc>
-    <lastmod>2021-01-15</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/docker/</loc>
-    <lastmod>2021-01-11</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/virtuoso/</loc>
-    <lastmod>2020-09-07</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/vim/</loc>
-    <lastmod>2020-07-15</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/sklearn_cls/</loc>
-    <lastmod>2020-05-26</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/doc_markdown/</loc>
-    <lastmod>2020-04-18</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/anaconda/</loc>
-    <lastmod>2019-12-19</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/deeplearning_framework/</loc>
-    <lastmod>2019-12-19</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/ccks2019_ckbqa/</loc>
-    <lastmod>2019-12-17</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/vscode/</loc>
-    <lastmod>2019-12-11</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/neo4j/</loc>
-    <lastmod>2019-12-03</lastmod>
+    <loc>http://www.zhuzongkui.top/zsh_online/</loc>
+    <lastmod>2021-07-31</lastmod>
   </url>  <url>
     <loc>http://www.zhuzongkui.top/zabbix/</loc>
-    <lastmod>2019-11-16</lastmod>
+    <lastmod>2021-07-31</lastmod>
   </url>  <url>
-    <loc>http://www.zhuzongkui.top/cuda/</loc>
-    <lastmod>2019-11-09</lastmod>
+    <loc>http://www.zhuzongkui.top/vscode/</loc>
+    <lastmod>2021-07-31</lastmod>
   </url>  <url>
-    <loc>http://www.zhuzongkui.top/StandfordNLP%20NLTK/</loc>
-    <lastmod>2019-11-09</lastmod>
+    <loc>http://www.zhuzongkui.top/virtuoso/</loc>
+    <lastmod>2021-07-31</lastmod>
   </url>  <url>
-    <loc>http://www.zhuzongkui.top/feature_select/</loc>
-    <lastmod>2019-11-09</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/semantic_match/</loc>
-    <lastmod>2019-11-09</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/mysql/</loc>
-    <lastmod>2019-11-09</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/jupyter/</loc>
-    <lastmod>2019-11-09</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/jianzhi_offer/</loc>
-    <lastmod>2019-11-09</lastmod>
-  </url>  <url>
-    <loc>http://www.zhuzongkui.top/compress_commit/</loc>
-    <lastmod>2019-11-09</lastmod>
+    <loc>http://www.zhuzongkui.top/vim/</loc>
+    <lastmod>2021-07-31</lastmod>
   </url>  <url>
     <loc>http://www.zhuzongkui.top/sort/</loc>
-    <lastmod>2019-11-09</lastmod>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/sklearn_cls/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/semantic_match/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/python_static_check/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/python_common/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/python_bing/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/python_advance/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/nlp_base_task/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/neo4j/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/mysql/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/jupyter/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/jianzhi_offer/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/hexo/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/git/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/feature_select/</loc>
+    <lastmod>2021-07-31</lastmod>
   </url>  <url>
     <loc>http://www.zhuzongkui.top/evaluation/</loc>
-    <lastmod>2019-09-23</lastmod>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/es/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/docker/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/doc_markdown/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/deeplearning_version/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/deeplearning_framework/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/cuda/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/compress_commit/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/ccks2019_ckbqa/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/anaconda/</loc>
+    <lastmod>2021-07-31</lastmod>
+  </url>  <url>
+    <loc>http://www.zhuzongkui.top/StandfordNLP%20NLTK/</loc>
+    <lastmod>2021-07-31</lastmod>
   </url>
 </urlset>
