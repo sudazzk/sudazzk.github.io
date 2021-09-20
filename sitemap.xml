@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.zhuzongkui.top/python_common/</loc>
+    
+    <lastmod>2021-09-20T09:33:47.393Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.zhuzongkui.top/hexo/</loc>
     
     <lastmod>2021-08-21T13:22:39.920Z</lastmod>
@@ -89,13 +96,6 @@
     <loc>http://www.zhuzongkui.top/python_static_check/</loc>
     
     <lastmod>2021-07-31T01:42:11.246Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.zhuzongkui.top/python_common/</loc>
-    
-    <lastmod>2021-07-31T01:42:11.244Z</lastmod>
     
   </url>
   
