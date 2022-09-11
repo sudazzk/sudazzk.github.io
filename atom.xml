@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuzongkui.top/"/>
-  <updated>2021-08-01T10:43:21.585Z</updated>
+  <updated>2022-09-11T06:45:33.718Z</updated>
   <id>http://www.zhuzongkui.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python 快速读写处理超大文件</title>
+    <link href="http://www.zhuzongkui.top/python_rw_big_file/"/>
+    <id>http://www.zhuzongkui.top/python_rw_big_file/</id>
+    <published>2022-09-11T06:38:55.000Z</published>
+    <updated>2022-09-11T06:45:33.718Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h2 id="生成一个1000行的demo文件"><a href="#生成一个1000行的demo文件" class="headerlink" title="生成一个1000行的demo文件"></a>生成一个1000行的demo文件</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"big_file_demo.txt"</span>, <span class="string">"w"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> fw:</span><br><span class="line">    <span class="keyword">for</span> idx <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">1001</span>):</span><br><span class="line">        fw.write(str(idx) + <span class="string">"\n"</span>)</span><br></pre></td></tr></table></figure><h2 id="一般方法遍历"><a href="#一般方法遍历" class="headerlink" title="一般方法遍历"></a>一般方法遍历</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_text</span><span class="params">(text, fw)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">0.01</span>)</span><br><span class="line">    new_text = <span class="string">"&#123;&#125; done ...\n"</span>.format(text.strip())</span><br><span class="line">    fw.write(new_text)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_write</span><span class="params">(frname, fwname)</span>:</span></span><br><span class="line">    start_time = time.time()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> open(frname, <span class="string">"r"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> fr, \</span><br><span class="line">        open(fwname, <span class="string">"w"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> fw:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fr:</span><br><span class="line">            process_text(line, fw)</span><br><span class="line"></span><br><span class="line">    print(time.time() - start_time)</span><br><span class="line"></span><br><span class="line">read_write(<span class="string">"./big_file_demo.txt"</span>, <span class="string">"./big_file_demo_1.txt"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="number">18.075376510620117</span></span><br></pre></td></tr></table></figure><h2 id="线程池方法处理"><a href="#线程池方法处理" class="headerlink" title="线程池方法处理"></a>线程池方法处理</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> concurrent <span class="keyword">import</span> futures</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">print(<span class="string">"cpu 数量："</span>, os.cpu_count())  <span class="comment"># 测试笔记本是8核</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 每次只读batch_size → 生成器</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_big_file</span><span class="params">(frname, batch_size)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(frname, <span class="string">"r"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> fr:</span><br><span class="line">        data = []</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> fr:</span><br><span class="line">            data.append(line)</span><br><span class="line">            <span class="keyword">if</span> len(data) == batch_size:</span><br><span class="line">                <span class="keyword">yield</span> data</span><br><span class="line">                data = []</span><br><span class="line">        <span class="keyword">if</span> len(data) &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">yield</span> data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 处理单行文件</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_text</span><span class="params">(text)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">0.01</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"&#123;&#125; done ...\n"</span>.format(text.strip())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多线程遍历List</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">batch_multi_thread</span><span class="params">(data_list)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> futures.ThreadPoolExecutor() <span class="keyword">as</span> tp:</span><br><span class="line">        task_list = [tp.submit(process_text, txt) <span class="keyword">for</span> txt <span class="keyword">in</span> data_list]</span><br><span class="line">        task_result = [t.result() <span class="keyword">for</span> t <span class="keyword">in</span> task_list]  <span class="comment"># 有序结果</span></span><br><span class="line">        <span class="comment"># task_result = [t.result() for t in futures.as_completed(task_list)]  # 无序结果</span></span><br><span class="line">        <span class="keyword">return</span> task_result</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_write</span><span class="params">(frname, fwname, batch_size)</span>:</span></span><br><span class="line">    start_time = time.time()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> open(fwname, <span class="string">"w"</span>, encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> fw:</span><br><span class="line">        <span class="keyword">for</span> data_list <span class="keyword">in</span> read_big_file(frname, batch_size):</span><br><span class="line">            task_result = batch_multi_thread(data_list)</span><br><span class="line">            fw.writelines(task_result)</span><br><span class="line"></span><br><span class="line">    print(time.time() - start_time)</span><br><span class="line"></span><br><span class="line">read_write(<span class="string">"./big_file_demo.txt"</span>, <span class="string">"./big_file_demo_done_mt.txt"</span>, <span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">输出</span><br><span class="line">cpu 数量： <span class="number">8</span></span><br><span class="line"><span class="number">1.789292573928833</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h2 id=&quot;生成一个1000行的demo文件&quot;&gt;&lt;a href=&quot;#生成一个1000行的demo文件&quot; class=&quot;headerlink&quot; title=&quot;生成一个1000行的demo文件&quot;&gt;&lt;/a&gt;生成一个1000行的demo文件&lt;/h2&gt;&lt;fig
+      
+    
+    </summary>
+    
+      <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
+    
+      <category term="Code" scheme="http://www.zhuzongkui.top/tags/Code/"/>
+    
+  </entry>
   
   <entry>
     <title>Python 命令行参数</title>
@@ -68,9 +96,9 @@
       <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="APP" scheme="http://www.zhuzongkui.top/tags/APP/"/>
-    
       <category term="Shell" scheme="http://www.zhuzongkui.top/tags/Shell/"/>
+    
+      <category term="APP" scheme="http://www.zhuzongkui.top/tags/APP/"/>
     
   </entry>
   
@@ -97,9 +125,9 @@
       <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="APP" scheme="http://www.zhuzongkui.top/tags/APP/"/>
-    
       <category term="Shell" scheme="http://www.zhuzongkui.top/tags/Shell/"/>
+    
+      <category term="APP" scheme="http://www.zhuzongkui.top/tags/APP/"/>
     
   </entry>
   
@@ -127,9 +155,9 @@
     
       <category term="NLP" scheme="http://www.zhuzongkui.top/tags/NLP/"/>
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="ML" scheme="http://www.zhuzongkui.top/tags/ML/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
   </entry>
   
@@ -269,11 +297,11 @@
       <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="Image" scheme="http://www.zhuzongkui.top/tags/Image/"/>
+      <category term="Shell" scheme="http://www.zhuzongkui.top/tags/Shell/"/>
     
       <category term="APP" scheme="http://www.zhuzongkui.top/tags/APP/"/>
     
-      <category term="Shell" scheme="http://www.zhuzongkui.top/tags/Shell/"/>
+      <category term="Image" scheme="http://www.zhuzongkui.top/tags/Image/"/>
     
   </entry>
   
@@ -441,9 +469,9 @@
       <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="APP" scheme="http://www.zhuzongkui.top/tags/APP/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="Code" scheme="http://www.zhuzongkui.top/tags/Code/"/>
     
@@ -499,11 +527,11 @@
       <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
+      <category term="APP" scheme="http://www.zhuzongkui.top/tags/APP/"/>
+    
       <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="Image" scheme="http://www.zhuzongkui.top/tags/Image/"/>
-    
-      <category term="APP" scheme="http://www.zhuzongkui.top/tags/APP/"/>
     
   </entry>
   
@@ -530,9 +558,9 @@
       <category term="教程" scheme="http://www.zhuzongkui.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
-    
       <category term="APP" scheme="http://www.zhuzongkui.top/tags/APP/"/>
+    
+      <category term="Python" scheme="http://www.zhuzongkui.top/tags/Python/"/>
     
       <category term="Code" scheme="http://www.zhuzongkui.top/tags/Code/"/>
     
@@ -558,33 +586,6 @@
     </summary>
     
       <category term="笔记" scheme="http://www.zhuzongkui.top/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="NLP" scheme="http://www.zhuzongkui.top/tags/NLP/"/>
-    
-      <category term="ML" scheme="http://www.zhuzongkui.top/tags/ML/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度学习框架 - 学习链接</title>
-    <link href="http://www.zhuzongkui.top/deeplearning_framework/"/>
-    <id>http://www.zhuzongkui.top/deeplearning_framework/</id>
-    <published>2019-08-12T00:40:30.000Z</published>
-    <updated>2021-07-31T01:42:11.214Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="一、指定-GPU-的-id"><a href="#一、指定-GPU-的-id" class="headerlink" title="一、指定 GPU 的 id"></a>一、指定 GPU 的 id</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CUDA_VISIBLE_DEVICES=<span class="number">1</span> python my_script.py</span><br><span class="line"></span><br><span class="line">export CUDA_VISIBLE_DEVICES=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">"CUDA_VISIBLE_DEVICES"</span>] = <span class="string">"0"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line">torch.cuda.set_device(id)</span><br></pre></td></tr></table></figure><h1 id="二、深度学习框架"><a href="#二、深度学习框架" class="headerlink" title="二、深度学习框架"></a>二、深度学习框架</h1><ul><li>Neural Networks and Deep Learning：<a href="http://neuralnetworksanddeeplearning.com/" target="_blank" rel="noopener">http://neuralnetworksanddeeplearning.com/</a></li></ul><h2 id="1、TensorFlow"><a href="#1、TensorFlow" class="headerlink" title="1、TensorFlow"></a>1、TensorFlow</h2><ul><li><a href="https://www.tensorflow.org/api_docs/python/" target="_blank" rel="noopener">官方API www.tensorflow.org</a></li><li><a href="https://tensorflow.google.cn/api_docs/python" target="_blank" rel="noopener">国内API tensorflow.google.cn</a></li><li><a href="https://zhuanlan.zhihu.com/p/29104758" target="_blank" rel="noopener">TensorFlow从0到1丨开篇：Hello TensorFlow ！</a></li><li>教学：<a href="http://www.tensorflownews.com/" target="_blank" rel="noopener">http://www.tensorflownews.com/</a></li><li><a href="https://www.bilibili.com/video/av16001891" target="_blank" rel="noopener">Tensorflow 搭建自己的神经网络 (莫烦 Python 教程)</a></li><li><a href="https://morvanzhou.github.io" target="_blank" rel="noopener">莫烦 https://github.com/MorvanZhou 主页</a></li><li><a href="https://www.cnblogs.com/hellocwh/p/5527141.html" target="_blank" rel="noopener">TensorFlow 深度学习笔记 TensorFlow实现与优化深度神经网络</a></li></ul><h2 id="2、Keras"><a href="#2、Keras" class="headerlink" title="2、Keras"></a>2、Keras</h2><ul><li>英文文档 <a href="https://keras.io/" target="_blank" rel="noopener">https://keras.io/</a></li><li>中文文档 <a href="https://keras.io/zh/" target="_blank" rel="noopener">https://keras.io/zh/</a></li><li>别人翻译 <a href="http://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">http://keras-cn.readthedocs.io/en/latest/</a></li><li>莫烦 keras 教程 <a href="https://morvanzhou.github.io/tutorials/machine-learning/keras/" target="_blank" rel="noopener">https://morvanzhou.github.io/tutorials/machine-learning/keras/</a></li><li><a href="http://www.cnblogs.com/lc1217/p/7132364.html" target="_blank" rel="noopener">深度学习：Keras入门(一)之基础篇</a></li><li><a href="https://www.jianshu.com/p/795a5e2cd10c" target="_blank" rel="noopener">《Keras 实现 LSTM》笔记</a></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">keras离线官方文档 https://blog.csdn.net/nima1994/article/details/80579240</span><br><span class="line"></span><br><span class="line">keras中文文档： </span><br><span class="line">https://keras.io/zh/（官方） </span><br><span class="line">http://keras-cn.readthedocs.io/en/latest/</span><br><span class="line"></span><br><span class="line">由于官方文档（更新似乎快点儿）经常访问不了，所以下载查看。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 下载包 或者 如下命令使用git克隆。</span><br><span class="line">git clone https://github.com/keras-team/keras-docs-zh</span><br><span class="line"></span><br><span class="line">2. 安装mkdocs（pip install mkdocs）后，进入keras-docs-zh文件夹，依次使用如下命令：</span><br><span class="line">mkdocs build#生成静态文件</span><br><span class="line">mkdocs serve#启动本地服务</span><br><span class="line"></span><br><span class="line">3. 在浏览器输入进行本地访问：</span><br><span class="line">http://localhost:8000</span><br><span class="line"></span><br><span class="line">使用mkdocs构建的静态网站，可类似食用，并可使用git同步更新</span><br><span class="line"></span><br><span class="line">http://127.0.0.1:8000</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## MkDocs 快速入门 https://blog.csdn.net/wirelessqa/article/details/78173401?locationNum=5&amp;fps=1</span><br></pre></td></tr></table></figure><h2 id="3、PyTorch"><a href="#3、PyTorch" class="headerlink" title="3、PyTorch"></a>3、PyTorch</h2><ul><li>官网：<a href="https://pytorch.org/" target="_blank" rel="noopener">https://pytorch.org/</a></li><li>英文文档：<a href="https://pytorch.org/docs/stable/index.html" target="_blank" rel="noopener">https://pytorch.org/docs/stable/index.html</a></li><li>中文文档：<a href="https://pytorch-cn.readthedocs.io/zh/latest/" target="_blank" rel="noopener">https://pytorch-cn.readthedocs.io/zh/latest/</a></li><li>PyTorch 中文手册：<a href="https://github.com/zergtant/pytorch-handbook" target="_blank" rel="noopener">https://github.com/zergtant/pytorch-handbook</a></li><li>中文官方文档：<a href="https://github.com/apachecn/pytorch-doc-zh" target="_blank" rel="noopener">https://github.com/apachecn/pytorch-doc-zh</a></li><li>神经网络框架-Pytorch使用介绍：<a href="https://blog.csdn.net/zzulp/article/details/80573331" target="_blank" rel="noopener">https://blog.csdn.net/zzulp/article/details/80573331</a></li><li>安装以前的版本：<a href="https://pytorch.org/get-started/previous-versions/#linux-and-windows" target="_blank" rel="noopener">https://pytorch.org/get-started/previous-versions/#linux-and-windows</a></li></ul><h2 id="4、FastAI"><a href="#4、FastAI" class="headerlink" title="4、FastAI"></a>4、FastAI</h2><ul><li>论文网址：<a href="http://nlp.fast.ai/category/classification.html" target="_blank" rel="noopener">http://nlp.fast.ai/category/classification.html</a></li><li>Fast.AI 第一课学习笔记 : <a href="https://www.jianshu.com/p/df6446057004" target="_blank" rel="noopener">https://www.jianshu.com/p/df6446057004</a></li><li>Fast.AI课程文件、教学视频及学习环境虚拟机下载分享：<a href="https://www.jianshu.com/p/2fe22a6b0ecb" target="_blank" rel="noopener">https://www.jianshu.com/p/2fe22a6b0ecb</a></li><li>【深度学习】从fast.ai学到的十大技巧：<a href="https://blog.csdn.net/ChenVast/article/details/81480865" target="_blank" rel="noopener">https://blog.csdn.net/ChenVast/article/details/81480865</a></li><li>使用fastai训练的一个性别识别模型：<a href="https://www.cnblogs.com/ctsch/p/9498327.html" target="_blank" rel="noopener">https://www.cnblogs.com/ctsch/p/9498327.html</a></li><li><a href="https://github.com/fastai/fastai/tree/master/courses/dl2/imdb_scripts" target="_blank" rel="noopener">https://github.com/fastai/fastai/tree/master/courses/dl2/imdb_scripts</a></li></ul><h2 id="5、MXNet"><a href="#5、MXNet" class="headerlink" title="5、MXNet"></a>5、MXNet</h2><ul><li><a href="https://github.com/apache/incubator-mxnet" target="_blank" rel="noopener">https://github.com/apache/incubator-mxnet</a></li></ul><h1 id="三、《动手学深度学习》"><a href="#三、《动手学深度学习》" class="headerlink" title="三、《动手学深度学习》"></a>三、《动手学深度学习》</h1><ul><li>中文官网：<a href="http://zh.gluon.ai/" target="_blank" rel="noopener">http://zh.gluon.ai/</a></li><li>MxNet版 中文教程：<a href="https://github.com/d2l-ai/d2l-zh" target="_blank" rel="noopener">https://github.com/d2l-ai/d2l-zh</a></li><li>PyTorch版 中文教程：<a href="https://github.com/ShusenTang/Dive-into-DL-PyTorch" target="_blank" rel="noopener">https://github.com/ShusenTang/Dive-into-DL-PyTorch</a></li><li>TF2.0版 中文教程：<a href="https://github.com/TrickyGo/Dive-into-DL-TensorFlow2.0" target="_blank" rel="noopener">https://github.com/TrickyGo/Dive-into-DL-TensorFlow2.0</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;一、指定-GPU-的-id&quot;&gt;&lt;a href=&quot;#一、指定-GPU-的-id&quot; class=&quot;headerlink&quot; title=&quot;一、指定 GPU 的 id&quot;&gt;&lt;/a&gt;一、指定 GPU 的 id&lt;/h1&gt;&lt;figure class=&quot;highlight pyth
-      
-    
-    </summary>
-    
-      <category term="总结" scheme="http://www.zhuzongkui.top/categories/%E6%80%BB%E7%BB%93/"/>
     
     
       <category term="NLP" scheme="http://www.zhuzongkui.top/tags/NLP/"/>

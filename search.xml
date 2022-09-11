@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python 快速读写处理超大文件]]></title>
+    <url>%2Fpython_rw_big_file%2F</url>
+    <content type="text"><![CDATA[[TOC] 生成一个1000行的demo文件123with open("big_file_demo.txt", "w", encoding="utf-8") as fw: for idx in range(1, 1001): fw.write(str(idx) + "\n") 一般方法遍历12345678910111213141516171819202122import timedef process_text(text, fw): time.sleep(0.01) new_text = "&#123;&#125; done ...\n".format(text.strip()) fw.write(new_text)def read_write(frname, fwname): start_time = time.time() with open(frname, "r", encoding="utf-8") as fr, \ open(fwname, "w", encoding="utf-8") as fw: for line in fr: process_text(line, fw) print(time.time() - start_time)read_write("./big_file_demo.txt", "./big_file_demo_1.txt")# 输出18.075376510620117 线程池方法处理12345678910111213141516171819202122232425262728293031323334353637383940414243444546from concurrent import futuresimport timeimport osprint("cpu 数量：", os.cpu_count()) # 测试笔记本是8核# 每次只读batch_size → 生成器def read_big_file(frname, batch_size): with open(frname, "r", encoding="utf-8") as fr: data = [] for line in fr: data.append(line) if len(data) == batch_size: yield data data = [] if len(data) &gt; 0: yield data# 处理单行文件def process_text(text): time.sleep(0.01) return "&#123;&#125; done ...\n".format(text.strip())# 多线程遍历Listdef batch_multi_thread(data_list): with futures.ThreadPoolExecutor() as tp: task_list = [tp.submit(process_text, txt) for txt in data_list] task_result = [t.result() for t in task_list] # 有序结果 # task_result = [t.result() for t in futures.as_completed(task_list)] # 无序结果 return task_resultdef read_write(frname, fwname, batch_size): start_time = time.time() with open(fwname, "w", encoding="utf-8") as fw: for data_list in read_big_file(frname, batch_size): task_result = batch_multi_thread(data_list) fw.writelines(task_result) print(time.time() - start_time)read_write("./big_file_demo.txt", "./big_file_demo_done_mt.txt", 100)输出cpu 数量： 81.789292573928833]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python 命令行参数]]></title>
     <url>%2Fpython_args%2F</url>
     <content type="text"><![CDATA[[TOC] 入门版：sys 编辑：vim test1.py 123import sysprint(len(sys.argv))print(str(sys.argv)) 运行：python test1.py 12 34 abc 124['test1.py', '12', '34', 'abc'] 注：sys.argv[0]是PY文件名 进阶版：argparse 文档：https://docs.python.org/zh-cn/3/library/argparse.html 编辑：vim test2.py 12345678910111213141516171819202122232425262728293031323334353637import argparseparser = argparse.ArgumentParser( description='帮助描述信息', prog='程序显示名称', usage='顶部显示信息，会覆盖prog', epilog='底部显示信息') ## 括号里可什么都不写，直接默认parser.add_argument( '-bs', # 简称 '--batch-size', # 全称 dest='BatchSize', # 参数解析后换个别名，没有的话，用上面的全称 default='16', # 默认值 type=int, # 参数类型，int float str help='batch size', # 提示参数含义 required=True, # 表明参数必选，默认False choices=[16, 32, 64] # 参数值可选范围)parser.add_argument( '-ug', # 简称 '--use-gpu', # 全称 dest='gpu', # 参数解析后换个别名 action='store_true', # 注：可选 store_true, store_false 命令行不加-ug，默认值为 False 和 True help='use gpu', # 提示参数含义)parser.add_argument( '-lr' '--learning-rate', default=0.001, type=float)args = parser.parse_args() ## 命令行参数解析后存放的位置print(args.__dict__)print(args.BatchSize) 运行：python test2.py -bs 64 12&#123;'BatchSize': 64, 'gpu': False, 'lr__learning_rate': 0.001&#125;64 注：若没有指定简称和全称-、--，参数值以先后定义的顺序注入 12345678910import argparseparser = argparse.ArgumentParser()parser.add_argument('a')parser.add_argument('--b')parser.add_argument('c')args = parser.parse_args()print(args.__dict__)# python test3.py 1 --b 2 3# &#123;'a': '1', 'b': '2', 'c': '3'&#125;]]></content>
@@ -20,8 +32,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>APP</tag>
         <tag>Shell</tag>
+        <tag>APP</tag>
       </tags>
   </entry>
   <entry>
@@ -32,8 +44,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>APP</tag>
         <tag>Shell</tag>
+        <tag>APP</tag>
       </tags>
   </entry>
   <entry>
@@ -45,8 +57,8 @@
       </categories>
       <tags>
         <tag>NLP</tag>
-        <tag>Python</tag>
         <tag>ML</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -104,9 +116,9 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Image</tag>
-        <tag>APP</tag>
         <tag>Shell</tag>
+        <tag>APP</tag>
+        <tag>Image</tag>
       </tags>
   </entry>
   <entry>
@@ -178,8 +190,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>APP</tag>
+        <tag>Python</tag>
         <tag>Code</tag>
       </tags>
   </entry>
@@ -202,9 +214,9 @@
         <category>教程</category>
       </categories>
       <tags>
+        <tag>APP</tag>
         <tag>Python</tag>
         <tag>Image</tag>
-        <tag>APP</tag>
       </tags>
   </entry>
   <entry>
@@ -215,8 +227,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>APP</tag>
+        <tag>Python</tag>
         <tag>Code</tag>
       </tags>
   </entry>
@@ -252,8 +264,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>APP</tag>
         <tag>Shell</tag>
+        <tag>APP</tag>
         <tag>Code</tag>
       </tags>
   </entry>
@@ -324,8 +336,8 @@
         <category>教程</category>
       </categories>
       <tags>
-        <tag>APP</tag>
         <tag>ML</tag>
+        <tag>APP</tag>
       </tags>
   </entry>
   <entry>
